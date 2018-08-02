@@ -1,0 +1,13 @@
+.\objects\stm32l0xx_ll_utils.o: Src\stm32l0xx_ll_utils.c
+.\objects\stm32l0xx_ll_utils.o: .\inc\stm32l0xx_ll_rcc.h
+.\objects\stm32l0xx_ll_utils.o: C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h
+.\objects\stm32l0xx_ll_utils.o: C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l053xx.h
+.\objects\stm32l0xx_ll_utils.o: .\CMIS\core_cm0plus.h
+.\objects\stm32l0xx_ll_utils.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\stm32l0xx_ll_utils.o: .\CMIS\core_cmInstr.h
+.\objects\stm32l0xx_ll_utils.o: .\CMIS\cmsis_armcc.h
+.\objects\stm32l0xx_ll_utils.o: .\CMIS\core_cmFunc.h
+.\objects\stm32l0xx_ll_utils.o: C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\system_stm32l0xx.h
+.\objects\stm32l0xx_ll_utils.o: .\inc\stm32l0xx_ll_utils.h
+.\objects\stm32l0xx_ll_utils.o: .\inc\stm32l0xx_ll_system.h
+.\objects\stm32l0xx_ll_utils.o: .\inc\stm32l0xx_ll_pwr.h
