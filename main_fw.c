@@ -10,15 +10,20 @@
 #include "menu.h"
 #include "MC23A1024.h"
 #include "adc.h"
+#include "ldo.h"
 
 int main()
 {
-	initTimerRcc();
-	timerInit();
+	//initTimerRcc();
+	//timerInit();
 	//initLeds();		//fights with UART SCK....
-	initUart();
-  timerInitTim21();
-	initSpis();
+	//initUart();
+  //timerInitTim21();
+	//initSpis();
+	iniLdoClocksAndPins();
+	initAdc();
+	getAdcSample();
+	enableSamplingSupply();
 	mainMenu_f();
 }
 

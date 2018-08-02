@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\inc;.\CMIS;.\hal;.\menu;.\SRAM;.\selfTest;.;.\adc;.\zigbee;.\core</IncludePath>
+              <IncludePath>.\inc;.\CMIS;.\hal;.\menu;.\SRAM;.\selfTest;.;.\adc;.\zigbee;.\core;.\powerHal</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1353,14 +1353,16 @@
         </Group>
         <Group>
           <GroupName>powerHal</GroupName>
-        </Group>
-        <Group>
-          <GroupName>gpio</GroupName>
           <Files>
             <File>
-              <FileName>gpioDefines.h</FileName>
+              <FileName>ldo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\powerHal\ldo.c</FilePath>
+            </File>
+            <File>
+              <FileName>ldo.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\gpioDefines.h</FilePath>
+              <FilePath>.\powerHal\ldo.h</FilePath>
             </File>
           </Files>
         </Group>

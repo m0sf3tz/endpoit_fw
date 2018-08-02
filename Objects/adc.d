@@ -19,3 +19,6 @@
 .\objects\adc.o: .\hal\timerHal.h
 .\objects\adc.o: .\inc\stm32l0xx_hal_rcc.h
 .\objects\adc.o: .\inc\stm32l0xx_hal_rcc_ex.h
+.\objects\adc.o: .\inc\stm32l0xx_hal_adc.h
+.\objects\adc.o: .\inc\stm32l0xx_hal_dma.h
+.\objects\adc.o: .\inc\stm32l0xx_hal_adc_ex.h

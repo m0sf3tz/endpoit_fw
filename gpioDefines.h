@@ -9,9 +9,6 @@
 
 /* Definition for SPIx Pins */
 
-#define SPI_CS_PGA_PIN	      9
-#define SAMPLNG_SUPPLY_PORT   GPIOA
-
 #define SPI1_SCK_PIN                     GPIO_PIN_5
 #define SPI1_SCK_GPIO_PORT               GPIOA
 #define SPI1_SCK_AF                      GPIO_AF0_SPI1

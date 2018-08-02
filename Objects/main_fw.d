@@ -68,3 +68,4 @@
 .\objects\main_fw.o: .\menu\menu.h
 .\objects\main_fw.o: .\SRAM\MC23A1024.h
 .\objects\main_fw.o: .\adc\adc.h
+.\objects\main_fw.o: .\powerHal\ldo.h
