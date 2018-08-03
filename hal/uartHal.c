@@ -7,7 +7,7 @@
 #include "uartHal.h"
 
 static UART_HandleTypeDef   UartHandleZigbee;
-static UART_HandleTypeDef   UartHandleMenu;
+//static UART_HandleTypeDef   UartHandleMenu;
 
 
 /* Definition for USARTx clock resources */
@@ -21,49 +21,17 @@ static UART_HandleTypeDef   UartHandleMenu;
 #define USARTx_RELEASE_RESET()           __HAL_RCC_USART1_RELEASE_RESET()
 
 /* Definition for USARTx Pins */
-#define USARTx_TX_PIN                    GPIO_PIN_6
-#define USARTx_TX_GPIO_PORT              GPIOB
-#define USARTx_TX_AF                     GPIO_AF0_USART1
-#define USARTx_RX_PIN                    GPIO_PIN_7
-#define USARTx_RX_GPIO_PORT              GPIOB 
-#define USARTx_RX_AF                     GPIO_AF0_USART1
-
-/* Definition for USARTx's DMA */
-#define USARTx_TX_DMA_CHANNEL             DMA1_Channel2
-#define USARTx_TX_DMA_REQUEST             DMA_REQUEST_3
-#define USARTx_RX_DMA_CHANNEL             DMA1_Channel3
-#define USARTx_RX_DMA_REQUEST             DMA_REQUEST_3
-
-/* Definition for USARTx's NVIC */
-#define USARTx_DMA_TX_IRQn                DMA1_Channel2_3_IRQn
-#define USARTx_DMA_RX_IRQn                DMA1_Channel2_3_IRQn
-#define USARTx_DMA_TX_IRQHandler          DMA1_Channel2_3_IRQHandler
-#define USARTx_DMA_RX_IRQHandler          DMA1_Channel2_3_IRQHandler
-
-/* Definition for USARTx's NVIC */
-#define USARTx_IRQn                       USART1_IRQn
-#define USARTx_IRQHandler                 USART1_IRQHandler
-
-
-////////////////uart for menue /////////////////////////////
-
-#define USART_MENU_CLK_ENABLE()         	__HAL_RCC_USART2_CLK_ENABLE()
-#define USART_MENU_RX_GPIO_CLK_ENABLE() 	__HAL_RCC_GPIOA_CLK_ENABLE()
-#define USART_MENU_TX_GPIO_CLK_ENABLE() 	__HAL_RCC_GPIOA_CLK_ENABLE() 
-
+#define USART_ZIGBEE_TX_PIN               GPIO_PIN_6
+#define USART_ZIGBEE_TX_GPIO_PORT         GPIOB
+#define USART_ZIGBEE_TX_AF                GPIO_AF0_USART1
+#define USART_ZIGBEE_RX_PIN               GPIO_PIN_7
+#define USART_ZIGBEE_RX_GPIO_PORT         GPIOB 
+#define USART_ZIGBEE_RX_AF                GPIO_AF0_USART1
 
 
 /* Definition for USARTx Pins */
-#define USART_MENU_TX_PIN                    GPIO_PIN_2
-#define USART_MENU_TX_GPIO_PORT              GPIOA
-#define USART_MENU_TX_AF                     GPIO_AF4_USART2
-#define USART_MENU_RX_PIN                    GPIO_PIN_3
-#define USART_MENU_RX_GPIO_PORT              GPIOA 
-#define USART_MENU_RX_AF                     GPIO_AF4_USART2
-
-/* Definition for USARTx Pins */
-#define USART_DOZE_PIN    	                  GPIO_PIN_8
-#define USART_DOZE_PORT                       GPIOB
+#define USART_DOZE_PIN    	             GPIO_PIN_8
+#define USART_DOZE_PORT                  GPIOB
 
 
 #include "stm32l0xx_hal_uart.h"
@@ -72,6 +40,7 @@ static UART_HandleTypeDef   UartHandleMenu;
 
 void initUart(void)
 {
+	/*
 	UartHandleMenu.Instance        = USART2;
   UartHandleMenu.Init.BaudRate   = 57600;
   UartHandleMenu.Init.WordLength = UART_WORDLENGTH_8B;
@@ -88,9 +57,9 @@ void initUart(void)
    while(1);
   }
 	
-		__HAL_UART_ENABLE(&UartHandleMenu);
+	__HAL_UART_ENABLE(&UartHandleMenu);
 
-	
+	*/
 	UartHandleZigbee.Instance        = USART1;
   UartHandleZigbee.Init.BaudRate   = 57600;
   UartHandleZigbee.Init.WordLength = UART_WORDLENGTH_8B;
@@ -114,28 +83,6 @@ void initUartClocksAndPins(UART_HandleTypeDef *huart)
 {
 	GPIO_InitTypeDef  GPIO_InitStruct;
 
-	USART_MENU_CLK_ENABLE();         	
-	USART_MENU_RX_GPIO_CLK_ENABLE(); 	
-	USART_MENU_TX_GPIO_CLK_ENABLE();
-
-	GPIO_InitStruct.Pin 		  = USART_MENU_TX_PIN;
-	GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull      = GPIO_NOPULL;
-  GPIO_InitStruct.Speed     = GPIO_SPEED_FREQ_HIGH  ;
-	GPIO_InitStruct.Alternate = USART_MENU_TX_AF;
-	HAL_GPIO_Init(USART_MENU_TX_GPIO_PORT, &GPIO_InitStruct);
-	
-	GPIO_InitStruct.Pin 		  = USART_MENU_RX_PIN;
-	GPIO_InitStruct.Alternate = USART_MENU_RX_AF;
-	HAL_GPIO_Init(USART_MENU_RX_GPIO_PORT, &GPIO_InitStruct);
-	
-  static DMA_HandleTypeDef hdma_tx;
-  static DMA_HandleTypeDef hdma_rx;
-  
-  
-  /*##-1- Enable peripherals and GPIO Clocks #################################*/
- 
-  /* Enable GPIO TX/RX clock */
   USARTx_TX_GPIO_CLK_ENABLE();
   USARTx_RX_GPIO_CLK_ENABLE();
   
@@ -146,71 +93,22 @@ void initUartClocksAndPins(UART_HandleTypeDef *huart)
   DMAx_CLK_ENABLE();   
   
     
-  /*##-3- Configure the DMA streams ##########################################*/
-  /* Configure the DMA handler for Transmission process */
-  hdma_tx.Instance                 = USARTx_TX_DMA_CHANNEL;
-  
-  hdma_tx.Init.Request             = USARTx_TX_DMA_REQUEST;
-  hdma_tx.Init.Direction           = DMA_MEMORY_TO_PERIPH;
-  hdma_tx.Init.PeriphInc           = DMA_PINC_DISABLE;
-  hdma_tx.Init.MemInc              = DMA_MINC_ENABLE;
-  hdma_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-  hdma_tx.Init.MemDataAlignment    = DMA_MDATAALIGN_BYTE;
-  hdma_tx.Init.Mode                = DMA_NORMAL;
-  hdma_tx.Init.Priority            = DMA_PRIORITY_LOW;
-  HAL_DMA_Init(&hdma_tx);  
-  
-  /* Associate the initialized DMA handle to the the UART handle */
-  __HAL_LINKDMA(huart, hdmatx, hdma_tx);
-  
-  /* Configure the DMA handler for Transmission process */
-  hdma_rx.Instance = USARTx_RX_DMA_CHANNEL;
-  
-  hdma_rx.Init.Request             = USARTx_RX_DMA_REQUEST;
-  hdma_rx.Init.Direction           = DMA_PERIPH_TO_MEMORY;
-  hdma_rx.Init.PeriphInc           = DMA_PINC_DISABLE;
-  hdma_rx.Init.MemInc              = DMA_MINC_ENABLE;
-  hdma_rx.Init.MemDataAlignment    = DMA_MDATAALIGN_BYTE;
-  hdma_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-  hdma_rx.Init.Mode                = DMA_NORMAL;
-  hdma_rx.Init.Priority            = DMA_PRIORITY_HIGH;  
-  HAL_DMA_Init(&hdma_rx);
-   
-  /* Associate the initialized DMA handle to the the UART handle */
-  __HAL_LINKDMA(huart, hdmarx, hdma_rx);
-    
-  /*##-4- Configure the NVIC for DMA #########################################*/
-  /* NVIC configuration for DMA transfer complete interrupt (USART1_TX) */
-  HAL_NVIC_SetPriority(USARTx_DMA_TX_IRQn, 0, 1);
-  HAL_NVIC_EnableIRQ(USARTx_DMA_TX_IRQn);
-    
-  /* NVIC configuration for DMA transfer complete interrupt (USART1_RX) */
-  HAL_NVIC_SetPriority(USARTx_DMA_RX_IRQn, 0, 0);   
-  HAL_NVIC_EnableIRQ(USARTx_DMA_RX_IRQn);
-
-  /* NVIC for USART, to catch the TX complete */
-  HAL_NVIC_SetPriority(USARTx_IRQn, 0, 1);
-  HAL_NVIC_EnableIRQ(USARTx_IRQn);
-	
-	
 	/*##-2- Configure peripheral GPIO ##########################################*/  
  
   /* UART TX GPIO pin configuration  */
-  GPIO_InitStruct.Pin       = USARTx_TX_PIN;
+  GPIO_InitStruct.Pin       = USART_ZIGBEE_TX_PIN;
   GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull      = GPIO_NOPULL;
   GPIO_InitStruct.Speed     = GPIO_SPEED_FREQ_HIGH  ;
-  GPIO_InitStruct.Alternate = USARTx_TX_AF;
+  GPIO_InitStruct.Alternate = USART_ZIGBEE_TX_AF;
   
-  HAL_GPIO_Init(USARTx_TX_GPIO_PORT, &GPIO_InitStruct);
+  HAL_GPIO_Init(USART_ZIGBEE_RX_GPIO_PORT, &GPIO_InitStruct);
     
   /* UART RX GPIO pin configuration  */
-  GPIO_InitStruct.Pin = USARTx_RX_PIN;
-  GPIO_InitStruct.Alternate = USARTx_RX_AF;
+  GPIO_InitStruct.Pin = USART_ZIGBEE_RX_PIN;
+  GPIO_InitStruct.Alternate = USART_ZIGBEE_RX_AF;
     
-  HAL_GPIO_Init(USARTx_RX_GPIO_PORT, &GPIO_InitStruct);
-
-
+  HAL_GPIO_Init(USART_ZIGBEE_RX_GPIO_PORT, &GPIO_InitStruct);
 
 
   GPIO_InitTypeDef  GPIO_InitStructGpio;
@@ -232,12 +130,12 @@ void initUartClocksAndPins(UART_HandleTypeDef *huart)
 void serialSpam(uint8_t *pt, uint32_t len)
 {
 	(HAL_UART_Transmit(&UartHandleZigbee, (uint8_t*)pt, len,HAL_MAX_DELAY));
-	(HAL_UART_Transmit(&UartHandleMenu,   (uint8_t*)pt, len,HAL_MAX_DELAY));
+	//(HAL_UART_Transmit(&UartHandleMenu,   (uint8_t*)pt, len,HAL_MAX_DELAY));
 }
 
 void uartPutMenu(const char *pt, int len)
 {
-		HAL_UART_Transmit(&UartHandleMenu, (uint8_t*)pt,len,HAL_MAX_DELAY);
+	//HAL_UART_Transmit(&UartHandleMenu, (uint8_t*)pt,len,HAL_MAX_DELAY);
 }
 
 void uartGetMenu(const char * pt, int len)
@@ -245,7 +143,7 @@ void uartGetMenu(const char * pt, int len)
 #if SHARE_UART
 	HAL_UART_Receive(&UartHandleZigbee, (uint8_t*)pt,len,HAL_MAX_DELAY);
 #else
-	HAL_UART_Receive(&UartHandleMenu, (uint8_t*)pt,len,HAL_MAX_DELAY);
+	//HAL_UART_Receive(&UartHandleMenu, (uint8_t*)pt,len,HAL_MAX_DELAY);
 #endif
 }
 

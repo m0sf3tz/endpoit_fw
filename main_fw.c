@@ -20,10 +20,24 @@ int main()
 	//initUart();
   //timerInitTim21();
 	//initSpis();
+	
+	/*
 	iniLdoClocksAndPins();
 	initAdc();
 	getAdcSample();
+	*/
+	
+	
+
 	enableSamplingSupply();
+	
+	char tmp[] = "wtf wtf wtf wtf vwtf";
+	initUart();
+	while(1)
+	{
+		uartPut(tmp, 10);
+	}
+	
 	mainMenu_f();
 }
 
