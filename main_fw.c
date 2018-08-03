@@ -27,17 +27,10 @@ int main()
 	getAdcSample();
 	*/
 	
-	
-
 	enableSamplingSupply();
 	
-	char tmp[] = "wtf wtf wtf wtf vwtf";
 	initUart();
-	while(1)
-	{
-		uartPut(tmp, 10);
-	}
-	
+
 	mainMenu_f();
 }
 
