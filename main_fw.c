@@ -14,12 +14,12 @@
 
 int main()
 {
-	//initTimerRcc();
+	initTimerRcc();
 	//timerInit();
 	//initLeds();		//fights with UART SCK....
-	//initUart();
+	initUart();
   //timerInitTim21();
-	//initSpis();
+	initSpis();
 	
 	/*
 	iniLdoClocksAndPins();
@@ -29,7 +29,6 @@ int main()
 	
 	enableSamplingSupply();
 	
-	initUart();
 
 	mainMenu_f();
 }

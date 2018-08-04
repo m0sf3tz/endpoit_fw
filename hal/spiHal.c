@@ -35,30 +35,8 @@ void initSpis()
 		while(1){}
 	}
 	
-	//configure ADC SPI handle
-	SpiHandleADC.Instance               = SPI1;
-
-	SpiHandleADC.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
-	SpiHandleADC.Init.Direction         = SPI_DIRECTION_2LINES;
-	SpiHandleADC.Init.CLKPhase          = SPI_PHASE_1EDGE;
-	SpiHandleADC.Init.CLKPolarity       = SPI_POLARITY_LOW;
-	SpiHandleADC.Init.CRCCalculation    = SPI_CRCCALCULATION_DISABLE;
-	SpiHandleADC.Init.CRCPolynomial     = 7;
-	SpiHandleADC.Init.DataSize          = SPI_DATASIZE_16BIT;
-	SpiHandleADC.Init.FirstBit          = SPI_FIRSTBIT_MSB;
-	SpiHandleADC.Init.NSS               = SPI_NSS_SOFT;
-	SpiHandleADC.Init.TIMode            = SPI_TIMODE_DISABLE;
-	SpiHandleADC.Init.Mode 						  = SPI_MODE_MASTER;
-
-	
-	if(HAL_SPI_Init(&SpiHandleADC) != HAL_OK)
-	{
-		while(1){}
-	}
-
-	__HAL_SPI_ENABLE(&SpiHandleADC);
+	//__HAL_SPI_ENABLE(&SpiHandleADC); RIP
 	__HAL_SPI_ENABLE(&SpiHandleMem);
-	
 	
 }
 
@@ -106,48 +84,6 @@ static void initSpiGpios()
 	GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
   HAL_GPIO_Init(SPI2_NSS_GPIO_PORT, &GPIO_InitStruct);  
 	HAL_GPIO_WritePin(SPI2_NSS_GPIO_PORT, SPI2_NSS_PIN, GPIO_PIN_SET);
-
-
-	//****************************************************************************
-	//											init SPI 1
-	//****************************************************************************
-
-	/*##-1- Enable peripherals and GPIO Clocks #################################*/
-  /* Enable GPIO TX/RX clock */
-  SPI1_SCK_GPIO_CLK_ENABLE();
-  SPI1_MISO_GPIO_CLK_ENABLE();
-  SPI1_MOSI_GPIO_CLK_ENABLE();
-  /* Enable SPI clock */
-  SPI1_CLK_ENABLE(); 
-  
-  /*##-2- Configure peripheral GPIO ##########################################*/  
-	
-  /* SPI SCK GPIO pin configuration  */
-  GPIO_InitStruct.Pin       = SPI1_SCK_PIN;
-  GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull      = GPIO_PULLUP;
-  GPIO_InitStruct.Speed     = GPIO_SPEED_FREQ_HIGH  ;
-  GPIO_InitStruct.Alternate = SPI1_SCK_AF;
-  
-  HAL_GPIO_Init(SPI1_SCK_GPIO_PORT, &GPIO_InitStruct);
-    		
-  /* SPI MISO GPIO pin configuration  */
-  GPIO_InitStruct.Pin = SPI1_MISO_PIN;
-  GPIO_InitStruct.Alternate = SPI1_MISO_AF;
-  
-  HAL_GPIO_Init(SPI1_MISO_GPIO_PORT, &GPIO_InitStruct);
-  
-  /* SPI MOSI GPIO pin configuration  */
-  GPIO_InitStruct.Pin = SPI1_MOSI_PIN;
-  GPIO_InitStruct.Alternate = SPI1_MOSI_AF;
-    
-  HAL_GPIO_Init(SPI1_MOSI_GPIO_PORT, &GPIO_InitStruct);    
-	
-	/* SPI CS GPIO pin configuration  */
-  GPIO_InitStruct.Pin   = SPI1_NSS_PIN;  
-	GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
-  HAL_GPIO_Init(SPI1_NSS_GPIO_PORT, &GPIO_InitStruct);  
-	HAL_GPIO_WritePin(SPI1_NSS_GPIO_PORT, SPI1_NSS_PIN, GPIO_PIN_SET);
 
 }
 

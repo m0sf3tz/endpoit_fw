@@ -218,7 +218,7 @@ void initUartClocksAndPins(UART_HandleTypeDef *huart)
   GPIO_InitStructGpio.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   
   HAL_GPIO_Init(USART_DOZE_PORT, &GPIO_InitStructGpio);
-  HAL_GPIO_WritePin(USART_DOZE_PORT, USART_DOZE_PIN, GPIO_PIN_RESET); 
+  HAL_GPIO_WritePin(USART_DOZE_PORT, USART_DOZE_PIN, GPIO_PIN_SET); 
 
 
 	/*##-2- Configure peripheral for menue ##########################################*/  
