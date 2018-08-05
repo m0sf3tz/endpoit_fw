@@ -18,3 +18,4 @@
 .\objects\menu.o: .\hal\uartHal.h
 .\objects\menu.o: .\selfTest\memorySelfTest.h
 .\objects\menu.o: .\core\sampler.h
+.\objects\menu.o: .\zigbee\zigbee.h

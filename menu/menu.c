@@ -3,12 +3,13 @@
 #include "uartHal.h"
 #include "memorySelfTest.h"
 #include "sampler.h"
+#include "zigbee.h"
 
 const char newLine						  	= 12;	//line feed in assci
 const char RESQUEST_RESPONSE[]    = "please select an option from above: ";
 const char NUMBER_OFFSET_ANSCII   = 49;
 
-bool foo()
+bool placeholder()
 {
 	return 1;
 }
@@ -194,24 +195,21 @@ bool sampleLoop_f()
 
 bool zigbeeMenu_f()
 {
-	/*
-		static volatile menuOption zigBeeMenu = 
+		static menuOption zigBeeMenu = 
 		{
 			
 			{
-				" Send chunk of data",			//1
-				" Say hello!",							//2
-				" send chunk incrementing", //3
-				" Back"											//4
+				" Send 256 chunks of incrementing data",			//1
+				" ZIGBEE_WAKE ",														  //2
+				" ZIGBEE_DOZE ",															//3
 			},
 			
-			4,
+			3,
 				
 			{	
-				var,
-				zigbeeSayHi,
-				zigbeeSendIncrementingChunk,
-				var
+				zigbeeTestSendIncrementing,
+				ZIGBEE_WAKE,
+				ZIGBEE_DOZE,
 			}
 		};
 
@@ -221,12 +219,11 @@ bool zigbeeMenu_f()
 		printNewLine();
 		uint8_t selected = menuSelect();
 		
-		if(selected >= 0 && selected < (zigBeeMenu.size))
+		if(selected < (zigBeeMenu.size))
 				(*zigBeeMenu.nextMenuPointer[selected])();
 		else
 			return 0;
-*/return 0;
-
+		return true;
 }
 
 

@@ -69,7 +69,8 @@ void initAdc()
 }
 uint16_t getAdcSample()
 {
-	if (HAL_ADC_PollForConversion(&AdcHandle, 1000000) == HAL_OK)	
+	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
+	
 	return  HAL_ADC_GetValue(&AdcHandle);
 }
 

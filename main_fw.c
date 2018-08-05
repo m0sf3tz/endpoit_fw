@@ -15,20 +15,19 @@
 int main()
 {
 	initTimerRcc();
-	//timerInit();
+	timerInit();
 	//initLeds();		//fights with UART SCK....
 	initUart();
-  //timerInitTim21();
+  timerInitTim21();
 	initSpis();
+	iniLdoClocksAndPins();
+
 	
 	/*
-	iniLdoClocksAndPins();
 	initAdc();
 	getAdcSample();
 	*/
-	
-	enableSamplingSupply();
-	
+
 
 	mainMenu_f();
 }
