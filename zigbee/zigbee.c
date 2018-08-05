@@ -43,22 +43,26 @@ bool zigbeeTestSendIncrementing()
 	{
 		testBuff[i] = i;
 	}
-	enableSamplingSupply();
 	
-	timerDelayUs(200);
-
-	ZIGBEE_WAKE();
-	
-	timerDelayUs(14000);
 	
 	//make a test buffer;
 	
 	uartPut(testBuff,256);
-	
-	ZIGBEE_DOZE();
-	
-	disableSamplingSupply();
+  uartPut(testBuff,256);
+	uartPut(testBuff,256);
+	uartPut(testBuff,256);
 
+	uartPut(testBuff,256);
+  uartPut(testBuff,256);
+	uartPut(testBuff,256);
+	uartPut(testBuff,256);
+	
+	uartPut(testBuff,256);
+  uartPut(testBuff,256);
+	uartPut(testBuff,256);
+	uartPut(testBuff,256);
+	
+	
 	
 	return true;
 	

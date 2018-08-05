@@ -11,24 +11,35 @@
 #include "MC23A1024.h"
 #include "adc.h"
 #include "ldo.h"
+#include "zigbee.h"
 
 int main()
 {
 	initTimerRcc();
 	timerInit();
+	
+
 	//initLeds();		//fights with UART SCK....
+
+	
+	
 	initUart();
   timerInitTim21();
 	initSpis();
 	iniLdoClocksAndPins();
 
-	
 	/*
 	initAdc();
 	getAdcSample();
 	*/
+	
+	ZIGBEE_WAKE();
+  enableSamplingSupply();
+	
+	timerDelayUs(0xFFFF);
 
-
+	while(1)
+			zigbeeTestSendIncrementing();
 	mainMenu_f();
 }
 

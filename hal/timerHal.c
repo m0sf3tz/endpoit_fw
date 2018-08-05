@@ -32,9 +32,10 @@ void SysTick_Handler()
 */
 void initTimerRcc()
 {
-	rccHandle.OscillatorType = RCC_OSCILLATORTYPE_MSI;
-	rccHandle.MSIState       = RCC_MSI_ON;
-	rccHandle.MSIClockRange  = RCC_ICSCR_MSIRANGE_6; /*!< MSI = 4.194 MHz   */
+	rccHandle.OscillatorType      = RCC_OSCILLATORTYPE_MSI;
+	rccHandle.MSIState            = RCC_MSI_ON;
+	rccHandle.MSIClockRange  	    = RCC_ICSCR_MSIRANGE_6; /*!< MSI = 4.194 MHz   */
+	//rccHandle.MSICalibrationValue = 0x2F;
 	HAL_RCC_OscConfig(&rccHandle);
 }
 

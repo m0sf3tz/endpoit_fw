@@ -4,6 +4,7 @@
 #include "memorySelfTest.h"
 #include "sampler.h"
 #include "zigbee.h"
+#include "ldo.h"
 
 const char newLine						  	= 12;	//line feed in assci
 const char RESQUEST_RESPONSE[]    = "please select an option from above: ";
@@ -226,6 +227,41 @@ bool zigbeeMenu_f()
 		return true;
 }
 
+bool powerTasks_f()
+{
+		static menuOption powerMenu = 
+		{
+			
+			{
+				" Enable samlping Supply",			//1
+				" Disable samlping Supply",			//1
+
+			},
+			
+			2,
+				
+			{	
+				enableSamplingSupply,
+				disableSamplingSupply,
+			}
+		};
+
+		
+		printMenu(&powerMenu);
+		
+		printNewLine();
+		uint8_t selected = menuSelect();
+		
+		if(selected < (powerMenu.size))
+				(*powerMenu.nextMenuPointer[selected])();
+		else
+			return 0;
+		return true;
+}
+
+
+
+
 
 	
 
@@ -241,10 +277,11 @@ bool mainMenu_f()
 				" adc(s)",
 				" SRAM spi memory", //4
 				" sampleLoop",
-				" coreTasks"
+				" coreTasks",
+				" power menue"
 			},
 			
-			6,
+			7,
 			
 			{	
 				zigbeeMenu_f,
@@ -252,7 +289,8 @@ bool mainMenu_f()
 				adcMenu_f,
 				spiMem_f,
 				sampleLoop_f,
-				coreTask_f
+				coreTask_f,
+				powerTasks_f,
 			}
 		};
 
