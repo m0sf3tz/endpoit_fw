@@ -1,5 +1,5 @@
 #include <stdint.h>
-
+#include <stdbool.h>
 
 #define SPI2_CLK_ENABLE()                __HAL_RCC_SPI2_CLK_ENABLE()
 #define SPI2_SCK_GPIO_CLK_ENABLE()       __HAL_RCC_GPIOB_CLK_ENABLE()
@@ -64,7 +64,8 @@ typedef enum
 }spiChanel_e;
 
 void initSpis(void);
-static void initSpiGpios(void);
+void initSpiGpios(void);
+bool deinitSpiGpios(void);
 void spiWrite(uint8_t * data, uint32_t num, spiChanel_e spi);
 void spiPutByte(spiChanel_e chan, uint8_t data);
 void spiPut(spiChanel_e chan, uint32_t len, uint8_t * data);

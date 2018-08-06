@@ -1,5 +1,4 @@
 .\objects\timerhal.o: hal\timerHal.c
-.\objects\timerhal.o: hal\timerHal.h
 .\objects\timerhal.o: .\inc\stm32l0xx_hal_rcc.h
 .\objects\timerhal.o: .\inc\stm32l0xx_hal_def.h
 .\objects\timerhal.o: C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h
@@ -18,3 +17,5 @@
 .\objects\timerhal.o: .\inc\stm32l0xx_hal_dma.h
 .\objects\timerhal.o: .\inc\stm32l0xx_hal_tim_ex.h
 .\objects\timerhal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\timerhal.o: hal\timerHal.h
+.\objects\timerhal.o: .\cpuhal.h

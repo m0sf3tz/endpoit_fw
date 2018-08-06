@@ -12,10 +12,12 @@
 #include "adc.h"
 #include "ldo.h"
 #include "zigbee.h"
+#include "cpuhal.h"
 
 int main()
 {
-	initTimerRcc();
+	initRcc4mhz();
+
 	timerInit();
 	
 
@@ -26,20 +28,21 @@ int main()
 	initUart();
   timerInitTim21();
 	initSpis();
+	initZigbeeGpioPins();
 	iniLdoClocksAndPins();
 
+	
+	enableSamplingSupply();
+	ZIGBEE_WAKE();
+	while(1)
+	{
+	}
+	
 	/*
 	initAdc();
 	getAdcSample();
 	*/
 	
-	ZIGBEE_WAKE();
-  enableSamplingSupply();
-	
-	timerDelayUs(0xFFFF);
-
-	while(1)
-			zigbeeTestSendIncrementing();
 	mainMenu_f();
 }
 

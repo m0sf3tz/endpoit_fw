@@ -32,3 +32,5 @@ static uint8_t menuSelect(void);
 
 void UlToStr(char *s, uint32_t, unsigned char n);
 void blockForInput(void);
+
+

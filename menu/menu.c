@@ -35,7 +35,6 @@ bool adcMenu_f()
 				adcExternalSampleSpi
 			}
 		};
-
 		
 		printMenu(&adcMenu);
 		
@@ -69,7 +68,6 @@ bool timerMenu_f()
 				timerUnitTest
 			}
 		};
-
 		
 		printMenu(&timerMenu);
 		
@@ -175,7 +173,6 @@ bool sampleLoop_f()
 				multipleSampleExternalAdcTestStoreInSram_m,
 			}
 		};
-
 		
 		printMenu(&genericMenu);
 		

@@ -2,8 +2,8 @@
 .\objects\adc.o: adc\adc.h
 .\objects\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\adc.o: .\hal\spiHal.h
-.\objects\adc.o: .\hal\gpioHal.h
 .\objects\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\adc.o: .\hal\gpioHal.h
 .\objects\adc.o: .\inc\stm32l0xx_hal_gpio.h
 .\objects\adc.o: .\inc\stm32l0xx_hal_def.h
 .\objects\adc.o: C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h

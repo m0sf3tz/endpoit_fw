@@ -61,12 +61,13 @@
 .\objects\main_fw.o: .\inc\stm32l0xx_hal_pcd_ex.h
 .\objects\main_fw.o: .\hal\led.h
 .\objects\main_fw.o: .\hal\spiHal.h
+.\objects\main_fw.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\main_fw.o: .\hal\timerHal.h
 .\objects\main_fw.o: .\hal\gpioHal.h
-.\objects\main_fw.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\main_fw.o: .\hal\uartHal.h
 .\objects\main_fw.o: .\menu\menu.h
 .\objects\main_fw.o: .\SRAM\MC23A1024.h
 .\objects\main_fw.o: .\adc\adc.h
 .\objects\main_fw.o: .\powerHal\ldo.h
 .\objects\main_fw.o: .\zigbee\zigbee.h
+.\objects\main_fw.o: cpuhal.h

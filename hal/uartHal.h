@@ -2,7 +2,9 @@
 #include <stdint.h>
 
 void initUart(void);
-void initUartClocksAndPins(UART_HandleTypeDef *huart);
+void initUartClocksAndPins(void);
+void deinitUartPins(void);
+
 void serialSpam(uint8_t *pt, uint32_t len);
 void uartPutMenu(const  char * pt, int len);
 void uartGetMenu(const  char * pt, int len);

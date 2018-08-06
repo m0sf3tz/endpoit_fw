@@ -1,10 +1,13 @@
-#include "timerHal.h"
 #include "stm32l0xx_hal_rcc.h"
 #include "stm32l0xx_hal_cortex.h"
 #include "stm32l0xx_hal_tim.h"
 #include <stdbool.h>
 
-static RCC_OscInitTypeDef rccHandle;
+#include "timerHal.h"
+#include "cpuhal.h"
+
+
+
 static TIM_HandleTypeDef  timerHandle;
 static TIM_HandleTypeDef  timerHandle21;
 
@@ -30,14 +33,7 @@ void SysTick_Handler()
 /*
 *  set up MSI clock to 4.194Mhz.
 */
-void initTimerRcc()
-{
-	rccHandle.OscillatorType      = RCC_OSCILLATORTYPE_MSI;
-	rccHandle.MSIState            = RCC_MSI_ON;
-	rccHandle.MSIClockRange  	    = RCC_ICSCR_MSIRANGE_6; /*!< MSI = 4.194 MHz   */
-	//rccHandle.MSICalibrationValue = 0x2F;
-	HAL_RCC_OscConfig(&rccHandle);
-}
+
 
 //tim2
 void timerInit()
@@ -181,7 +177,7 @@ void timerDelayUs(uint16_t us)
 		}
 	}
 	
-	if ( 	rccHandle.MSIClockRange != RCC_ICSCR_MSIRANGE_6)
+	if (rccHandle.MSIClockRange != RCC_ICSCR_MSIRANGE_6)
 	{
 		while(1)
 		{

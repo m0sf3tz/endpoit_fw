@@ -2,6 +2,7 @@
 #include "stm32l0xx_hal_gpio.h"
 #include "stm32l0xx_hal.h"
 
+#include <stdbool.h>
 #include "spiHal.h"
 
 //handles
@@ -18,7 +19,7 @@ void initSpis()
 	//configure Memory SPI handle
 	SpiHandleMem.Instance               = SPI2;
 
-	SpiHandleMem.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
+	SpiHandleMem.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
 	SpiHandleMem.Init.Direction         = SPI_DIRECTION_2LINES;
 	SpiHandleMem.Init.CLKPhase          = SPI_PHASE_1EDGE;
 	SpiHandleMem.Init.CLKPolarity       = SPI_POLARITY_LOW;
@@ -40,7 +41,7 @@ void initSpis()
 	
 }
 
-static void initSpiGpios()
+void initSpiGpios()
 {
 	  GPIO_InitTypeDef  GPIO_InitStruct;
 
@@ -85,6 +86,53 @@ static void initSpiGpios()
   HAL_GPIO_Init(SPI2_NSS_GPIO_PORT, &GPIO_InitStruct);  
 	HAL_GPIO_WritePin(SPI2_NSS_GPIO_PORT, SPI2_NSS_PIN, GPIO_PIN_SET);
 
+}
+
+//puts pins to sleep.
+bool deinitSpiGpios()
+{
+	
+	GPIO_InitTypeDef  GPIO_InitStruct;
+
+	//****************************************************************************
+	//											init SPI 2
+	//****************************************************************************
+
+	/*##-1- Enable peripherals and GPIO Clocks #################################*/
+  /* Enable GPIO TX/RX clock */
+  SPI2_SCK_GPIO_CLK_ENABLE();
+  SPI2_MISO_GPIO_CLK_ENABLE();
+  SPI2_MOSI_GPIO_CLK_ENABLE();
+  /* Enable SPI clock */
+  SPI2_CLK_ENABLE(); 
+  
+  /*##-2- Configure peripheral GPIO ##########################################*/  
+	
+  /* SPI SCK GPIO pin configuration  */
+  GPIO_InitStruct.Pin       = SPI2_SCK_PIN;
+  GPIO_InitStruct.Mode      = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Speed     = GPIO_SPEED_FREQ_HIGH  ;
+  
+  HAL_GPIO_Init(SPI2_SCK_GPIO_PORT, &GPIO_InitStruct);
+  HAL_GPIO_WritePin(SPI2_NSS_GPIO_PORT, SPI2_NSS_PIN, GPIO_PIN_RESET);
+
+  /* SPI MISO GPIO pin configuration  */
+  GPIO_InitStruct.Pin = SPI2_MISO_PIN;  
+  HAL_GPIO_Init(SPI2_MISO_GPIO_PORT, &GPIO_InitStruct);
+  HAL_GPIO_WritePin(SPI2_NSS_GPIO_PORT, SPI2_NSS_PIN, GPIO_PIN_RESET);
+
+  /* SPI MOSI GPIO pin configuration  */
+  GPIO_InitStruct.Pin = SPI2_MOSI_PIN;    
+  HAL_GPIO_Init(SPI2_MOSI_GPIO_PORT, &GPIO_InitStruct);  
+  HAL_GPIO_WritePin(SPI2_NSS_GPIO_PORT, SPI2_NSS_PIN, GPIO_PIN_RESET);
+
+  /* SPI CS GPIO pin configuration  */
+  GPIO_InitStruct.Pin = SPI2_NSS_PIN;  
+	GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
+  HAL_GPIO_Init(SPI2_NSS_GPIO_PORT, &GPIO_InitStruct);  
+	HAL_GPIO_WritePin(SPI2_NSS_GPIO_PORT, SPI2_NSS_PIN, GPIO_PIN_RESET);
+	
+	return true;
 }
 
 void spiWrite(uint8_t * data, uint32_t num, spiChanel_e spi)

@@ -7,7 +7,6 @@ typedef enum
 	US_DELAY_10US
 }delayConstants_e;
 
-void initTimerRcc(void);
 void timerInit(void);
 void timerInitTim21(void);
 

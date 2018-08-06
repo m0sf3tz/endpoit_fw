@@ -449,6 +449,16 @@
               <FileType>5</FileType>
               <FilePath>.\hal\uartHal.h</FilePath>
             </File>
+            <File>
+              <FileName>cpuhal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\cpuhal.c</FilePath>
+            </File>
+            <File>
+              <FileName>cpuhal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\cpuhal.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
