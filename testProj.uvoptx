@@ -390,7 +390,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\cpuhal.c</PathWithFileName>
+      <PathWithFileName>.\hal\cpuhal.c</PathWithFileName>
       <FilenameWithoutPath>cpuhal.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -402,7 +402,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\cpuhal.h</PathWithFileName>
+      <PathWithFileName>.\hal\cpuhal.h</PathWithFileName>
       <FilenameWithoutPath>cpuhal.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>

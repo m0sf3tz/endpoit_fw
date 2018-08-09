@@ -30,14 +30,10 @@ int main()
 	initSpis();
 	initZigbeeGpioPins();
 	iniLdoClocksAndPins();
+	
+  enableSamplingSupply();
 
-	
-	enableSamplingSupply();
-	ZIGBEE_WAKE();
-	while(1)
-	{
-	}
-	
+		
 	/*
 	initAdc();
 	getAdcSample();

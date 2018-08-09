@@ -140,32 +140,21 @@ void initUartClocksAndPins()
  
 	
 	/*##-2- Configure peripheral GPIO ##########################################*/  
- /*
+
+  /* UART TX GPIO pin configuration  */
   GPIO_InitStruct.Pin       = USART_ZIGBEE_TX_PIN;
   GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull      = GPIO_NOPULL;
   GPIO_InitStruct.Speed     = GPIO_SPEED_FREQ_HIGH  ;
   GPIO_InitStruct.Alternate = USART_ZIGBEE_TX_AF;
   
-  HAL_GPIO_Init(USART_ZIGBEE_TX_GPIO_PORT, &GPIO_InitStruct);
+  HAL_GPIO_Init(USART_ZIGBEE_RX_GPIO_PORT, &GPIO_InitStruct);
     
+  /* UART RX GPIO pin configuration  */
   GPIO_InitStruct.Pin = USART_ZIGBEE_RX_PIN;
   GPIO_InitStruct.Alternate = USART_ZIGBEE_RX_AF;
     
   HAL_GPIO_Init(USART_ZIGBEE_RX_GPIO_PORT, &GPIO_InitStruct);
-*/
-
-
-  GPIO_InitStruct.Pin       = USART_ZIGBEE_TX_PIN;
-  GPIO_InitStruct.Mode      = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull      = GPIO_NOPULL;
-  GPIO_InitStruct.Speed     = GPIO_SPEED_FREQ_HIGH  ;
-  
-  HAL_GPIO_Init(USART_ZIGBEE_TX_GPIO_PORT, &GPIO_InitStruct);
-    
-  GPIO_InitStruct.Pin = USART_ZIGBEE_RX_PIN;   
-  HAL_GPIO_Init(USART_ZIGBEE_RX_GPIO_PORT, &GPIO_InitStruct);
-
 
 }
 

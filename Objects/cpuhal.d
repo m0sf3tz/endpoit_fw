@@ -1,4 +1,4 @@
-.\objects\cpuhal.o: cpuhal.c
+.\objects\cpuhal.o: hal\cpuhal.c
 .\objects\cpuhal.o: .\inc\stm32l0xx_hal_rcc.h
 .\objects\cpuhal.o: .\inc\stm32l0xx_hal_def.h
 .\objects\cpuhal.o: C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h
