@@ -18,4 +18,5 @@
 .\objects\timerhal.o: .\inc\stm32l0xx_hal_tim_ex.h
 .\objects\timerhal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\timerhal.o: hal\timerHal.h
-.\objects\timerhal.o: .\cpuhal.h
+.\objects\timerhal.o: hal\cpuhal.h
+.\objects\timerhal.o: .\globals.h

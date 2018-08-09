@@ -5,7 +5,7 @@
 
 #include "timerHal.h"
 #include "cpuhal.h"
-
+#include "globals.h"
 
 
 static TIM_HandleTypeDef  timerHandle;
@@ -24,10 +24,11 @@ void TIM2_IRQHandler(void)
 }
 
 
-//not set up...
+//we use this in "sim-mode" to simulate the passage of time and accumulation of charge
+//in the cap
 void SysTick_Handler()
 {
-	//while(1);
+	simVoltage++;
 }
 
 /*

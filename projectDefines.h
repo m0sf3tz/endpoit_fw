@@ -42,6 +42,6 @@
 //								build swithces									  
 //********************************************************************************//
 
-#define HAL_UNIT_TEST							(1) 		//includes the halUnit test, creates buffer mmoery of them etc
+#define DEBUG_MODE					(1) 		//includes the halUnit test, creates buffer mmoery of them etc
 
 #endif /* PROJECTDEFINES_H_ */

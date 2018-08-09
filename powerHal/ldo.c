@@ -20,7 +20,7 @@ bool enableSamplingSupply()
 
 bool disableSamplingSupply()
 {
-	 //HAL_GPIO_WritePin(SAMPLNG_SUPPLY_PORT, SAMPLNG_SUPPLY_PIN, GPIO_PIN_RESET); 
+	 HAL_GPIO_WritePin(SAMPLNG_SUPPLY_PORT, SAMPLNG_SUPPLY_PIN, GPIO_PIN_RESET); 
    //deinitUartPins();
 	 return true;
 }

@@ -17,28 +17,31 @@
 int main()
 {
 	initRcc4mhz();
-
 	timerInit();
-	
+	initSysTick();
 
 	//initLeds();		//fights with UART SCK....
 
 	
-	
+#if 0
 	initUart();
   timerInitTim21();
 	initSpis();
 	initZigbeeGpioPins();
 	iniLdoClocksAndPins();
-	
   enableSamplingSupply();
-
+#endif
 		
 	/*
 	initAdc();
 	getAdcSample();
 	*/
+
+
+	//mainMenu_f();
 	
-	mainMenu_f();
+	while(1)
+	{
+	}
 }
 

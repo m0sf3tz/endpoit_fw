@@ -1,6 +1,7 @@
 --cpu Cortex-M0+
 ".\objects\startup.o"
 ".\objects\main_fw.o"
+".\objects\globals.o"
 ".\objects\spihal.o"
 ".\objects\led.o"
 ".\objects\timerhal.o"
