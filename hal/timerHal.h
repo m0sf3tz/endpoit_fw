@@ -23,4 +23,4 @@ void sleepWFImultiplesOf1000ms(uint16_t);
 
 
 void timerDelayUs(uint16_t);
-void timerDelayUsDirty(delayConstants_e);
+void timerDelayUsDirty(int);

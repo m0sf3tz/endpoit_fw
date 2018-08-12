@@ -12,7 +12,7 @@
 #include "spiHal.h"
 #include "menu.h"
 #include "adc.h"
-
+#include "cpuHal.h"
 
 uint8_t hash(uint32_t x)
 {
@@ -100,7 +100,11 @@ bool spiWalkTestRegisterSequentialMode()
 	
 	printNewLine();
 	uartPutMenuAutoCount("testing spi memory using sequential mode....  this will take a while");
+	printNewLine();
+	uartPutMenuAutoCount("Entering Trubo Mode! VROOM 32Mhz");
 
+	initRcc32mhz(); //VROOM TURBO MOODE
+	
 	uint32_t locationPointer = 0;
 	spiMemPrepSequentialWrite(0);
 	
@@ -129,6 +133,10 @@ bool spiWalkTestRegisterSequentialMode()
 	
 		if(hashedValueStored!=hashedValue)
 		{
+
+			printNewLine();
+	  	initRcc4mhz(); //AM I TURTLE
+			uartPutMenuAutoCount("Leaving TURBO mode!");
 			printNewLine();
 			uartPutMenuAutoCount("test FAILED!");
 			blockForInput();
@@ -140,6 +148,9 @@ bool spiWalkTestRegisterSequentialMode()
 	}
 	
 	spiMemFinalizeSequential();
+	initRcc4mhz(); //AM I TURTLE
+	printNewLine();
+	uartPutMenuAutoCount("Leaving TURBO mode!");
 	printNewLine();
 	uartPutMenuAutoCount("test PASSED: Press any key to continue!");
 	blockForInput();

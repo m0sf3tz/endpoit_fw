@@ -12,4 +12,8 @@
 .\objects\cpuhal.o: .\inc\Legacy/stm32_hal_legacy.h
 .\objects\cpuhal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\cpuhal.o: .\inc\stm32l0xx_hal_rcc_ex.h
+.\objects\cpuhal.o: .\inc\stm32l0xx_hal_flash.h
+.\objects\cpuhal.o: .\inc\stm32l0xx_hal_flash_ex.h
+.\objects\cpuhal.o: .\inc\stm32l0xx_hal_flash_ramfunc.h
+.\objects\cpuhal.o: hal\timerHal.h
 .\objects\cpuhal.o: .\projectDefines.h

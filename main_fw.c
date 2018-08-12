@@ -42,6 +42,7 @@ int main()
 	//		WILL BREAK UUART 									
   //****************************************/
 
+
 	initUart();
   timerInitTim21();
 	initSpis();
@@ -50,7 +51,6 @@ int main()
 	enableSamplingSupply();
 
 	initAdc();
-	getAdcSample();
 	
 	mainMenu_f();
 	

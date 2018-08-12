@@ -201,26 +201,15 @@ void timerDelayUs(uint16_t us)
 
 }
 
-void timerDelayUsDirty(delayConstants_e delay)
+void timerDelayUsDirty(int delay)
 {
-	if ( 	rccHandle.MSIClockRange == RCC_ICSCR_MSIRANGE_6)
+	while(delay--)
 	{
-		if (delay == US_DELAY_10US)
-		{
-			int x = 1;
-			while(x--)
-			{
-			}		
-		}
+		__asm("NOP");
 	}
-	else
-	{
-		while(1)
-		{
-			//need to calibrate...
-		}
-	}
+
 }
 	
+
 
 

@@ -23,3 +23,4 @@
 .\objects\memoryselftest.o: .\hal\spiHal.h
 .\objects\memoryselftest.o: .\menu\menu.h
 .\objects\memoryselftest.o: .\adc\adc.h
+.\objects\memoryselftest.o: .\hal\cpuHal.h
