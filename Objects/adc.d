@@ -1,8 +1,8 @@
 .\objects\adc.o: adc\adc.c
 .\objects\adc.o: adc\adc.h
 .\objects\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\adc.o: .\hal\spiHal.h
 .\objects\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\adc.o: .\hal\spiHal.h
 .\objects\adc.o: .\hal\gpioHal.h
 .\objects\adc.o: .\inc\stm32l0xx_hal_gpio.h
 .\objects\adc.o: .\inc\stm32l0xx_hal_def.h
@@ -24,3 +24,7 @@
 .\objects\adc.o: .\inc\stm32l0xx_hal_adc_ex.h
 .\objects\adc.o: .\projectDefines.h
 .\objects\adc.o: .\globals.h
+.\objects\adc.o: .\menu\menu.h
+.\objects\adc.o: .\hal\uartHal.h
+.\objects\adc.o: .\inc\stm32l0xx_hal_uart.h
+.\objects\adc.o: .\inc\stm32l0xx_hal_uart_ex.h

@@ -5,9 +5,16 @@
 #include "stm32l0xx_hal_adc.h"
 #include "projectDefines.h"
 #include "globals.h"
+#include "menu.h"
+#include "uartHal.h"
 
 static ADC_HandleTypeDef    		     AdcHandle;
 static ADC_ChannelConfTypeDef        sConfig;
+
+adcRead_s temp;
+
+//vcap = 9.35*(DAC_READ_OUT/0xFFF)*2.5
+//vadc = (DAC_READ_OUT/0xFFF)*2.5
 
 void initAdc()
 {
@@ -42,11 +49,11 @@ void initAdc()
   AdcHandle.Init.LowPowerAutoWait      = DISABLE;
     
   AdcHandle.Init.Resolution            = ADC_RESOLUTION_12B;
-  AdcHandle.Init.SamplingTime          = ADC_SAMPLETIME_7CYCLES_5;
+  AdcHandle.Init.SamplingTime          = ADC_SAMPLETIME_160CYCLES_5;
   AdcHandle.Init.ScanConvMode          = ADC_SCAN_DIRECTION_FORWARD;
   AdcHandle.Init.DataAlign             = ADC_DATAALIGN_RIGHT;
-  AdcHandle.Init.ContinuousConvMode    = ENABLE;
-  AdcHandle.Init.DiscontinuousConvMode = DISABLE;
+  AdcHandle.Init.ContinuousConvMode    = DISABLE;
+  AdcHandle.Init.DiscontinuousConvMode = ENABLE;
   AdcHandle.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE;
   AdcHandle.Init.EOCSelection          = ADC_EOC_SINGLE_CONV;
   AdcHandle.Init.DMAContinuousRequests = DISABLE;
@@ -59,35 +66,47 @@ void initAdc()
   
   
   //### - 2 - Start calibration ############################################ */
-  //if (HAL_ADCEx_Calibration_Start(&AdcHandle, ADC_SINGLE_ENDED) != HAL_OK)
-  //{
-  //  while(1){}
-  //}
+  if (HAL_ADCEx_Calibration_Start(&AdcHandle, ADC_SINGLE_ENDED) != HAL_OK)
+  {
+    while(1){}
+  }
   
   /* ### - 3 - Channel configuration ######################################## */
-  /* Select Channel 0 to be converted */
+	
+	//vCap
+  sConfig.Channel = ADC_CHANNEL_0;    
+  if (HAL_ADC_ConfigChannel(&AdcHandle, &sConfig) != HAL_OK)
+  {
+    ASSERT(0);
+  }
+	
+	//vSignal
   sConfig.Channel = ADC_CHANNEL_6;    
   if (HAL_ADC_ConfigChannel(&AdcHandle, &sConfig) != HAL_OK)
   {
     ASSERT(0);
   }
 	
-	HAL_ADC_Start(&AdcHandle);
 
 }
 uint16_t getAdcSample()
 {
+	HAL_ADC_Start(&AdcHandle);
+	
 	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
 	
-	return  HAL_ADC_GetValue(&AdcHandle);
+	temp.capVoltage =  HAL_ADC_GetValue(&AdcHandle);
+	
+	HAL_ADC_Start(&AdcHandle);
+
+	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
+	
+	temp.adc =  HAL_ADC_GetValue(&AdcHandle);
 }
 
 
 uint16_t getCapVoltage()
 {
-#if DEBUG_MODE
-		 return simVoltage;
-#else
 	sConfig.Channel = ADC_CHANNEL_0;    
   if (HAL_ADC_ConfigChannel(&AdcHandle, &sConfig) != HAL_OK)
   {
@@ -103,7 +122,29 @@ uint16_t getCapVoltage()
     ASSERT(0);
   }
 	return retval;
-#endif
 }
 
+bool adcUnitTestOnDie()
+{
+	getAdcSample();
+	
+	uint16_t val =  temp.adc;
 
+	clearScreen();
+	printStars();
+	printNewLine();
+	
+	char valString [4];
+	
+	UlToStr(valString, val, 4);
+	
+	char tmp[] = "ADC read a value of: ";
+		
+	uartPutMenu(tmp, sizeof(tmp));
+	uartPutMenu(valString, 4);
+	
+	uartGetMenu(tmp,1);
+	
+	return true;
+
+}

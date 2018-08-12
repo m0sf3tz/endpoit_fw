@@ -23,8 +23,9 @@ bool pgaTasks_f(void);
 void uartPutMenuAutoCount(const char *pt);
 void clearScrean(void);
 void printMenu(menuOption  *);
-static void printStars(void);
+void printStars(void);
 
+void uartPutMenu(const char *pt, int len);
 
 static void printHeading(uint8_t number, char * pt);
 static uint8_t getLen(const char * pt);
@@ -33,5 +34,5 @@ static uint8_t menuSelect(void);
 
 void UlToStr(char *s, uint32_t, unsigned char n);
 void blockForInput(void);
-
+void clearScreen(void);
 

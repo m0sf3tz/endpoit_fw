@@ -6,6 +6,7 @@
 #include "zigbee.h"
 #include "ldo.h"
 #include "pga.h"
+#include "adc.h"
 
 const char newLine						  	= 12;	//line feed in assci
 const char RESQUEST_RESPONSE[]    = "please select an option from above: ";
@@ -19,21 +20,18 @@ bool placeholder()
 
 bool adcMenu_f()
 {
-/*
-	
-		static volatile menuOption adcMenu = 
+
+		static menuOption adcMenu = 
 		{
 			
 			{
 				" Grab on die ADC value",			//1
-				" Grab external ADC value"	  //2 
 			},
 			
-			2,
+			1,
 				
 			{	
 				adcUnitTestOnDie,
-				adcExternalSampleSpi
 			}
 		};
 		
@@ -42,12 +40,12 @@ bool adcMenu_f()
 		printNewLine();
 		uint8_t selected = menuSelect();
 		
-		if(selected >= 0 && selected < (adcMenu.size))
+		if(selected < (adcMenu.size))
 				(*adcMenu.nextMenuPointer[selected])();
 		else
 			return 0;
-*/
-return 0;
+
+		return 0;
 }
 
 
@@ -387,7 +385,7 @@ void printMenu( menuOption * menu )
 	
 }
 
-static void printStars()
+void printStars()
 {
 	const char prettyStar[] = "*******************************************************************************";
 	int size = (sizeof (prettyStar) / sizeof (const char));
