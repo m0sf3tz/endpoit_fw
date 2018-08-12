@@ -37,14 +37,7 @@ int main()
 	initAdc();
 	getAdcSample();
 	
-	setPgaGain(GAIN_PGA_10);
-
-
 	mainMenu_f();
 	
-	while(1)
-	{
-
-	}
 }
 

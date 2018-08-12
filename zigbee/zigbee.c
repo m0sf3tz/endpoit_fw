@@ -53,6 +53,37 @@ void zigbeeWrite(const char * dat, int len)
 	ZIGBEE_DOZE();
 }
 
+bool zigbeeSleep()
+{
+	//put the doze pin as an inpup
+	GPIO_InitTypeDef  GPIO_InitStructGpio;
+  GPIO_InitStructGpio.Pin   = USART_DOZE_PIN;
+  GPIO_InitStructGpio.Mode  = GPIO_MODE_INPUT;
+  HAL_GPIO_Init(USART_DOZE_PORT, &GPIO_InitStructGpio);
+	
+	deinitUartPinsZigbee();
+	
+	return true;
+}
+
+bool zigbeeWake()
+{
+	//put the doze pin as an output again
+	GPIO_InitTypeDef  GPIO_InitStructGpio;
+  GPIO_InitStructGpio.Pin   = USART_DOZE_PIN;
+  GPIO_InitStructGpio.Mode  = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStructGpio.Pull  = GPIO_NOPULL;
+  GPIO_InitStructGpio.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(USART_DOZE_PORT, &GPIO_InitStructGpio);
+  HAL_GPIO_WritePin(USART_DOZE_PORT, USART_DOZE_PIN, GPIO_PIN_SET); 
+	
+	initUartPinsZigbee();
+	
+	return true;
+}
+
+
+
 bool zigbeeTestSendIncrementing()
 {
 	

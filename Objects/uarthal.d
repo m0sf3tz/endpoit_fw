@@ -61,3 +61,4 @@
 .\objects\uarthal.o: .\inc\stm32l0xx_hal_pcd_ex.h
 .\objects\uarthal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\uarthal.o: hal\uartHal.h
+.\objects\uarthal.o: .\projectDefines.h

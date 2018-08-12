@@ -5,6 +5,7 @@
 #include <stdbool.h>
 
 #include "uartHal.h"
+#include "projectDefines.h"
 
 static UART_HandleTypeDef   UartHandleZigbee;
 static UART_HandleTypeDef   UartHandleMenu;
@@ -72,6 +73,16 @@ static UART_HandleTypeDef   UartHandleMenu;
 
 void initUart(void)
 {
+  //Enable GPIO TX/RX clock for zigbee 
+  USARTx_TX_GPIO_CLK_ENABLE();
+  USARTx_RX_GPIO_CLK_ENABLE();
+  USARTx_CLK_ENABLE(); 
+	
+  // Enable GPIO TX/RX clock  for menue
+	USART_MENU_CLK_ENABLE();         	
+	USART_MENU_RX_GPIO_CLK_ENABLE(); 	
+	USART_MENU_TX_GPIO_CLK_ENABLE();
+
 	UartHandleMenu.Instance        = USART2;
   UartHandleMenu.Init.BaudRate   = 57600;
   UartHandleMenu.Init.WordLength = UART_WORDLENGTH_8B;
@@ -80,15 +91,15 @@ void initUart(void)
   UartHandleMenu.Init.HwFlowCtl  = UART_HWCONTROL_NONE;
   UartHandleMenu.Init.Mode       = UART_MODE_TX_RX;
   
-	initUartClocksAndPins();
-
-	
+	initUartPinsMenu();
   if(HAL_UART_Init(&UartHandleMenu) != HAL_OK)
   {
-   while(1);
+		ASSERT(0);
   }
-	
 	__HAL_UART_ENABLE(&UartHandleMenu);
+	
+	
+	
 
 	UartHandleZigbee.Instance        = USART1;
   UartHandleZigbee.Init.BaudRate   = 57600;
@@ -101,20 +112,17 @@ void initUart(void)
 
   if(HAL_UART_Init(&UartHandleZigbee) != HAL_OK)
   {
-   while(1);
+		ASSERT(0);
 	}
-
-
+  initUartPinsZigbee();
 	__HAL_UART_ENABLE(&UartHandleZigbee);
 }
 
-void initUartClocksAndPins()
+
+
+void initUartPinsMenu()
 {
 	GPIO_InitTypeDef  GPIO_InitStruct;
-
-	USART_MENU_CLK_ENABLE();         	
-	USART_MENU_RX_GPIO_CLK_ENABLE(); 	
-	USART_MENU_TX_GPIO_CLK_ENABLE();
 
 	GPIO_InitStruct.Pin 		  = USART_MENU_TX_PIN;
 	GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
@@ -126,66 +134,41 @@ void initUartClocksAndPins()
 	GPIO_InitStruct.Pin 		  = USART_MENU_RX_PIN;
 	GPIO_InitStruct.Alternate = USART_MENU_RX_AF;
 	HAL_GPIO_Init(USART_MENU_RX_GPIO_PORT, &GPIO_InitStruct);
-	
-  
-  
-  /*##-1- Enable peripherals and GPIO Clocks #################################*/
- 
-  /* Enable GPIO TX/RX clock */
-  USARTx_TX_GPIO_CLK_ENABLE();
-  USARTx_RX_GPIO_CLK_ENABLE();
-  
-  /* Enable USART2 clock */
-  USARTx_CLK_ENABLE(); 
- 
-	
-	/*##-2- Configure peripheral GPIO ##########################################*/  
+}
 
-  /* UART TX GPIO pin configuration  */
+void initUartPinsZigbee()
+{
+	GPIO_InitTypeDef  GPIO_InitStruct;
+
+	/* UART TX GPIO pin configuration  */
   GPIO_InitStruct.Pin       = USART_ZIGBEE_TX_PIN;
   GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull      = GPIO_NOPULL;
   GPIO_InitStruct.Speed     = GPIO_SPEED_FREQ_HIGH  ;
   GPIO_InitStruct.Alternate = USART_ZIGBEE_TX_AF;
-  
   HAL_GPIO_Init(USART_ZIGBEE_RX_GPIO_PORT, &GPIO_InitStruct);
     
   /* UART RX GPIO pin configuration  */
   GPIO_InitStruct.Pin = USART_ZIGBEE_RX_PIN;
   GPIO_InitStruct.Alternate = USART_ZIGBEE_RX_AF;
-    
   HAL_GPIO_Init(USART_ZIGBEE_RX_GPIO_PORT, &GPIO_InitStruct);
-
 }
 
+
 //turns eveything off for UART (not the menue)
-void deinitUartPins()
+void deinitUartPinsZigbee()
 {
 	GPIO_InitTypeDef  GPIO_InitStruct;
 
   /* UART TX GPIO pin configuration  */
   GPIO_InitStruct.Pin       = USART_ZIGBEE_TX_PIN;
-  GPIO_InitStruct.Mode      = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Mode      = GPIO_MODE_INPUT;
   HAL_GPIO_Init(USART_ZIGBEE_TX_GPIO_PORT, &GPIO_InitStruct);
-  HAL_GPIO_WritePin(USART_ZIGBEE_TX_GPIO_PORT, USART_ZIGBEE_TX_PIN, GPIO_PIN_RESET); 
 
   /* UART TX GPIO pin configuration  */
   GPIO_InitStruct.Pin = USART_ZIGBEE_RX_PIN;
+	GPIO_InitStruct.Mode      = GPIO_MODE_INPUT;
   HAL_GPIO_Init(USART_ZIGBEE_RX_GPIO_PORT, &GPIO_InitStruct);
-  HAL_GPIO_WritePin(USART_ZIGBEE_RX_GPIO_PORT, USART_ZIGBEE_RX_PIN, GPIO_PIN_RESET); 
-
-
-  GPIO_InitTypeDef  GPIO_InitStructGpio;
-
-  GPIO_InitStructGpio.Pin   = USART_DOZE_PIN;
-  GPIO_InitStructGpio.Mode  = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStructGpio.Pull  = GPIO_NOPULL;
-  GPIO_InitStructGpio.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  
-  HAL_GPIO_Init(USART_DOZE_PORT, &GPIO_InitStructGpio);
-  HAL_GPIO_WritePin(USART_DOZE_PORT, USART_DOZE_PIN, GPIO_PIN_RESET); 
-
-	/*##-2- Configure peripheral for menue ##########################################*/  
 }
 	
 

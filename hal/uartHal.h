@@ -2,8 +2,11 @@
 #include <stdint.h>
 
 void initUart(void);
-void initUartClocksAndPins(void);
-void deinitUartPins(void);
+
+void initUartPinsZigbee(void);
+void initUartPinsMenu(void);
+
+void deinitUartPinsZigbee(void);
 
 void serialSpam(uint8_t *pt, uint32_t len);
 void uartPutMenu(const  char * pt, int len);

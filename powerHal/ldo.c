@@ -13,15 +13,18 @@
 
 bool enableSamplingSupply()
 {
-	 HAL_GPIO_WritePin(SAMPLNG_SUPPLY_PORT, SAMPLNG_SUPPLY_PIN, GPIO_PIN_SET); 
 	 initSpiGpiosAnalog();
+	 zigbeeWake();
+	 HAL_GPIO_WritePin(SAMPLNG_SUPPLY_PORT, SAMPLNG_SUPPLY_PIN, GPIO_PIN_SET); 
 	 return true;
 }
 
 bool disableSamplingSupply()
 {
+ 	 deinitSpiGpiosAnalog();
+	 zigbeeSleep();
 	 HAL_GPIO_WritePin(SAMPLNG_SUPPLY_PORT, SAMPLNG_SUPPLY_PIN, GPIO_PIN_RESET); 
-	 deinitSpiGpiosAnalog();
+
 	 return true;
 }
 
