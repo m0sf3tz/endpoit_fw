@@ -3,6 +3,8 @@
 #include "gpioHal.h"
 #include "timerHal.h"
 #include "stm32l0xx_hal_adc.h"
+#include "projectDefines.h"
+#include "globals.h"
 
 static ADC_HandleTypeDef    		     AdcHandle;
 static ADC_ChannelConfTypeDef        sConfig;
@@ -23,6 +25,12 @@ void initAdc()
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+	
+	//this one is for the ADC attached to the cap
+	GPIO_InitStruct.Pin = GPIO_PIN_0;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+	
+	
 	
 	AdcHandle.Instance = ADC1;
   
@@ -46,7 +54,7 @@ void initAdc()
   /* Initialize ADC peripheral according to the passed parameters */
   if (HAL_ADC_Init(&AdcHandle) != HAL_OK)
   {
-    while(1){}
+    ASSERT(0);
   }
   
   
@@ -61,7 +69,7 @@ void initAdc()
   sConfig.Channel = ADC_CHANNEL_6;    
   if (HAL_ADC_ConfigChannel(&AdcHandle, &sConfig) != HAL_OK)
   {
-    while(1){}
+    ASSERT(0);
   }
 	
 	HAL_ADC_Start(&AdcHandle);
@@ -72,6 +80,30 @@ uint16_t getAdcSample()
 	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
 	
 	return  HAL_ADC_GetValue(&AdcHandle);
+}
+
+
+uint16_t getCapVoltage()
+{
+#if DEBUG_MODE
+		 return simVoltage;
+#else
+	sConfig.Channel = ADC_CHANNEL_0;    
+  if (HAL_ADC_ConfigChannel(&AdcHandle, &sConfig) != HAL_OK)
+  {
+    ASSERT(0);
+  }
+
+	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
+	uint16_t retval =  HAL_ADC_GetValue(&AdcHandle);
+
+	sConfig.Channel = ADC_CHANNEL_6;    
+  if (HAL_ADC_ConfigChannel(&AdcHandle, &sConfig) != HAL_OK)
+  {
+    ASSERT(0);
+  }
+	return retval;
+#endif
 }
 
 

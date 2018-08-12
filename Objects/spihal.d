@@ -59,5 +59,6 @@
 .\objects\spihal.o: .\inc\stm32l0xx_hal_wwdg.h
 .\objects\spihal.o: .\inc\stm32l0xx_hal_pcd.h
 .\objects\spihal.o: .\inc\stm32l0xx_hal_pcd_ex.h
+.\objects\spihal.o: .\projectDefines.h
 .\objects\spihal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\spihal.o: hal\spiHal.h

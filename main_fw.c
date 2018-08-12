@@ -13,35 +13,35 @@
 #include "ldo.h"
 #include "zigbee.h"
 #include "cpuhal.h"
+#include "pga.h"
 
 int main()
 {
 	initRcc4mhz();
-	timerInit();
-	initSysTick();
+	
 
+	timerInit();
+	//initSysTick();
 	//initLeds();		//fights with UART SCK....
 
-	
-#if 0
 	initUart();
   timerInitTim21();
 	initSpis();
 	initZigbeeGpioPins();
 	iniLdoClocksAndPins();
-  enableSamplingSupply();
-#endif
-		
-	/*
+	enableSamplingSupply();
+
 	initAdc();
 	getAdcSample();
-	*/
+	
+	setPgaGain(	GAIN_PGA_10);
 
 
 	//mainMenu_f();
 	
 	while(1)
 	{
+
 	}
 }
 

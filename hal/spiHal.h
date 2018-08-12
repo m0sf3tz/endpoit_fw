@@ -60,7 +60,7 @@
 typedef enum
 {
 	SPI_MEM,
-	SPI_ADC,
+	SPI_ANALOG,
 }spiChanel_e;
 
 void initSpis(void);

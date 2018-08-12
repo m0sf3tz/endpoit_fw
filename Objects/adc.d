@@ -22,3 +22,5 @@
 .\objects\adc.o: .\inc\stm32l0xx_hal_adc.h
 .\objects\adc.o: .\inc\stm32l0xx_hal_dma.h
 .\objects\adc.o: .\inc\stm32l0xx_hal_adc_ex.h
+.\objects\adc.o: .\projectDefines.h
+.\objects\adc.o: .\globals.h

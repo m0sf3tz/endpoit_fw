@@ -8,6 +8,9 @@
 #ifndef PROJECTDEFINES_H_
 #define PROJECTDEFINES_H_
 
+#define ASSERT(x) do{ \
+	if(!x){while(1){}} \
+	}while(0)
 
 //********************************************************************************//
 //								SPI/ADC DEFINES									  
@@ -30,7 +33,7 @@
 
 #define SPI_SRAM_SSI_BASE_INTERRUPT_BASE			INT_SSI0//INT_SSI0
 #define SPI_SRAM_SSI_BASE											0x40008000//SSI0_BASE
-#define SPI_ADC_SSI_BASE											0x40009000//SSI1_BASE
+#define SPI_ANALOG_SSI_BASE											0x40009000//SSI1_BASE
 
 
 #define MAXIMUM_MEMORY_ADRESS 								0x1FFFF //max range for 

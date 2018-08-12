@@ -1,7 +1,7 @@
 Dependencies for Project 'testProj', Target 'motorMonitorPlus': (DO NOT MODIFY !)
-F (.\projectDefines.h)(0x5B6BE40C)()
+F (.\projectDefines.h)(0x5B6F72B6)()
 F (.\startup.s)(0x5A374E2E)(--cpu Cortex-M0+ --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 523" --pd "STM32L053xx SETA 1"--list .\listings\startup.lst --xref -o .\objects\startup.o --depend .\objects\startup.d)
-F (.\main_fw.c)(0x5B6BE426)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\main_fw.o --omf_browse .\objects\main_fw.crf --depend .\objects\main_fw.d)
+F (.\main_fw.c)(0x5B6F7865)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\main_fw.o --omf_browse .\objects\main_fw.crf --depend .\objects\main_fw.d)
 I (.\inc\stm32l0xx_hal_gpio.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_def.h)(0x583758E0)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h)(0x573DEF66)
@@ -63,7 +63,7 @@ I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
 I (.\hal\led.h)(0x5A1B3266)
-I (.\hal\spiHal.h)(0x5B679BA0)
+I (.\hal\spiHal.h)(0x5B6F72B6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
 I (.\hal\timerHal.h)(0x5B679BA0)
 I (.\hal\gpioHal.h)(0x5A24F1DE)
@@ -73,13 +73,14 @@ I (.\SRAM\MC23A1024.h)(0x5A27A1A6)
 I (.\adc\adc.h)(0x5B629882)
 I (.\powerHal\ldo.h)(0x5B6646AB)
 I (.\zigbee\zigbee.h)(0x5B679BA0)
-I (cpuhal.h)(0x5B679BA0)
-F (.\globals.c)(0x5B6BE137)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\globals.o --omf_browse .\objects\globals.crf --depend .\objects\globals.d)
+I (.\hal\cpuhal.h)(0x5B6BE54E)
+I (pga.h)(0x5B6F6207)
+F (.\globals.c)(0x5B6BE137)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\globals.o --omf_browse .\objects\globals.crf --depend .\objects\globals.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6D9A8)
 I (globals.h)(0x5B6BE136)
 F (.\globals.h)(0x5B6BE136)()
 F (.\hal\led.h)(0x5A1B3266)()
-F (.\hal\spiHal.c)(0x5B679BA0)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\spihal.o --omf_browse .\objects\spihal.crf --depend .\objects\spihal.d)
+F (.\hal\spiHal.c)(0x5B6F7337)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\spihal.o --omf_browse .\objects\spihal.crf --depend .\objects\spihal.d)
 I (.\inc\stm32l0xx_hal_spi.h)(0x5B6279F4)
 I (.\inc\stm32l0xx_hal_def.h)(0x583758E0)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h)(0x573DEF66)
@@ -140,12 +141,13 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
+I (.\projectDefines.h)(0x5B6F72B6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
-I (hal\spiHal.h)(0x5B679BA0)
-F (.\hal\spiHal.h)(0x5B679BA0)()
-F (.\hal\led.c)(0x5A1B3266)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
+I (hal\spiHal.h)(0x5B6F72B6)
+F (.\hal\spiHal.h)(0x5B6F72B6)()
+F (.\hal\led.c)(0x5A1B3266)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
 F (.\hal\timerHal.h)(0x5B679BA0)()
-F (.\hal\timerHal.c)(0x5B6BE192)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\timerhal.o --omf_browse .\objects\timerhal.crf --depend .\objects\timerhal.d)
+F (.\hal\timerHal.c)(0x5B6BE192)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\timerhal.o --omf_browse .\objects\timerhal.crf --depend .\objects\timerhal.d)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
 I (.\inc\stm32l0xx_hal_def.h)(0x583758E0)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h)(0x573DEF66)
@@ -165,9 +167,9 @@ I (.\inc\stm32l0xx_hal_dma.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_tim_ex.h)(0x583758DD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
 I (hal\timerHal.h)(0x5B679BA0)
-I (hal\cpuhal.h)(0x5B6BE41A)
+I (hal\cpuhal.h)(0x5B6BE54E)
 I (.\globals.h)(0x5B6BE136)
-F (.\hal\gpioHal.c)(0x5A2DFF71)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\gpiohal.o --omf_browse .\objects\gpiohal.crf --depend .\objects\gpiohal.d)
+F (.\hal\gpioHal.c)(0x5A2DFF71)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\gpiohal.o --omf_browse .\objects\gpiohal.crf --depend .\objects\gpiohal.d)
 I (.\inc\stm32l0xx_hal_gpio.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_def.h)(0x583758E0)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h)(0x573DEF66)
@@ -230,7 +232,7 @@ I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
 F (.\hal\gpioHal.h)(0x5A24F1DE)()
-F (.\hal\uartHal.c)(0x5B6BBBBC)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\uarthal.o --omf_browse .\objects\uarthal.crf --depend .\objects\uarthal.d)
+F (.\hal\uartHal.c)(0x5B6BBBBC)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\uarthal.o --omf_browse .\objects\uarthal.crf --depend .\objects\uarthal.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -294,7 +296,7 @@ I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
 I (hal\uartHal.h)(0x5B679BA0)
 F (.\hal\uartHal.h)(0x5B679BA0)()
-F (.\hal\cpuhal.c)(0x5B6BE2A4)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\cpuhal.o --omf_browse .\objects\cpuhal.crf --depend .\objects\cpuhal.d)
+F (.\hal\cpuhal.c)(0x5B6BE530)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\cpuhal.o --omf_browse .\objects\cpuhal.crf --depend .\objects\cpuhal.d)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
 I (.\inc\stm32l0xx_hal_def.h)(0x583758E0)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h)(0x573DEF66)
@@ -308,9 +310,9 @@ I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\system_stm32l0xx.
 I (.\inc\Legacy/stm32_hal_legacy.h)(0x5838A5D7)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6D9A8)
 I (.\inc\stm32l0xx_hal_rcc_ex.h)(0x583758DD)
-I (.\globals.h)(0x5B6BE136)
-F (.\hal\cpuhal.h)(0x5B6BE41A)()
-F (.\Src\stm32l0xx_hal.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal.o --omf_browse .\objects\stm32l0xx_hal.crf --depend .\objects\stm32l0xx_hal.d)
+I (.\projectDefines.h)(0x5B6F72B6)
+F (.\hal\cpuhal.h)(0x5B6BE54E)()
+F (.\Src\stm32l0xx_hal.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal.o --omf_browse .\objects\stm32l0xx_hal.crf --depend .\objects\stm32l0xx_hal.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -371,7 +373,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_adc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_adc.o --omf_browse .\objects\stm32l0xx_hal_adc.crf --depend .\objects\stm32l0xx_hal_adc.d)
+F (.\Src\stm32l0xx_hal_adc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_adc.o --omf_browse .\objects\stm32l0xx_hal_adc.crf --depend .\objects\stm32l0xx_hal_adc.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -432,7 +434,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_adc_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_adc_ex.o --omf_browse .\objects\stm32l0xx_hal_adc_ex.crf --depend .\objects\stm32l0xx_hal_adc_ex.d)
+F (.\Src\stm32l0xx_hal_adc_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_adc_ex.o --omf_browse .\objects\stm32l0xx_hal_adc_ex.crf --depend .\objects\stm32l0xx_hal_adc_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -493,7 +495,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_comp.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_comp.o --omf_browse .\objects\stm32l0xx_hal_comp.crf --depend .\objects\stm32l0xx_hal_comp.d)
+F (.\Src\stm32l0xx_hal_comp.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_comp.o --omf_browse .\objects\stm32l0xx_hal_comp.crf --depend .\objects\stm32l0xx_hal_comp.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -554,7 +556,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_comp_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_comp_ex.o --omf_browse .\objects\stm32l0xx_hal_comp_ex.crf --depend .\objects\stm32l0xx_hal_comp_ex.d)
+F (.\Src\stm32l0xx_hal_comp_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_comp_ex.o --omf_browse .\objects\stm32l0xx_hal_comp_ex.crf --depend .\objects\stm32l0xx_hal_comp_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -615,7 +617,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_cortex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_cortex.o --omf_browse .\objects\stm32l0xx_hal_cortex.crf --depend .\objects\stm32l0xx_hal_cortex.d)
+F (.\Src\stm32l0xx_hal_cortex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_cortex.o --omf_browse .\objects\stm32l0xx_hal_cortex.crf --depend .\objects\stm32l0xx_hal_cortex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -676,7 +678,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_crc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_crc.o --omf_browse .\objects\stm32l0xx_hal_crc.crf --depend .\objects\stm32l0xx_hal_crc.d)
+F (.\Src\stm32l0xx_hal_crc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_crc.o --omf_browse .\objects\stm32l0xx_hal_crc.crf --depend .\objects\stm32l0xx_hal_crc.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -737,7 +739,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_crc_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_crc_ex.o --omf_browse .\objects\stm32l0xx_hal_crc_ex.crf --depend .\objects\stm32l0xx_hal_crc_ex.d)
+F (.\Src\stm32l0xx_hal_crc_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_crc_ex.o --omf_browse .\objects\stm32l0xx_hal_crc_ex.crf --depend .\objects\stm32l0xx_hal_crc_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -798,9 +800,9 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_cryp.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_cryp.o --omf_browse .\objects\stm32l0xx_hal_cryp.crf --depend .\objects\stm32l0xx_hal_cryp.d)
-F (.\Src\stm32l0xx_hal_cryp_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_cryp_ex.o --omf_browse .\objects\stm32l0xx_hal_cryp_ex.crf --depend .\objects\stm32l0xx_hal_cryp_ex.d)
-F (.\Src\stm32l0xx_hal_dac.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_dac.o --omf_browse .\objects\stm32l0xx_hal_dac.crf --depend .\objects\stm32l0xx_hal_dac.d)
+F (.\Src\stm32l0xx_hal_cryp.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_cryp.o --omf_browse .\objects\stm32l0xx_hal_cryp.crf --depend .\objects\stm32l0xx_hal_cryp.d)
+F (.\Src\stm32l0xx_hal_cryp_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_cryp_ex.o --omf_browse .\objects\stm32l0xx_hal_cryp_ex.crf --depend .\objects\stm32l0xx_hal_cryp_ex.d)
+F (.\Src\stm32l0xx_hal_dac.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_dac.o --omf_browse .\objects\stm32l0xx_hal_dac.crf --depend .\objects\stm32l0xx_hal_dac.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -861,7 +863,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_dac_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_dac_ex.o --omf_browse .\objects\stm32l0xx_hal_dac_ex.crf --depend .\objects\stm32l0xx_hal_dac_ex.d)
+F (.\Src\stm32l0xx_hal_dac_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_dac_ex.o --omf_browse .\objects\stm32l0xx_hal_dac_ex.crf --depend .\objects\stm32l0xx_hal_dac_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -922,7 +924,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_dma.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_dma.o --omf_browse .\objects\stm32l0xx_hal_dma.crf --depend .\objects\stm32l0xx_hal_dma.d)
+F (.\Src\stm32l0xx_hal_dma.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_dma.o --omf_browse .\objects\stm32l0xx_hal_dma.crf --depend .\objects\stm32l0xx_hal_dma.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -983,7 +985,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_firewall.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_firewall.o --omf_browse .\objects\stm32l0xx_hal_firewall.crf --depend .\objects\stm32l0xx_hal_firewall.d)
+F (.\Src\stm32l0xx_hal_firewall.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_firewall.o --omf_browse .\objects\stm32l0xx_hal_firewall.crf --depend .\objects\stm32l0xx_hal_firewall.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1044,7 +1046,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_flash.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_flash.o --omf_browse .\objects\stm32l0xx_hal_flash.crf --depend .\objects\stm32l0xx_hal_flash.d)
+F (.\Src\stm32l0xx_hal_flash.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_flash.o --omf_browse .\objects\stm32l0xx_hal_flash.crf --depend .\objects\stm32l0xx_hal_flash.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1105,7 +1107,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_flash_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_flash_ex.o --omf_browse .\objects\stm32l0xx_hal_flash_ex.crf --depend .\objects\stm32l0xx_hal_flash_ex.d)
+F (.\Src\stm32l0xx_hal_flash_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_flash_ex.o --omf_browse .\objects\stm32l0xx_hal_flash_ex.crf --depend .\objects\stm32l0xx_hal_flash_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1166,7 +1168,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_flash_ramfunc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_flash_ramfunc.o --omf_browse .\objects\stm32l0xx_hal_flash_ramfunc.crf --depend .\objects\stm32l0xx_hal_flash_ramfunc.d)
+F (.\Src\stm32l0xx_hal_flash_ramfunc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_flash_ramfunc.o --omf_browse .\objects\stm32l0xx_hal_flash_ramfunc.crf --depend .\objects\stm32l0xx_hal_flash_ramfunc.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1227,7 +1229,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_gpio.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_gpio.o --omf_browse .\objects\stm32l0xx_hal_gpio.crf --depend .\objects\stm32l0xx_hal_gpio.d)
+F (.\Src\stm32l0xx_hal_gpio.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_gpio.o --omf_browse .\objects\stm32l0xx_hal_gpio.crf --depend .\objects\stm32l0xx_hal_gpio.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1288,7 +1290,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_i2c.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_i2c.o --omf_browse .\objects\stm32l0xx_hal_i2c.crf --depend .\objects\stm32l0xx_hal_i2c.d)
+F (.\Src\stm32l0xx_hal_i2c.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_i2c.o --omf_browse .\objects\stm32l0xx_hal_i2c.crf --depend .\objects\stm32l0xx_hal_i2c.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1349,7 +1351,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_i2c_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_i2c_ex.o --omf_browse .\objects\stm32l0xx_hal_i2c_ex.crf --depend .\objects\stm32l0xx_hal_i2c_ex.d)
+F (.\Src\stm32l0xx_hal_i2c_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_i2c_ex.o --omf_browse .\objects\stm32l0xx_hal_i2c_ex.crf --depend .\objects\stm32l0xx_hal_i2c_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1410,7 +1412,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_i2s.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_i2s.o --omf_browse .\objects\stm32l0xx_hal_i2s.crf --depend .\objects\stm32l0xx_hal_i2s.d)
+F (.\Src\stm32l0xx_hal_i2s.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_i2s.o --omf_browse .\objects\stm32l0xx_hal_i2s.crf --depend .\objects\stm32l0xx_hal_i2s.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1471,7 +1473,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_irda.c)(0x583F35DE)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_irda.o --omf_browse .\objects\stm32l0xx_hal_irda.crf --depend .\objects\stm32l0xx_hal_irda.d)
+F (.\Src\stm32l0xx_hal_irda.c)(0x583F35DE)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_irda.o --omf_browse .\objects\stm32l0xx_hal_irda.crf --depend .\objects\stm32l0xx_hal_irda.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1532,7 +1534,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_iwdg.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_iwdg.o --omf_browse .\objects\stm32l0xx_hal_iwdg.crf --depend .\objects\stm32l0xx_hal_iwdg.d)
+F (.\Src\stm32l0xx_hal_iwdg.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_iwdg.o --omf_browse .\objects\stm32l0xx_hal_iwdg.crf --depend .\objects\stm32l0xx_hal_iwdg.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1593,7 +1595,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_lcd.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_lcd.o --omf_browse .\objects\stm32l0xx_hal_lcd.crf --depend .\objects\stm32l0xx_hal_lcd.d)
+F (.\Src\stm32l0xx_hal_lcd.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_lcd.o --omf_browse .\objects\stm32l0xx_hal_lcd.crf --depend .\objects\stm32l0xx_hal_lcd.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1654,7 +1656,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_lptim.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_lptim.o --omf_browse .\objects\stm32l0xx_hal_lptim.crf --depend .\objects\stm32l0xx_hal_lptim.d)
+F (.\Src\stm32l0xx_hal_lptim.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_lptim.o --omf_browse .\objects\stm32l0xx_hal_lptim.crf --depend .\objects\stm32l0xx_hal_lptim.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1715,7 +1717,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_msp_template.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_msp_template.o --omf_browse .\objects\stm32l0xx_hal_msp_template.crf --depend .\objects\stm32l0xx_hal_msp_template.d)
+F (.\Src\stm32l0xx_hal_msp_template.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_msp_template.o --omf_browse .\objects\stm32l0xx_hal_msp_template.crf --depend .\objects\stm32l0xx_hal_msp_template.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1776,7 +1778,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_pcd.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_pcd.o --omf_browse .\objects\stm32l0xx_hal_pcd.crf --depend .\objects\stm32l0xx_hal_pcd.d)
+F (.\Src\stm32l0xx_hal_pcd.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_pcd.o --omf_browse .\objects\stm32l0xx_hal_pcd.crf --depend .\objects\stm32l0xx_hal_pcd.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1837,7 +1839,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_pcd_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_pcd_ex.o --omf_browse .\objects\stm32l0xx_hal_pcd_ex.crf --depend .\objects\stm32l0xx_hal_pcd_ex.d)
+F (.\Src\stm32l0xx_hal_pcd_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_pcd_ex.o --omf_browse .\objects\stm32l0xx_hal_pcd_ex.crf --depend .\objects\stm32l0xx_hal_pcd_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1898,7 +1900,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_pwr.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_pwr.o --omf_browse .\objects\stm32l0xx_hal_pwr.crf --depend .\objects\stm32l0xx_hal_pwr.d)
+F (.\Src\stm32l0xx_hal_pwr.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_pwr.o --omf_browse .\objects\stm32l0xx_hal_pwr.crf --depend .\objects\stm32l0xx_hal_pwr.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -1959,7 +1961,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_pwr_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_pwr_ex.o --omf_browse .\objects\stm32l0xx_hal_pwr_ex.crf --depend .\objects\stm32l0xx_hal_pwr_ex.d)
+F (.\Src\stm32l0xx_hal_pwr_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_pwr_ex.o --omf_browse .\objects\stm32l0xx_hal_pwr_ex.crf --depend .\objects\stm32l0xx_hal_pwr_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2020,7 +2022,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_rcc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_rcc.o --omf_browse .\objects\stm32l0xx_hal_rcc.crf --depend .\objects\stm32l0xx_hal_rcc.d)
+F (.\Src\stm32l0xx_hal_rcc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_rcc.o --omf_browse .\objects\stm32l0xx_hal_rcc.crf --depend .\objects\stm32l0xx_hal_rcc.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2081,7 +2083,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_rcc_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_rcc_ex.o --omf_browse .\objects\stm32l0xx_hal_rcc_ex.crf --depend .\objects\stm32l0xx_hal_rcc_ex.d)
+F (.\Src\stm32l0xx_hal_rcc_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_rcc_ex.o --omf_browse .\objects\stm32l0xx_hal_rcc_ex.crf --depend .\objects\stm32l0xx_hal_rcc_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2142,7 +2144,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_rng.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_rng.o --omf_browse .\objects\stm32l0xx_hal_rng.crf --depend .\objects\stm32l0xx_hal_rng.d)
+F (.\Src\stm32l0xx_hal_rng.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_rng.o --omf_browse .\objects\stm32l0xx_hal_rng.crf --depend .\objects\stm32l0xx_hal_rng.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2203,7 +2205,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_rtc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_rtc.o --omf_browse .\objects\stm32l0xx_hal_rtc.crf --depend .\objects\stm32l0xx_hal_rtc.d)
+F (.\Src\stm32l0xx_hal_rtc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_rtc.o --omf_browse .\objects\stm32l0xx_hal_rtc.crf --depend .\objects\stm32l0xx_hal_rtc.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2264,7 +2266,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_rtc_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_rtc_ex.o --omf_browse .\objects\stm32l0xx_hal_rtc_ex.crf --depend .\objects\stm32l0xx_hal_rtc_ex.d)
+F (.\Src\stm32l0xx_hal_rtc_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_rtc_ex.o --omf_browse .\objects\stm32l0xx_hal_rtc_ex.crf --depend .\objects\stm32l0xx_hal_rtc_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2325,7 +2327,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_smartcard.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_smartcard.o --omf_browse .\objects\stm32l0xx_hal_smartcard.crf --depend .\objects\stm32l0xx_hal_smartcard.d)
+F (.\Src\stm32l0xx_hal_smartcard.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_smartcard.o --omf_browse .\objects\stm32l0xx_hal_smartcard.crf --depend .\objects\stm32l0xx_hal_smartcard.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2386,7 +2388,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_smartcard_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_smartcard_ex.o --omf_browse .\objects\stm32l0xx_hal_smartcard_ex.crf --depend .\objects\stm32l0xx_hal_smartcard_ex.d)
+F (.\Src\stm32l0xx_hal_smartcard_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_smartcard_ex.o --omf_browse .\objects\stm32l0xx_hal_smartcard_ex.crf --depend .\objects\stm32l0xx_hal_smartcard_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2447,7 +2449,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_smbus.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_smbus.o --omf_browse .\objects\stm32l0xx_hal_smbus.crf --depend .\objects\stm32l0xx_hal_smbus.d)
+F (.\Src\stm32l0xx_hal_smbus.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_smbus.o --omf_browse .\objects\stm32l0xx_hal_smbus.crf --depend .\objects\stm32l0xx_hal_smbus.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2508,7 +2510,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_spi.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_spi.o --omf_browse .\objects\stm32l0xx_hal_spi.crf --depend .\objects\stm32l0xx_hal_spi.d)
+F (.\Src\stm32l0xx_hal_spi.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_spi.o --omf_browse .\objects\stm32l0xx_hal_spi.crf --depend .\objects\stm32l0xx_hal_spi.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2569,7 +2571,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_tim.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_tim.o --omf_browse .\objects\stm32l0xx_hal_tim.crf --depend .\objects\stm32l0xx_hal_tim.d)
+F (.\Src\stm32l0xx_hal_tim.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_tim.o --omf_browse .\objects\stm32l0xx_hal_tim.crf --depend .\objects\stm32l0xx_hal_tim.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2630,7 +2632,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_tim_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_tim_ex.o --omf_browse .\objects\stm32l0xx_hal_tim_ex.crf --depend .\objects\stm32l0xx_hal_tim_ex.d)
+F (.\Src\stm32l0xx_hal_tim_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_tim_ex.o --omf_browse .\objects\stm32l0xx_hal_tim_ex.crf --depend .\objects\stm32l0xx_hal_tim_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2691,7 +2693,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_tsc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_tsc.o --omf_browse .\objects\stm32l0xx_hal_tsc.crf --depend .\objects\stm32l0xx_hal_tsc.d)
+F (.\Src\stm32l0xx_hal_tsc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_tsc.o --omf_browse .\objects\stm32l0xx_hal_tsc.crf --depend .\objects\stm32l0xx_hal_tsc.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2752,7 +2754,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_uart.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_uart.o --omf_browse .\objects\stm32l0xx_hal_uart.crf --depend .\objects\stm32l0xx_hal_uart.d)
+F (.\Src\stm32l0xx_hal_uart.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_uart.o --omf_browse .\objects\stm32l0xx_hal_uart.crf --depend .\objects\stm32l0xx_hal_uart.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2813,7 +2815,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_uart_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_uart_ex.o --omf_browse .\objects\stm32l0xx_hal_uart_ex.crf --depend .\objects\stm32l0xx_hal_uart_ex.d)
+F (.\Src\stm32l0xx_hal_uart_ex.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_uart_ex.o --omf_browse .\objects\stm32l0xx_hal_uart_ex.crf --depend .\objects\stm32l0xx_hal_uart_ex.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2874,7 +2876,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_usart.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_usart.o --omf_browse .\objects\stm32l0xx_hal_usart.crf --depend .\objects\stm32l0xx_hal_usart.d)
+F (.\Src\stm32l0xx_hal_usart.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_usart.o --omf_browse .\objects\stm32l0xx_hal_usart.crf --depend .\objects\stm32l0xx_hal_usart.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2935,7 +2937,7 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_hal_wwdg.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_wwdg.o --omf_browse .\objects\stm32l0xx_hal_wwdg.crf --depend .\objects\stm32l0xx_hal_wwdg.d)
+F (.\Src\stm32l0xx_hal_wwdg.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_hal_wwdg.o --omf_browse .\objects\stm32l0xx_hal_wwdg.crf --depend .\objects\stm32l0xx_hal_wwdg.d)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
@@ -2996,25 +2998,25 @@ I (.\inc\stm32l0xx_hal_smbus.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
-F (.\Src\stm32l0xx_ll_adc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_adc.o --omf_browse .\objects\stm32l0xx_ll_adc.crf --depend .\objects\stm32l0xx_ll_adc.d)
-F (.\Src\stm32l0xx_ll_comp.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_comp.o --omf_browse .\objects\stm32l0xx_ll_comp.crf --depend .\objects\stm32l0xx_ll_comp.d)
-F (.\Src\stm32l0xx_ll_crc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_crc.o --omf_browse .\objects\stm32l0xx_ll_crc.crf --depend .\objects\stm32l0xx_ll_crc.d)
-F (.\Src\stm32l0xx_ll_crs.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_crs.o --omf_browse .\objects\stm32l0xx_ll_crs.crf --depend .\objects\stm32l0xx_ll_crs.d)
-F (.\Src\stm32l0xx_ll_dac.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_dac.o --omf_browse .\objects\stm32l0xx_ll_dac.crf --depend .\objects\stm32l0xx_ll_dac.d)
-F (.\Src\stm32l0xx_ll_dma.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_dma.o --omf_browse .\objects\stm32l0xx_ll_dma.crf --depend .\objects\stm32l0xx_ll_dma.d)
-F (.\Src\stm32l0xx_ll_exti.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_exti.o --omf_browse .\objects\stm32l0xx_ll_exti.crf --depend .\objects\stm32l0xx_ll_exti.d)
-F (.\Src\stm32l0xx_ll_gpio.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_gpio.o --omf_browse .\objects\stm32l0xx_ll_gpio.crf --depend .\objects\stm32l0xx_ll_gpio.d)
-F (.\Src\stm32l0xx_ll_i2c.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_i2c.o --omf_browse .\objects\stm32l0xx_ll_i2c.crf --depend .\objects\stm32l0xx_ll_i2c.d)
-F (.\Src\stm32l0xx_ll_lptim.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_lptim.o --omf_browse .\objects\stm32l0xx_ll_lptim.crf --depend .\objects\stm32l0xx_ll_lptim.d)
-F (.\Src\stm32l0xx_ll_lpuart.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_lpuart.o --omf_browse .\objects\stm32l0xx_ll_lpuart.crf --depend .\objects\stm32l0xx_ll_lpuart.d)
-F (.\Src\stm32l0xx_ll_pwr.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_pwr.o --omf_browse .\objects\stm32l0xx_ll_pwr.crf --depend .\objects\stm32l0xx_ll_pwr.d)
-F (.\Src\stm32l0xx_ll_rcc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_rcc.o --omf_browse .\objects\stm32l0xx_ll_rcc.crf --depend .\objects\stm32l0xx_ll_rcc.d)
-F (.\Src\stm32l0xx_ll_rng.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_rng.o --omf_browse .\objects\stm32l0xx_ll_rng.crf --depend .\objects\stm32l0xx_ll_rng.d)
-F (.\Src\stm32l0xx_ll_rtc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_rtc.o --omf_browse .\objects\stm32l0xx_ll_rtc.crf --depend .\objects\stm32l0xx_ll_rtc.d)
-F (.\Src\stm32l0xx_ll_spi.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_spi.o --omf_browse .\objects\stm32l0xx_ll_spi.crf --depend .\objects\stm32l0xx_ll_spi.d)
-F (.\Src\stm32l0xx_ll_tim.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_tim.o --omf_browse .\objects\stm32l0xx_ll_tim.crf --depend .\objects\stm32l0xx_ll_tim.d)
-F (.\Src\stm32l0xx_ll_usart.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_usart.o --omf_browse .\objects\stm32l0xx_ll_usart.crf --depend .\objects\stm32l0xx_ll_usart.d)
-F (.\Src\stm32l0xx_ll_utils.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_utils.o --omf_browse .\objects\stm32l0xx_ll_utils.crf --depend .\objects\stm32l0xx_ll_utils.d)
+F (.\Src\stm32l0xx_ll_adc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_adc.o --omf_browse .\objects\stm32l0xx_ll_adc.crf --depend .\objects\stm32l0xx_ll_adc.d)
+F (.\Src\stm32l0xx_ll_comp.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_comp.o --omf_browse .\objects\stm32l0xx_ll_comp.crf --depend .\objects\stm32l0xx_ll_comp.d)
+F (.\Src\stm32l0xx_ll_crc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_crc.o --omf_browse .\objects\stm32l0xx_ll_crc.crf --depend .\objects\stm32l0xx_ll_crc.d)
+F (.\Src\stm32l0xx_ll_crs.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_crs.o --omf_browse .\objects\stm32l0xx_ll_crs.crf --depend .\objects\stm32l0xx_ll_crs.d)
+F (.\Src\stm32l0xx_ll_dac.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_dac.o --omf_browse .\objects\stm32l0xx_ll_dac.crf --depend .\objects\stm32l0xx_ll_dac.d)
+F (.\Src\stm32l0xx_ll_dma.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_dma.o --omf_browse .\objects\stm32l0xx_ll_dma.crf --depend .\objects\stm32l0xx_ll_dma.d)
+F (.\Src\stm32l0xx_ll_exti.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_exti.o --omf_browse .\objects\stm32l0xx_ll_exti.crf --depend .\objects\stm32l0xx_ll_exti.d)
+F (.\Src\stm32l0xx_ll_gpio.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_gpio.o --omf_browse .\objects\stm32l0xx_ll_gpio.crf --depend .\objects\stm32l0xx_ll_gpio.d)
+F (.\Src\stm32l0xx_ll_i2c.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_i2c.o --omf_browse .\objects\stm32l0xx_ll_i2c.crf --depend .\objects\stm32l0xx_ll_i2c.d)
+F (.\Src\stm32l0xx_ll_lptim.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_lptim.o --omf_browse .\objects\stm32l0xx_ll_lptim.crf --depend .\objects\stm32l0xx_ll_lptim.d)
+F (.\Src\stm32l0xx_ll_lpuart.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_lpuart.o --omf_browse .\objects\stm32l0xx_ll_lpuart.crf --depend .\objects\stm32l0xx_ll_lpuart.d)
+F (.\Src\stm32l0xx_ll_pwr.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_pwr.o --omf_browse .\objects\stm32l0xx_ll_pwr.crf --depend .\objects\stm32l0xx_ll_pwr.d)
+F (.\Src\stm32l0xx_ll_rcc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_rcc.o --omf_browse .\objects\stm32l0xx_ll_rcc.crf --depend .\objects\stm32l0xx_ll_rcc.d)
+F (.\Src\stm32l0xx_ll_rng.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_rng.o --omf_browse .\objects\stm32l0xx_ll_rng.crf --depend .\objects\stm32l0xx_ll_rng.d)
+F (.\Src\stm32l0xx_ll_rtc.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_rtc.o --omf_browse .\objects\stm32l0xx_ll_rtc.crf --depend .\objects\stm32l0xx_ll_rtc.d)
+F (.\Src\stm32l0xx_ll_spi.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_spi.o --omf_browse .\objects\stm32l0xx_ll_spi.crf --depend .\objects\stm32l0xx_ll_spi.d)
+F (.\Src\stm32l0xx_ll_tim.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_tim.o --omf_browse .\objects\stm32l0xx_ll_tim.crf --depend .\objects\stm32l0xx_ll_tim.d)
+F (.\Src\stm32l0xx_ll_usart.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_usart.o --omf_browse .\objects\stm32l0xx_ll_usart.crf --depend .\objects\stm32l0xx_ll_usart.d)
+F (.\Src\stm32l0xx_ll_utils.c)(0x583758DD)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\stm32l0xx_ll_utils.o --omf_browse .\objects\stm32l0xx_ll_utils.crf --depend .\objects\stm32l0xx_ll_utils.d)
 I (.\inc\stm32l0xx_ll_rcc.h)(0x583758E0)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h)(0x573DEF66)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l053xx.h)(0x573DEF66)
@@ -3119,7 +3121,7 @@ F (.\CMIS\core_cm7.h)(0x59A57823)()
 F (.\CMIS\core_cmSimd.h)(0x59A57823)()
 F (.\CMIS\core_sc000.h)(0x59A57823)()
 F (.\CMIS\core_sc300.h)(0x59A57823)()
-F (.\system\system_stm32l0xx.c)(0x59A57823)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\system_stm32l0xx.o --omf_browse .\objects\system_stm32l0xx.crf --depend .\objects\system_stm32l0xx.d)
+F (.\system\system_stm32l0xx.c)(0x59A57823)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\system_stm32l0xx.o --omf_browse .\objects\system_stm32l0xx.crf --depend .\objects\system_stm32l0xx.d)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h)(0x573DEF66)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l053xx.h)(0x573DEF66)
 I (.\CMIS\core_cm0plus.h)(0x59A57823)
@@ -3128,7 +3130,7 @@ I (.\CMIS\core_cmInstr.h)(0x59A57823)
 I (.\CMIS\cmsis_armcc.h)(0x59A57823)
 I (.\CMIS\core_cmFunc.h)(0x59A57823)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\system_stm32l0xx.h)(0x573DEF66)
-F (.\menu\menu.c)(0x5B679BA0)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\menu.o --omf_browse .\objects\menu.crf --depend .\objects\menu.d)
+F (.\menu\menu.c)(0x5B679BA0)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\menu.o --omf_browse .\objects\menu.crf --depend .\objects\menu.d)
 I (menu\menu.h)(0x5B679BA0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6D9A8)
@@ -3197,11 +3199,11 @@ I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
 F (.\menu\menu.h)(0x5B679BA0)()
-F (.\SRAM\MC23A1024.c)(0x5A373E0D)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\mc23a1024.o --omf_browse .\objects\mc23a1024.crf --depend .\objects\mc23a1024.d)
+F (.\SRAM\MC23A1024.c)(0x5A373E0D)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\mc23a1024.o --omf_browse .\objects\mc23a1024.crf --depend .\objects\mc23a1024.d)
 I (SRAM\MC23A1024.h)(0x5A27A1A6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6D9A8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
-I (.\hal\spiHal.h)(0x5B679BA0)
+I (.\hal\spiHal.h)(0x5B6F72B6)
 I (.\hal\gpioHal.h)(0x5A24F1DE)
 I (.\inc\stm32l0xx_hal_gpio.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_def.h)(0x583758E0)
@@ -3215,17 +3217,17 @@ I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\system_stm32l0xx.
 I (.\inc\Legacy/stm32_hal_legacy.h)(0x5838A5D7)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6D9A8)
 I (.\inc\stm32l0xx_hal_gpio_ex.h)(0x583758E0)
-I (.\projectDefines.h)(0x5B6BE40C)
+I (.\projectDefines.h)(0x5B6F72B6)
 I (.\hal\timerHal.h)(0x5B679BA0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
 I (.\inc\stm32l0xx_hal_rcc_ex.h)(0x583758DD)
 F (.\SRAM\MC23A1024.h)(0x5A27A1A6)()
 F (.\selfTest\memorySelfTest.h)(0x5A361EC5)()
-F (.\selfTest\memorySelfTest.c)(0x5A3623F9)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\memoryselftest.o --omf_browse .\objects\memoryselftest.crf --depend .\objects\memoryselftest.d)
+F (.\selfTest\memorySelfTest.c)(0x5A3623F9)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\memoryselftest.o --omf_browse .\objects\memoryselftest.crf --depend .\objects\memoryselftest.d)
 I (.\SRAM\MC23A1024.h)(0x5A27A1A6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6D9A8)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
-I (.\projectDefines.h)(0x5B6BE40C)
+I (.\projectDefines.h)(0x5B6F72B6)
 I (.\hal\uartHal.h)(0x5B679BA0)
 I (.\inc\stm32l0xx_hal_uart.h)(0x5B6279D8)
 I (.\inc\stm32l0xx_hal_def.h)(0x583758E0)
@@ -3243,13 +3245,13 @@ I (.\inc\stm32l0xx_hal_uart_ex.h)(0x583758E0)
 I (.\hal\timerHal.h)(0x5B679BA0)
 I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
 I (.\inc\stm32l0xx_hal_rcc_ex.h)(0x583758DD)
-I (.\hal\spiHal.h)(0x5B679BA0)
+I (.\hal\spiHal.h)(0x5B6F72B6)
 I (.\menu\menu.h)(0x5B679BA0)
 I (.\adc\adc.h)(0x5B629882)
-F (.\adc\adc.c)(0x5B662D65)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\adc.o --omf_browse .\objects\adc.crf --depend .\objects\adc.d)
+F (.\adc\adc.c)(0x5B6F5BD2)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\adc.o --omf_browse .\objects\adc.crf --depend .\objects\adc.d)
 I (adc\adc.h)(0x5B629882)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6D9A8)
-I (.\hal\spiHal.h)(0x5B679BA0)
+I (.\hal\spiHal.h)(0x5B6F72B6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
 I (.\hal\gpioHal.h)(0x5A24F1DE)
 I (.\inc\stm32l0xx_hal_gpio.h)(0x583758E0)
@@ -3270,11 +3272,13 @@ I (.\inc\stm32l0xx_hal_rcc_ex.h)(0x583758DD)
 I (.\inc\stm32l0xx_hal_adc.h)(0x5B629851)
 I (.\inc\stm32l0xx_hal_dma.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_adc_ex.h)(0x583758E0)
+I (.\projectDefines.h)(0x5B6F72B6)
+I (.\globals.h)(0x5B6BE136)
 F (.\adc\adc.h)(0x5B629882)()
-F (.\zigbee\zigbee.c)(0x5B6BBE10)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\zigbee.o --omf_browse .\objects\zigbee.crf --depend .\objects\zigbee.d)
+F (.\zigbee\zigbee.c)(0x5B6BBE10)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\zigbee.o --omf_browse .\objects\zigbee.crf --depend .\objects\zigbee.d)
 I (zigbee\zigbee.h)(0x5B679BA0)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
-I (.\hal\spiHal.h)(0x5B679BA0)
+I (.\hal\spiHal.h)(0x5B6F72B6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6D9A8)
 I (.\hal\gpioHal.h)(0x5A24F1DE)
 I (.\inc\stm32l0xx_hal_gpio.h)(0x583758E0)
@@ -3340,9 +3344,9 @@ I (.\inc\stm32l0xx_hal_wwdg.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
 F (.\zigbee\zigbee.h)(0x5B679BA0)()
-F (.\core\sampler.c)(0x5A376B64)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\sampler.o --omf_browse .\objects\sampler.crf --depend .\objects\sampler.d)
+F (.\core\sampler.c)(0x5A376B64)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\sampler.o --omf_browse .\objects\sampler.crf --depend .\objects\sampler.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6D9A8)
-I (.\projectDefines.h)(0x5B6BE40C)
+I (.\projectDefines.h)(0x5B6F72B6)
 I (.\SRAM\MC23A1024.h)(0x5A27A1A6)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
 I (.\adc\adc.h)(0x5B629882)
@@ -3359,11 +3363,34 @@ I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\system_stm32l0xx.
 I (.\inc\Legacy/stm32_hal_legacy.h)(0x5838A5D7)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6D9A8)
 I (.\inc\stm32l0xx_hal_rcc_ex.h)(0x583758DD)
-I (.\hal\spiHal.h)(0x5B679BA0)
+I (.\hal\spiHal.h)(0x5B6F72B6)
 I (core\sampler.h)(0x5A3761FA)
 I (.\zigbee\zigbee.h)(0x5B679BA0)
 F (.\core\sampler.h)(0x5A3761FA)()
-F (.\powerHal\ldo.c)(0x5B6BC7C5)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\ldo.o --omf_browse .\objects\ldo.crf --depend .\objects\ldo.d)
+F (.\RTOS.c)(0x5B6F5AB8)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\rtos.o --omf_browse .\objects\rtos.crf --depend .\objects\rtos.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6D9A8)
+I (projectDefines.h)(0x5B6F72B6)
+I (.\adc\adc.h)(0x5B629882)
+I (.\hal\timerHal.h)(0x5B679BA0)
+I (.\inc\stm32l0xx_hal_rcc.h)(0x58383EE9)
+I (.\inc\stm32l0xx_hal_def.h)(0x583758E0)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h)(0x573DEF66)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l053xx.h)(0x573DEF66)
+I (.\CMIS\core_cm0plus.h)(0x59A57823)
+I (.\CMIS\core_cmInstr.h)(0x59A57823)
+I (.\CMIS\cmsis_armcc.h)(0x59A57823)
+I (.\CMIS\core_cmFunc.h)(0x59A57823)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\system_stm32l0xx.h)(0x573DEF66)
+I (.\inc\Legacy/stm32_hal_legacy.h)(0x5838A5D7)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6D9A8)
+I (.\inc\stm32l0xx_hal_rcc_ex.h)(0x583758DD)
+I (.\hal\spiHal.h)(0x5B6F72B6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
+I (.\core\sampler.h)(0x5A3761FA)
+I (.\zigbee\zigbee.h)(0x5B679BA0)
+I (RTOS.h)(0x5B6F5973)
+F (.\RTOS.h)(0x5B6F5973)()
+F (.\powerHal\ldo.c)(0x5B6BC7C5)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\ldo.o --omf_browse .\objects\ldo.crf --depend .\objects\ldo.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
 I (.\inc\stm32l0xx_hal.h)(0x5B627913)
 I (.\inc\stm32l0xx_hal_conf.h)(0x583758E0)
@@ -3427,6 +3454,24 @@ I (.\inc\stm32l0xx_hal_pcd.h)(0x583758E0)
 I (.\inc\stm32l0xx_hal_pcd_ex.h)(0x583758E0)
 I (.\zigbee\zigbee.h)(0x5B679BA0)
 I (powerHal\ldo.h)(0x5B6646AB)
-I (.\hal\spiHal.h)(0x5B679BA0)
+I (.\hal\spiHal.h)(0x5B6F72B6)
 I (.\hal\uartHal.h)(0x5B679BA0)
 F (.\powerHal\ldo.h)(0x5B6646AB)()
+F (.\pga.c)(0x5B6F74A5)(--c99 -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\inc -I .\CMIS -I .\hal -I .\menu -I .\SRAM -I .\selfTest -I . -I .\adc -I .\zigbee -I .\core -I .\powerHal -I .\pga-I.\RTE\_motorMonitorPlus-IC:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32L053xx-o .\objects\pga.o --omf_browse .\objects\pga.crf --depend .\objects\pga.d)
+I (pga.h)(0x5B6F6207)
+I (.\hal\spiHal.h)(0x5B6F72B6)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F6D9A8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F6D9A8)
+I (.\inc\stm32l0xx_hal_gpio.h)(0x583758E0)
+I (.\inc\stm32l0xx_hal_def.h)(0x583758E0)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l0xx.h)(0x573DEF66)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\stm32l053xx.h)(0x573DEF66)
+I (.\CMIS\core_cm0plus.h)(0x59A57823)
+I (.\CMIS\core_cmInstr.h)(0x59A57823)
+I (.\CMIS\cmsis_armcc.h)(0x59A57823)
+I (.\CMIS\core_cmFunc.h)(0x59A57823)
+I (C:\Keil_v5\ARM\PACK\Keil\STM32L0xx_DFP\1.6.0\Device\Include\system_stm32l0xx.h)(0x573DEF66)
+I (.\inc\Legacy/stm32_hal_legacy.h)(0x5838A5D7)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F6D9A8)
+I (.\inc\stm32l0xx_hal_gpio_ex.h)(0x583758E0)
+F (.\pga.h)(0x5B6F6207)()

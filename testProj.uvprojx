@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\inc;.\CMIS;.\hal;.\menu;.\SRAM;.\selfTest;.;.\adc;.\zigbee;.\core;.\powerHal</IncludePath>
+              <IncludePath>.\inc;.\CMIS;.\hal;.\menu;.\SRAM;.\selfTest;.;.\adc;.\zigbee;.\core;.\powerHal;.\pga</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -393,6 +393,16 @@
               <FileName>main_fw.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main_fw.c</FilePath>
+            </File>
+            <File>
+              <FileName>globals.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\globals.c</FilePath>
+            </File>
+            <File>
+              <FileName>globals.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\globals.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1359,6 +1369,16 @@
               <FileType>5</FileType>
               <FilePath>.\core\sampler.h</FilePath>
             </File>
+            <File>
+              <FileName>RTOS.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\RTOS.c</FilePath>
+            </File>
+            <File>
+              <FileName>RTOS.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\RTOS.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1373,6 +1393,21 @@
               <FileName>ldo.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\powerHal\ldo.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>PGA</GroupName>
+          <Files>
+            <File>
+              <FileName>pga.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\pga.c</FilePath>
+            </File>
+            <File>
+              <FileName>pga.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\pga.h</FilePath>
             </File>
           </Files>
         </Group>
