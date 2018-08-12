@@ -5,6 +5,7 @@
 #include "sampler.h"
 #include "zigbee.h"
 #include "ldo.h"
+#include "pga.h"
 
 const char newLine						  	= 12;	//line feed in assci
 const char RESQUEST_RESPONSE[]    = "please select an option from above: ";
@@ -257,7 +258,41 @@ bool powerTasks_f()
 }
 
 
+bool pgaTasks_f()
+{
+		static menuOption powerMenu = 
+		{
+			
+			{
+				" Set Gain 1",			//1
+				" Set Gain 2",			//2
+				" Set Gain 10",			//3
+				" Set Gain 16" 			//4
 
+			},
+			
+			4,
+				
+			{	
+				setGainGpa1,
+				setGainGpa2,
+				setGainGpa10,
+				setGainGpa16
+			}
+		};
+
+		
+		printMenu(&powerMenu);
+		
+		printNewLine();
+		uint8_t selected = menuSelect();
+		
+		if(selected < (powerMenu.size))
+				(*powerMenu.nextMenuPointer[selected])();
+		else
+			return 0;
+		return true;
+}
 
 
 	
@@ -275,10 +310,12 @@ bool mainMenu_f()
 				" SRAM spi memory", //4
 				" sampleLoop",
 				" coreTasks",
-				" power menue"
+				" power menue",
+	      " PGA menue"
+
 			},
 			
-			7,
+			8,
 			
 			{	
 				zigbeeMenu_f,
@@ -288,6 +325,7 @@ bool mainMenu_f()
 				sampleLoop_f,
 				coreTask_f,
 				powerTasks_f,
+				pgaTasks_f
 			}
 		};
 

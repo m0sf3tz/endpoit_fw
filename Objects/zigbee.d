@@ -66,3 +66,4 @@
 .\objects\zigbee.o: .\inc\stm32l0xx_hal_wwdg.h
 .\objects\zigbee.o: .\inc\stm32l0xx_hal_pcd.h
 .\objects\zigbee.o: .\inc\stm32l0xx_hal_pcd_ex.h
+.\objects\zigbee.o: .\pga.h

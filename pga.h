@@ -1,3 +1,5 @@
+#pragma once
+#include <stdbool.h>
 typedef enum
 {
 	GAIN_PGA_1,
@@ -12,3 +14,10 @@ typedef enum
 
 
 void setPgaGain(pgaGainSwitch_e gain);
+
+//used in the menu - 
+bool setGainGpa1(void);
+bool setGainGpa2(void);
+bool setGainGpa10(void);
+bool setGainGpa16(void);
+

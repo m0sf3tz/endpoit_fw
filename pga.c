@@ -16,3 +16,28 @@ void setPgaGain(pgaGainSwitch_e gain)
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_PORT, SPI1_NSS_PIN, GPIO_PIN_SET);
 
 }
+
+
+bool setGainGpa1(void)
+{
+	setPgaGain(GAIN_PGA_1);
+	return 1;
+}
+
+bool setGainGpa2(void)
+{
+	setPgaGain(GAIN_PGA_2);
+	return 1;
+}
+
+bool setGainGpa10(void)
+{
+	setPgaGain(GAIN_PGA_10);
+	return 1;
+}
+
+bool setGainGpa16(void)
+{
+	setPgaGain(GAIN_PGA_16);
+	return 1;
+}

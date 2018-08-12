@@ -17,6 +17,7 @@ bool timerMenu_f(void);
 bool adcMenu_f(void);
 bool coreTask_f(void);
 bool powerTasks_f(void);
+bool pgaTasks_f(void);
 
 
 void uartPutMenuAutoCount(const char *pt);

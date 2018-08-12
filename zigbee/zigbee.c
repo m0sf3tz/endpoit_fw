@@ -4,6 +4,7 @@
 #include "timerHal.h"
 #include "uartHal.h"
 #include "ldo.h"
+#include "pga.h"
 
 #define USART_DOZE_PIN    	                  GPIO_PIN_8
 #define USART_DOZE_PORT                       GPIOB
