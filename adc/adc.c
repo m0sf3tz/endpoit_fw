@@ -41,7 +41,10 @@ void initAdc()
 	
 	AdcHandle.Instance = ADC1;
   
-  AdcHandle.Init.OversamplingMode      = DISABLE;
+  AdcHandle.Init.OversamplingMode         = ENABLE;
+  AdcHandle.Init.Oversample.Ratio         = ADC_OVERSAMPLING_RATIO_128;
+  AdcHandle.Init.Oversample.RightBitShift = ADC_RIGHTBITSHIFT_3;
+  AdcHandle.Init.Oversample.TriggeredMode = ADC_TRIGGEREDMODE_SINGLE_TRIGGER;
   
   AdcHandle.Init.ClockPrescaler        = ADC_CLOCK_SYNC_PCLK_DIV1;
   AdcHandle.Init.LowPowerAutoPowerOff  = DISABLE;
@@ -49,7 +52,7 @@ void initAdc()
   AdcHandle.Init.LowPowerAutoWait      = DISABLE;
     
   AdcHandle.Init.Resolution            = ADC_RESOLUTION_12B;
-  AdcHandle.Init.SamplingTime          = ADC_SAMPLETIME_160CYCLES_5;
+  AdcHandle.Init.SamplingTime          = ADC_SAMPLETIME_1CYCLE_5;
   AdcHandle.Init.ScanConvMode          = ADC_SCAN_DIRECTION_FORWARD;
   AdcHandle.Init.DataAlign             = ADC_DATAALIGN_RIGHT;
   AdcHandle.Init.ContinuousConvMode    = DISABLE;
@@ -91,6 +94,9 @@ void initAdc()
 }
 uint16_t getAdcSample()
 {
+	while(true)
+	{
+	
 	HAL_ADC_Start(&AdcHandle);
 	
 	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
@@ -102,6 +108,9 @@ uint16_t getAdcSample()
 	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
 	
 	temp.adc =  HAL_ADC_GetValue(&AdcHandle);
+		
+		debugGpio();
+	}
 }
 
 

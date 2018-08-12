@@ -3,7 +3,8 @@
 
 #pragma once
 
-void initLeds(void);
-void toggleGreenLed(void);
+void initDebugGpio(void);
+void debugGpio(void);
+
 void setGreenLed(bool);
 void gpioSetReset(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, bool value);

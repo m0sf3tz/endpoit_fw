@@ -14,7 +14,6 @@ void setPgaGain(pgaGainSwitch_e gain)
 	spiWrite((uint8_t*)&val, 1, SPI_ANALOG);
 
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_PORT, SPI1_NSS_PIN, GPIO_PIN_SET);
-
 }
 
 
