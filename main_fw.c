@@ -15,6 +15,9 @@
 #include "cpuhal.h"
 #include "pga.h"
 
+//@major TODOS that will BREAK YOUR BOARD - DE-INIT ADC SPI to be comleted
+
+
 int main()
 {
 	initRcc4mhz();
@@ -34,10 +37,10 @@ int main()
 	initAdc();
 	getAdcSample();
 	
-	setPgaGain(	GAIN_PGA_10);
+	setPgaGain(GAIN_PGA_10);
 
 
-	//mainMenu_f();
+	mainMenu_f();
 	
 	while(1)
 	{

@@ -13,8 +13,8 @@ static SPI_HandleTypeDef    SpiHandleMem;
 void initSpis()
 {
 	//bad name - inits GPIOs and CLOCKs
-	initSpiGpios();
-
+	initSpiGpiosDigital();
+	initSpiGpiosAnalog();
 	
 	
 	//configure Memory SPI handle
@@ -63,9 +63,10 @@ void initSpis()
 	
 }
 
-void initSpiGpios()
+
+void initSpiGpiosDigital()
 {
-	  GPIO_InitTypeDef  GPIO_InitStruct;
+	GPIO_InitTypeDef  GPIO_InitStruct;
 
 	//****************************************************************************
 	//											init SPI 2 (MEMORY)
@@ -102,6 +103,10 @@ void initSpiGpios()
 	GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
   HAL_GPIO_Init(SPI2_NSS_GPIO_PORT, &GPIO_InitStruct);  
 	HAL_GPIO_WritePin(SPI2_NSS_GPIO_PORT, SPI2_NSS_PIN, GPIO_PIN_SET);
+}
+
+void initSpiGpiosAnalog()
+{
 
 	//****************************************************************************
 	//											init SPI 1 (ADC+PGA)
@@ -111,6 +116,9 @@ void initSpiGpios()
   SPI1_MOSI_GPIO_CLK_ENABLE();
   SPI1_CLK_ENABLE(); 
   	
+	GPIO_InitTypeDef  GPIO_InitStruct;
+
+	
   /* SPI SCK GPIO pin configuration  */
   GPIO_InitStruct.Pin       = SPI1_SCK_PIN;
   GPIO_InitStruct.Mode      = GPIO_MODE_AF_PP;
@@ -141,49 +149,31 @@ void initSpiGpios()
 }
 
 //puts pins to sleep.
-bool deinitSpiGpios()
+bool deinitSpiGpiosAnalog()
 {
-	
 	GPIO_InitTypeDef  GPIO_InitStruct;
 
-	//****************************************************************************
-	//											init SPI 2
-	//****************************************************************************
-
-	/*##-1- Enable peripherals and GPIO Clocks #################################*/
-  /* Enable GPIO TX/RX clock */
-  SPI2_SCK_GPIO_CLK_ENABLE();
-  SPI2_MISO_GPIO_CLK_ENABLE();
-  SPI2_MOSI_GPIO_CLK_ENABLE();
-  /* Enable SPI clock */
-  SPI2_CLK_ENABLE(); 
-  
-  /*##-2- Configure peripheral GPIO ##########################################*/  
 	
-  /* SPI SCK GPIO pin configuration  */
-  GPIO_InitStruct.Pin       = SPI2_SCK_PIN;
-  GPIO_InitStruct.Mode      = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Speed     = GPIO_SPEED_FREQ_HIGH  ;
-  
-  HAL_GPIO_Init(SPI2_SCK_GPIO_PORT, &GPIO_InitStruct);
-  HAL_GPIO_WritePin(SPI2_NSS_GPIO_PORT, SPI2_NSS_PIN, GPIO_PIN_RESET);
-
+	/* SPI SCK GPIO pin configuration  */
+  GPIO_InitStruct.Pin       = SPI1_SCK_PIN;
+  GPIO_InitStruct.Mode      = GPIO_MODE_INPUT; 
+  HAL_GPIO_Init(SPI1_SCK_GPIO_PORT, &GPIO_InitStruct);
+    		
   /* SPI MISO GPIO pin configuration  */
-  GPIO_InitStruct.Pin = SPI2_MISO_PIN;  
-  HAL_GPIO_Init(SPI2_MISO_GPIO_PORT, &GPIO_InitStruct);
-  HAL_GPIO_WritePin(SPI2_NSS_GPIO_PORT, SPI2_NSS_PIN, GPIO_PIN_RESET);
-
+  GPIO_InitStruct.Pin  = SPI1_MISO_PIN;
+	GPIO_InitStruct.Mode = GPIO_MODE_INPUT; 
+  HAL_GPIO_Init(SPI1_MISO_GPIO_PORT, &GPIO_InitStruct);
+  
   /* SPI MOSI GPIO pin configuration  */
-  GPIO_InitStruct.Pin = SPI2_MOSI_PIN;    
-  HAL_GPIO_Init(SPI2_MOSI_GPIO_PORT, &GPIO_InitStruct);  
-  HAL_GPIO_WritePin(SPI2_NSS_GPIO_PORT, SPI2_NSS_PIN, GPIO_PIN_RESET);
+  GPIO_InitStruct.Pin = SPI1_MOSI_PIN;
+  GPIO_InitStruct.Alternate = GPIO_MODE_INPUT;
+  HAL_GPIO_Init(SPI1_MOSI_GPIO_PORT, &GPIO_InitStruct);    
 
-  /* SPI CS GPIO pin configuration  */
-  GPIO_InitStruct.Pin = SPI2_NSS_PIN;  
-	GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
-  HAL_GPIO_Init(SPI2_NSS_GPIO_PORT, &GPIO_InitStruct);  
-	HAL_GPIO_WritePin(SPI2_NSS_GPIO_PORT, SPI2_NSS_PIN, GPIO_PIN_RESET);
-	
+	/* SPI CS GPIO pin configuration  */
+  GPIO_InitStruct.Pin   = SPI1_NSS_PIN;  
+	GPIO_InitStruct.Mode  = GPIO_MODE_INPUT;
+  HAL_GPIO_Init(SPI1_NSS_GPIO_PORT, &GPIO_InitStruct);  
+
 	return true;
 }
 

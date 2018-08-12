@@ -63,9 +63,16 @@ typedef enum
 	SPI_ANALOG,
 }spiChanel_e;
 
+
+
+
 void initSpis(void);
-void initSpiGpios(void);
-bool deinitSpiGpios(void);
+
+void initSpiGpiosDigital(void);
+void initSpiGpiosAnalog(void);
+
+bool deinitSpiGpiosAnalog(void);
+
 void spiWrite(uint8_t * data, uint32_t num, spiChanel_e spi);
 void spiPutByte(spiChanel_e chan, uint8_t data);
 void spiPut(spiChanel_e chan, uint32_t len, uint8_t * data);

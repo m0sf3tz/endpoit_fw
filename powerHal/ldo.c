@@ -14,14 +14,14 @@
 bool enableSamplingSupply()
 {
 	 HAL_GPIO_WritePin(SAMPLNG_SUPPLY_PORT, SAMPLNG_SUPPLY_PIN, GPIO_PIN_SET); 
-	 //initUartClocksAndPins();
+	 initSpiGpiosAnalog();
 	 return true;
 }
 
 bool disableSamplingSupply()
 {
 	 HAL_GPIO_WritePin(SAMPLNG_SUPPLY_PORT, SAMPLNG_SUPPLY_PIN, GPIO_PIN_RESET); 
-   //deinitUartPins();
+	 deinitSpiGpiosAnalog();
 	 return true;
 }
 
