@@ -22,7 +22,6 @@ int main()
 {
 	initRcc4mhz();
 	
-
 	timerInit();
 	//initSysTick();
 	
@@ -32,9 +31,7 @@ int main()
 	/****************************************/
 	//		WILL BREAK UUART 									
   //****************************************/
-
-  initDebugGpio();
-	
+  //initDebugGpio();
 	/****************************************/
 	//		WILL BREAK UUART 									
   //****************************************/
@@ -49,9 +46,7 @@ int main()
 	initZigbeeGpioPins();
 	iniLdoClocksAndPins();
 	enableSamplingSupply();
-
 	initAdc();
-	
 	mainMenu_f();
 	
 }

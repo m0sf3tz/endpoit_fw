@@ -42,8 +42,8 @@ void initAdc()
 	AdcHandle.Instance = ADC1;
   
   AdcHandle.Init.OversamplingMode         = ENABLE;
-  AdcHandle.Init.Oversample.Ratio         = ADC_OVERSAMPLING_RATIO_128;
-  AdcHandle.Init.Oversample.RightBitShift = ADC_RIGHTBITSHIFT_3;
+  AdcHandle.Init.Oversample.Ratio         = ADC_OVERSAMPLING_RATIO_32;
+  AdcHandle.Init.Oversample.RightBitShift = ADC_RIGHTBITSHIFT_2;
   AdcHandle.Init.Oversample.TriggeredMode = ADC_TRIGGEREDMODE_SINGLE_TRIGGER;
   
   AdcHandle.Init.ClockPrescaler        = ADC_CLOCK_SYNC_PCLK_DIV1;
@@ -76,41 +76,34 @@ void initAdc()
   
   /* ### - 3 - Channel configuration ######################################## */
 	
-	//vCap
-  sConfig.Channel = ADC_CHANNEL_0;    
-  if (HAL_ADC_ConfigChannel(&AdcHandle, &sConfig) != HAL_OK)
-  {
-    ASSERT(0);
-  }
-	
+
 	//vSignal
   sConfig.Channel = ADC_CHANNEL_6;    
   if (HAL_ADC_ConfigChannel(&AdcHandle, &sConfig) != HAL_OK)
   {
     ASSERT(0);
   }
-	
 
+	//vCap
+  sConfig.Channel = ADC_CHANNEL_0;    
+  if (HAL_ADC_ConfigChannel(&AdcHandle, &sConfig) != HAL_OK)
+  {
+    ASSERT(0);
+  }
 }
+
+//unfortuantly since the ADC needs to watch 2 different channels everytime we need a sample we need to read both channels
 uint16_t getAdcSample()
 {
-	while(true)
-	{
-	
 	HAL_ADC_Start(&AdcHandle);
-	
 	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
-	
-	temp.capVoltage =  HAL_ADC_GetValue(&AdcHandle);
-	
-	HAL_ADC_Start(&AdcHandle);
-
-	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
-	
 	temp.adc =  HAL_ADC_GetValue(&AdcHandle);
-		
-		debugGpio();
-	}
+	
+	HAL_ADC_Start(&AdcHandle);
+	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
+	temp.capVoltage =  HAL_ADC_GetValue(&AdcHandle);
+	 
+	return temp.capVoltage;
 }
 
 

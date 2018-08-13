@@ -6,6 +6,8 @@
 #include "spiHal.h"
 #include "sampler.h"
 #include "zigbee.h"
+#include "cpuHal.h"
+#include "gpioHal.h"
 
 static uint16_t 			    adcSamples [ADC_SAMPLES_PER_BLOCK];
 volatile static char      txUartBlock[BLOCK_UART_ZIGBEE];
@@ -56,7 +58,7 @@ bool memToBuffer(uint16_t block )
 	
 	if( (block) >= (SPI_TOTAL_SRAM_TOTAL_BLOCKS) )
 	{
-		while(1){}
+		ASSERT(0);
 	}
 		
 	spiMemPrepSequentialRead(block);
@@ -89,14 +91,25 @@ bool bufferToZigbee(uint16_t block )
 
 bool multiSectorSpiMemFillShim()
 {
-	 multiSectorSpiMemFill(SPI_TOTAL_SRAM_TOTAL_BLOCKS, 0);
+	 taskSample();
    return 0;
 }
 
+
+void taskSample(void)
+{
+	initRcc32mhz();
+	multiSectorSpiMemFill(MOTOR_EYE_SAMPLE_BLOCKS,FIRST_SECTOR_SPI);
+	initRcc4mhz(); 
+}
+
+
 //multi block
+//at 32Mhz this samples at 2.1Khz
 bool multiSectorSpiMemFill(uint16_t numOfBlocks, uint16_t block)
 {
-	uint16_t tmpVal,i;
+
+	uint16_t tmpVal, i;
 	spiMemPrepSequentialWrite(block);
 	
 	i =0;
@@ -107,18 +120,19 @@ bool multiSectorSpiMemFill(uint16_t numOfBlocks, uint16_t block)
 		writeByteSpiLld(SPI_MEM,tmpVal);
 		writeByteSpiLld(SPI_MEM,tmpVal>>8);
 					
-		timerDelayUsDirty(US_DELAY_10US);
 		i++;
+		debugGpio();
 	}
 	
 	spiMemFinalizeSequential();
+
 	return 0;
 }
 
 bool streamAllSPiZigbee()
 {
 	int i = 0;
-	while(i!=SPI_TOTAL_SRAM_TOTAL_BLOCKS)
+	while(i!=MOTOR_EYE_SAMPLE_BLOCKS)
 	{
 		memToBuffer(i);
 		zigbeeWrite( (const char*)txUartBlock, BLOCK_UART_ZIGBEE);	

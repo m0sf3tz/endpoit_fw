@@ -47,7 +47,7 @@ void zigbeeWrite(const char * dat, int len)
 {
 	ZIGBEE_WAKE();
 	
-	timerDelayUs(14000);
+	timerDelayUs(15000);
 	uartPut(dat,len);
 	
 	ZIGBEE_DOZE();

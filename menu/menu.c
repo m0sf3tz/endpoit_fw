@@ -123,10 +123,10 @@ bool coreTask_f()
 		{
 			
 			{
-				" Read first sector into a uart sendBuffer",				//1
-				" Fill a buffer, fill it with MEM, and Zigbee it up ", 
-				" Fill entire buffer",
-				" Zigbee entire buffer up"
+				" Read first sector into a uart sendBuffer (not maintined)",				//1
+				" Fill a buffer, fill it with MEM, and Zigbee it up (not maintined)", 
+				" Fill   up 20 blocks of memory from the on-die ADC",
+				" Zigbee up 20 sectors up"
 			},
 			
 			4,

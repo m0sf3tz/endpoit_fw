@@ -20,3 +20,7 @@
 .\objects\sampler.o: .\hal\spiHal.h
 .\objects\sampler.o: core\sampler.h
 .\objects\sampler.o: .\zigbee\zigbee.h
+.\objects\sampler.o: .\hal\cpuHal.h
+.\objects\sampler.o: .\hal\gpioHal.h
+.\objects\sampler.o: .\inc\stm32l0xx_hal_gpio.h
+.\objects\sampler.o: .\inc\stm32l0xx_hal_gpio_ex.h
