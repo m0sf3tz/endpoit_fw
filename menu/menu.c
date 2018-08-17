@@ -7,6 +7,7 @@
 #include "ldo.h"
 #include "pga.h"
 #include "adc.h"
+#include "sectorLogic.h"
 
 const char newLine						  	= 12;	//line feed in assci
 const char RESQUEST_RESPONSE[]    = "please select an option from above: ";
@@ -126,16 +127,18 @@ bool coreTask_f()
 				" Read first sector into a uart sendBuffer (not maintined)",				//1
 				" Fill a buffer, fill it with MEM, and Zigbee it up (not maintined)", 
 				" Fill   up 20 blocks of memory from the on-die ADC",
-				" Zigbee up 20 sectors up"
+				" Zigbee up 20 sectors up",
+				" Zigbee up one sector (multiple blocks) + CRC + other stuff"
 			},
 			
-			4,
+			5,
 				
 			{	
 				fillBlockMenuShim,
 				bufferToZigbeeShim,
 				multiSectorSpiMemFillShim,
-				streamAllSPiZigbee
+				streamAllSPiZigbee,
+				sectorBufToZigbee
 			}
 		};
 

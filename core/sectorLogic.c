@@ -21,11 +21,17 @@ void sectorSetHeader(bool initial)
 		{
 			txUartSector[NEW_TRASMITION_HEADER_B0_INDEX] = NEW_TRASMITION_HEADER_B0;
 			txUartSector[NEW_TRASMITION_HEADER_B1_INDEX] = NEW_TRASMITION_HEADER_B1;
+			txUartSector[NEW_TRASMITION_HEADER_B2_INDEX] = NEW_TRASMITION_HEADER_B2;
+			txUartSector[NEW_TRASMITION_HEADER_B3_INDEX] = NEW_TRASMITION_HEADER_B3;
+			txUartSector[NEW_TRASMITION_HEADER_B4_INDEX] = NEW_TRASMITION_HEADER_B4;
 		}
 		else
 		{
 			txUartSector[TRASMITION_HEADER_B0_INDEX]  = TRASMITION_HEADER_B0;
 			txUartSector[TRASMITION_HEADER_B1_INDEX]  = TRASMITION_HEADER_B1;
+			txUartSector[TRASMITION_HEADER_B2_INDEX]  = TRASMITION_HEADER_B2;
+			txUartSector[TRASMITION_HEADER_B3_INDEX]  = TRASMITION_HEADER_B3;
+			txUartSector[TRASMITION_HEADER_B4_INDEX]  = TRASMITION_HEADER_B4;
 		}
 }
 
@@ -59,17 +65,25 @@ void sectorSetTerminator(bool final)
 		{
 			txUartSector[FINAL_STOP_SEQUENCE_B0_INDEX] = FINAL_STOP_SEQUENCE_B0;
 			txUartSector[FINAL_STOP_SEQUENCE_B1_INDEX] = FINAL_STOP_SEQUENCE_B1;
+  		txUartSector[FINAL_STOP_SEQUENCE_B2_INDEX] = FINAL_STOP_SEQUENCE_B2;
+			txUartSector[FINAL_STOP_SEQUENCE_B3_INDEX] = FINAL_STOP_SEQUENCE_B3;
+			txUartSector[FINAL_STOP_SEQUENCE_B4_INDEX] = FINAL_STOP_SEQUENCE_B4;
+
 		}
 		else
 		{
 			txUartSector[STOP_SEQUENCE_B0_INDEX] = STOP_SEQUENCE_B0;
 			txUartSector[STOP_SEQUENCE_B1_INDEX] = STOP_SEQUENCE_B1;
+			txUartSector[STOP_SEQUENCE_B2_INDEX] = STOP_SEQUENCE_B2;
+			txUartSector[STOP_SEQUENCE_B3_INDEX] = STOP_SEQUENCE_B3;
+			txUartSector[STOP_SEQUENCE_B4_INDEX] = STOP_SEQUENCE_B4;
 		}
 }
 
 
 bool memToBuffer(uint16_t block )
 {
+	initRcc32mhz();
 	
 	if( (block) >= (SPI_TOTAL_SRAM_TOTAL_BLOCKS) )
 	{
@@ -79,7 +93,7 @@ bool memToBuffer(uint16_t block )
 	spiMemPrepSequentialRead(block);
 	uint32_t byteOffset = DATA_0_INDEX;
 	
-	while(byteOffset!=SECTOR_DATA_SIZE)
+	while(byteOffset!=DATA_0_INDEX+DATA_SIZE)
 	{
 		txUartSector[byteOffset] = readByteSpiLld(SPI_MEM);
 		byteOffset++;
@@ -87,6 +101,8 @@ bool memToBuffer(uint16_t block )
 	
 	spiMemFinalizeSequential();
 	
+	initRcc4mhz();
+
 	return true;
 }	
 
@@ -139,10 +155,19 @@ bool bufferToZigbeeShim()
 
 bool bufferToZigbee(uint16_t block )
 {
+	//deprecated
 	memToBuffer(block);
 	zigbeeWrite( (const char*)adcSamples, SECTOR_DATA_SIZE);	
 	return true;
 }	
+
+//reads block 0-8 into the data region of a tx-buffer and zigbees it up **
+bool sectorBufToZigbee()
+{
+  	memToBuffer(0);
+	  zigbeeWrite( (const char*)txUartSector, TRASMIT_BLOCK_SIZE);		
+	  return true;
+}
 
 
 bool multiSectorSpiMemFillShim()

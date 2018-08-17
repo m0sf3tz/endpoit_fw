@@ -68,3 +68,4 @@
 .\objects\menu.o: .\inc\stm32l0xx_hal_pcd_ex.h
 .\objects\menu.o: .\pga.h
 .\objects\menu.o: .\adc\adc.h
+.\objects\menu.o: .\core\sectorLogic.h

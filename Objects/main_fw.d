@@ -72,3 +72,4 @@
 .\objects\main_fw.o: .\zigbee\zigbee.h
 .\objects\main_fw.o: .\hal\cpuhal.h
 .\objects\main_fw.o: pga.h
+.\objects\main_fw.o: .\core\sectorLogic.h

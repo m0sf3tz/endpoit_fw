@@ -1370,14 +1370,34 @@
               <FilePath>.\core\sampler.h</FilePath>
             </File>
             <File>
+              <FileName>sectorLogic.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\core\sectorLogic.h</FilePath>
+            </File>
+            <File>
+              <FileName>crc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\core\crc.c</FilePath>
+            </File>
+            <File>
+              <FileName>crc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\core\crc.h</FilePath>
+            </File>
+            <File>
               <FileName>RTOS.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\RTOS.c</FilePath>
+              <FilePath>.\core\RTOS.c</FilePath>
             </File>
             <File>
               <FileName>RTOS.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\RTOS.h</FilePath>
+              <FilePath>.\core\RTOS.h</FilePath>
+            </File>
+            <File>
+              <FileName>sectorLogic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\core\sectorLogic.c</FilePath>
             </File>
           </Files>
         </Group>

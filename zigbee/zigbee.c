@@ -5,6 +5,7 @@
 #include "uartHal.h"
 #include "ldo.h"
 #include "pga.h"
+#include "ldo.h"
 
 #define USART_DOZE_PIN    	                  GPIO_PIN_8
 #define USART_DOZE_PORT                       GPIOB
@@ -42,15 +43,20 @@ bool ZIGBEE_WAKE()
 }
 
 
-
-void zigbeeWrite(const char * dat, int len)
+//wake zigbee up, wait for things to settle (voltages, etc), send stuff up, go back to sleep
+void zigbeeWrite(const char * dat, int len) 
 {
+	enableSamplingSupply();
+	timerDelayUs(10000); //wait for the supple to stabalize, give time for the module to boot
 	ZIGBEE_WAKE();
-	
-	timerDelayUs(15000);
+	timerDelayUs(14000);
+
 	uartPut(dat,len);
 	
+	timerDelayUs(7500); //wait for drain of FIFO inside module
 	ZIGBEE_DOZE();
+	disableSamplingSupply();
+
 }
 
 bool zigbeeSleep()

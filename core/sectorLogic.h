@@ -25,6 +25,9 @@ bool memToBuffer(uint16_t);
 bool bufferToZigbeeShim(void);
 bool bufferToZigbee(uint16_t block );
 
+//sector stuff (the real deal)
+bool sectorBufToZigbee(void);
+
 
 bool streamAllSPiZigbee(void);
 

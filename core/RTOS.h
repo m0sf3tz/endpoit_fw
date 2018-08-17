@@ -19,7 +19,7 @@ typedef struct
 	bool 	   validSampleStored;
 	bool     currentlySampling;
 	
-	uint32_t blocksRemianing;
+	uint32_t currentBlock;	
 }currentContext_s;
 	
 	
