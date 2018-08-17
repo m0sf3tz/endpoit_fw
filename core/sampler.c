@@ -15,7 +15,7 @@
 void taskSample(void)
 {
 	initRcc32mhz();
-	multiSectorSpiMemFill(MOTOR_EYE_SAMPLE_BLOCKS,FIRST_SECTOR_SPI);
+	multiSectorSpiMemFill(MOTOR_EYE_SAMPLE_BLOCKS,FIRST_BLOCK_SPI);
 	initRcc4mhz(); 
 }
 

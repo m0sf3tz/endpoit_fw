@@ -13,8 +13,9 @@ static ADC_ChannelConfTypeDef        sConfig;
 
 adcRead_s temp;
 
-//vcap = 9.35*(DAC_READ_OUT/0xFFF)*2.5
-//vadc = (DAC_READ_OUT/0xFFF)*2.5
+//vcap = 9.35*(DAC_READ_OUT*2/0xFFF0)*2.5
+//vadc = (2*DAC_READ_OUT/0xFFF0)*2.5
+
 
 void initAdc()
 {
@@ -97,40 +98,34 @@ uint16_t getAdcSample()
 {
 	HAL_ADC_Start(&AdcHandle);
 	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
-	temp.adc =  HAL_ADC_GetValue(&AdcHandle);
+	temp.capVoltage =  HAL_ADC_GetValue(&AdcHandle);
 	
 	HAL_ADC_Start(&AdcHandle);
 	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
-	temp.capVoltage =  HAL_ADC_GetValue(&AdcHandle);
+	temp.adc =  HAL_ADC_GetValue(&AdcHandle);
 	 
-	return temp.capVoltage;
+	return temp.adc;
 }
 
 
 uint16_t getCapVoltage()
 {
-	sConfig.Channel = ADC_CHANNEL_0;    
-  if (HAL_ADC_ConfigChannel(&AdcHandle, &sConfig) != HAL_OK)
-  {
-    ASSERT(0);
-  }
-
+	HAL_ADC_Start(&AdcHandle);
 	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
-	uint16_t retval =  HAL_ADC_GetValue(&AdcHandle);
-
-	sConfig.Channel = ADC_CHANNEL_6;    
-  if (HAL_ADC_ConfigChannel(&AdcHandle, &sConfig) != HAL_OK)
-  {
-    ASSERT(0);
-  }
-	return retval;
+	temp.capVoltage =  HAL_ADC_GetValue(&AdcHandle);
+	
+	HAL_ADC_Start(&AdcHandle);
+	HAL_ADC_PollForConversion(&AdcHandle, 1000000);
+	temp.adc =  HAL_ADC_GetValue(&AdcHandle);
+	 
+	return temp.capVoltage;
 }
 
 bool adcUnitTestOnDie()
 {
 	getAdcSample();
 	
-	uint16_t val =  temp.adc;
+	uint16_t val =  temp.capVoltage;
 
 	clearScreen();
 	printStars();
@@ -140,7 +135,7 @@ bool adcUnitTestOnDie()
 	
 	UlToStr(valString, val, 4);
 	
-	char tmp[] = "ADC read a value of: ";
+	char tmp[] = "VCAP read a value of: ";
 		
 	uartPutMenu(tmp, sizeof(tmp));
 	uartPutMenu(valString, 4);

@@ -47,7 +47,7 @@ int main()
 	sectorSetEnergyQaulity(0x55);
 	sectorSetCRC(0xBABE);
 	sectorSetTerminator(NOT_FINAL_SECTOR);
-
+initContext();
 
 	initUart();
   timerInitTim21();

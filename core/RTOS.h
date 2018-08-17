@@ -14,13 +14,16 @@ typedef struct
 	states_t currentState;
 	uint16_t sequenceId;
 
-	uint32_t capVolate;
+	uint32_t capVoltage;
 	
 	bool 	   validSampleStored;
 	bool     currentlySampling;
 	
 	uint32_t currentBlock;	
+	
 }currentContext_s;
 	
 	
 states_t nextState(void);
+void initContext();
+void kernal();

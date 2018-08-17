@@ -23,6 +23,7 @@ Section Cross References
     main_fw.o(i.main) refers to sectorlogic.o(i.sectorSetEnergyQaulity) for sectorSetEnergyQaulity
     main_fw.o(i.main) refers to sectorlogic.o(i.sectorSetCRC) for sectorSetCRC
     main_fw.o(i.main) refers to sectorlogic.o(i.sectorSetTerminator) for sectorSetTerminator
+    main_fw.o(i.main) refers to rtos.o(i.initContext) for initContext
     main_fw.o(i.main) refers to uarthal.o(i.initUart) for initUart
     main_fw.o(i.main) refers to timerhal.o(i.timerInitTim21) for timerInitTim21
     main_fw.o(i.main) refers to spihal.o(i.initSpis) for initSpis
@@ -1231,11 +1232,11 @@ Section Cross References
     adc.o(i.getAdcSample) refers to stm32l0xx_hal_adc.o(i.HAL_ADC_GetValue) for HAL_ADC_GetValue
     adc.o(i.getAdcSample) refers to adc.o(.bss) for AdcHandle
     adc.o(i.getAdcSample) refers to adc.o(.data) for temp
-    adc.o(i.getCapVoltage) refers to stm32l0xx_hal_adc.o(i.HAL_ADC_ConfigChannel) for HAL_ADC_ConfigChannel
+    adc.o(i.getCapVoltage) refers to stm32l0xx_hal_adc.o(i.HAL_ADC_Start) for HAL_ADC_Start
     adc.o(i.getCapVoltage) refers to stm32l0xx_hal_adc.o(i.HAL_ADC_PollForConversion) for HAL_ADC_PollForConversion
     adc.o(i.getCapVoltage) refers to stm32l0xx_hal_adc.o(i.HAL_ADC_GetValue) for HAL_ADC_GetValue
-    adc.o(i.getCapVoltage) refers to adc.o(.data) for sConfig
     adc.o(i.getCapVoltage) refers to adc.o(.bss) for AdcHandle
+    adc.o(i.getCapVoltage) refers to adc.o(.data) for temp
     adc.o(i.initAdc) refers to stm32l0xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
     adc.o(i.initAdc) refers to stm32l0xx_hal_adc.o(i.HAL_ADC_Init) for HAL_ADC_Init
     adc.o(i.initAdc) refers to stm32l0xx_hal_adc_ex.o(i.HAL_ADCEx_Calibration_Start) for HAL_ADCEx_Calibration_Start
@@ -1268,6 +1269,8 @@ Section Cross References
     sampler.o(i.taskSample) refers to cpuhal.o(i.initRcc4mhz) for initRcc4mhz
     crc.o(i.crc16_ccitt) refers to crc.o(.constdata) for crc16tab
     crc.o(i.crc8) refers to crc.o(.data) for crc8_table
+    rtos.o(i.initContext) refers to rtos.o(.bss) for currentContext
+    rtos.o(i.kernal) refers to rtos.o(i.initContext) for initContext
     sectorlogic.o(i.bufferToZigbee) refers to sectorlogic.o(i.memToBuffer) for memToBuffer
     sectorlogic.o(i.bufferToZigbee) refers to zigbee.o(i.zigbeeWrite) for zigbeeWrite
     sectorlogic.o(i.bufferToZigbee) refers to sectorlogic.o(.bss) for adcSamples
@@ -2467,7 +2470,7 @@ Removing Unused input sections from the image.
     Removing memoryselftest.o(i.spiSramToUartUnitTest), (4 bytes).
     Removing adc.o(.rev16_text), (4 bytes).
     Removing adc.o(.revsh_text), (4 bytes).
-    Removing adc.o(i.getCapVoltage), (84 bytes).
+    Removing adc.o(i.getCapVoltage), (68 bytes).
     Removing zigbee.o(.rev16_text), (4 bytes).
     Removing zigbee.o(.revsh_text), (4 bytes).
     Removing sampler.o(.rev16_text), (4 bytes).
@@ -2478,6 +2481,7 @@ Removing Unused input sections from the image.
     Removing crc.o(.data), (256 bytes).
     Removing rtos.o(.rev16_text), (4 bytes).
     Removing rtos.o(.revsh_text), (4 bytes).
+    Removing rtos.o(i.kernal), (8 bytes).
     Removing rtos.o(i.nextState), (2 bytes).
     Removing sectorlogic.o(.rev16_text), (4 bytes).
     Removing sectorlogic.o(.revsh_text), (4 bytes).
@@ -2488,7 +2492,7 @@ Removing Unused input sections from the image.
     Removing pga.o(.revsh_text), (4 bytes).
     Removing stm32l0xx_hal_tim.o(i.__ARM_common_switch8), (28 bytes).
 
-1064 unused section(s) (total 90180 bytes) removed from the image.
+1065 unused section(s) (total 90172 bytes) removed from the image.
 
 ==============================================================================
 
@@ -2505,56 +2509,56 @@ Image Symbol Table
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_idiv0.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_idiv0_sigfpe.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_idiv0.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_div0.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0_sigfpe.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  aeabi_ldiv0.o ABSOLUTE
     ../clib/angel/scatterp.s                 0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  tempstk.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/division.c                       0x00000000   Number         0  lludiv.o ABSOLUTE
-    ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv_div0.o ABSOLUTE
     ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv.o ABSOLUTE
+    ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv_div0.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
+    ../clib/memcpset.c                       0x00000000   Number         0  rt_memcpy.o ABSOLUTE
     ../clib/memcpset.c                       0x00000000   Number         0  rt_memcpy.o ABSOLUTE
     ../clib/memcpset.c                       0x00000000   Number         0  rt_memclr.o ABSOLUTE
-    ../clib/memcpset.c                       0x00000000   Number         0  rt_memcpy.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
@@ -2763,8 +2767,8 @@ Image Symbol Table
     .text                                    0x08000460   Section        8  libspace.o(.text)
     .text                                    0x08000468   Section        0  sys_exit.o(.text)
     .text                                    0x08000474   Section        2  use_no_semi.o(.text)
-    .text                                    0x08000476   Section        0  indicate_semi.o(.text)
     .text                                    0x08000476   Section        0  __dczerorl2.o(.text)
+    .text                                    0x08000476   Section        0  indicate_semi.o(.text)
     i.ADC_DelayMicroSecond                   0x080004cc   Section        0  stm32l0xx_hal_adc.o(i.ADC_DelayMicroSecond)
     ADC_DelayMicroSecond                     0x080004cd   Thumb Code    34  stm32l0xx_hal_adc.o(i.ADC_DelayMicroSecond)
     i.ADC_Enable                             0x080004f8   Section        0  stm32l0xx_hal_adc.o(i.ADC_Enable)
@@ -2840,79 +2844,80 @@ Image Symbol Table
     i.hash                                   0x08003078   Section        0  globals.o(i.hash)
     i.iniLdoClocksAndPins                    0x08003098   Section        0  ldo.o(i.iniLdoClocksAndPins)
     i.initAdc                                0x080030e8   Section        0  adc.o(i.initAdc)
-    i.initRcc32mhz                           0x080031e8   Section        0  cpuhal.o(i.initRcc32mhz)
-    i.initRcc4mhz                            0x0800327c   Section        0  cpuhal.o(i.initRcc4mhz)
-    i.initSpiGpiosAnalog                     0x080032f8   Section        0  spihal.o(i.initSpiGpiosAnalog)
-    i.initSpiGpiosDigital                    0x080033c8   Section        0  spihal.o(i.initSpiGpiosDigital)
-    i.initSpis                               0x08003494   Section        0  spihal.o(i.initSpis)
-    i.initUart                               0x08003558   Section        0  uarthal.o(i.initUart)
-    i.initUartPinsMenu                       0x08003678   Section        0  uarthal.o(i.initUartPinsMenu)
-    i.initUartPinsZigbee                     0x080036b0   Section        0  uarthal.o(i.initUartPinsZigbee)
-    i.initZigbeeGpioPins                     0x080036e8   Section        0  zigbee.o(i.initZigbeeGpioPins)
-    i.main                                   0x08003738   Section        0  main_fw.o(i.main)
-    i.mainMenu_f                             0x08003798   Section        0  menu.o(i.mainMenu_f)
-    i.memToBuffer                            0x080037c4   Section        0  sectorlogic.o(i.memToBuffer)
-    i.menuSelect                             0x0800380c   Section        0  menu.o(i.menuSelect)
-    menuSelect                               0x0800380d   Thumb Code    54  menu.o(i.menuSelect)
-    i.multiSectorSpiMemFill                  0x08003848   Section        0  sampler.o(i.multiSectorSpiMemFill)
-    i.multiSectorSpiMemFillShim              0x08003880   Section        0  sectorlogic.o(i.multiSectorSpiMemFillShim)
-    i.pgaTasks_f                             0x0800388c   Section        0  menu.o(i.pgaTasks_f)
-    i.powerTasks_f                           0x080038c0   Section        0  menu.o(i.powerTasks_f)
-    i.printMenu                              0x080038f4   Section        0  menu.o(i.printMenu)
-    i.printNewLine                           0x0800393c   Section        0  menu.o(i.printNewLine)
-    i.printStars                             0x08003958   Section        0  menu.o(i.printStars)
-    i.putChar                                0x08003978   Section        0  mc23a1024.o(i.putChar)
-    i.readByteSpiLld                         0x08003988   Section        0  spihal.o(i.readByteSpiLld)
-    i.sampleLoop_f                           0x080039d4   Section        0  menu.o(i.sampleLoop_f)
-    i.sectorBufToZigbee                      0x080039d8   Section        0  sectorlogic.o(i.sectorBufToZigbee)
-    i.sectorSetCRC                           0x080039f4   Section        0  sectorlogic.o(i.sectorSetCRC)
-    i.sectorSetCapVoltage                    0x08003a04   Section        0  sectorlogic.o(i.sectorSetCapVoltage)
-    i.sectorSetEnergyQaulity                 0x08003a14   Section        0  sectorlogic.o(i.sectorSetEnergyQaulity)
-    i.sectorSetHeader                        0x08003a20   Section        0  sectorlogic.o(i.sectorSetHeader)
-    i.sectorSetSequenceId                    0x08003a58   Section        0  sectorlogic.o(i.sectorSetSequenceId)
-    i.sectorSetTerminator                    0x08003a68   Section        0  sectorlogic.o(i.sectorSetTerminator)
-    i.setGainGpa1                            0x08003aa4   Section        0  pga.o(i.setGainGpa1)
-    i.setGainGpa10                           0x08003ab0   Section        0  pga.o(i.setGainGpa10)
-    i.setGainGpa16                           0x08003abc   Section        0  pga.o(i.setGainGpa16)
-    i.setGainGpa2                            0x08003ac8   Section        0  pga.o(i.setGainGpa2)
-    i.setMode                                0x08003ad4   Section        0  mc23a1024.o(i.setMode)
-    i.setPgaGain                             0x08003aee   Section        0  pga.o(i.setPgaGain)
-    i.sleepWFImultiplesOf1000ms              0x08003b20   Section        0  timerhal.o(i.sleepWFImultiplesOf1000ms)
-    i.spiMemFinalizeSequential               0x08003b98   Section        0  mc23a1024.o(i.spiMemFinalizeSequential)
-    i.spiMemPrepSequentialRead               0x08003ba0   Section        0  mc23a1024.o(i.spiMemPrepSequentialRead)
-    i.spiMemPrepSequentialWrite              0x08003bb8   Section        0  mc23a1024.o(i.spiMemPrepSequentialWrite)
-    i.spiMem_f                               0x08003bd0   Section        0  menu.o(i.spiMem_f)
-    i.spiPut                                 0x08003c00   Section        0  spihal.o(i.spiPut)
-    i.spiPutByte                             0x08003c34   Section        0  spihal.o(i.spiPutByte)
-    i.spiPutGet                              0x08003c64   Section        0  spihal.o(i.spiPutGet)
-    i.spiReadDMASequentialInit               0x08003ca0   Section        0  mc23a1024.o(i.spiReadDMASequentialInit)
-    i.spiWalkTest                            0x08003cc8   Section        0  memoryselftest.o(i.spiWalkTest)
-    i.spiWalkTestRegisterSequentialMode      0x08003d7c   Section        0  memoryselftest.o(i.spiWalkTestRegisterSequentialMode)
-    i.spiWrite                               0x08003ea4   Section        0  spihal.o(i.spiWrite)
-    i.spiWriteDMASequentialFinalize          0x08003ef0   Section        0  mc23a1024.o(i.spiWriteDMASequentialFinalize)
-    i.spiWriteDMASequentialInit              0x08003ef8   Section        0  mc23a1024.o(i.spiWriteDMASequentialInit)
-    i.streamAllSPiZigbee                     0x08003f1e   Section        0  sampler.o(i.streamAllSPiZigbee)
-    i.taskSample                             0x08003f24   Section        0  sampler.o(i.taskSample)
-    i.timerDelayUs                           0x08003f38   Section        0  timerhal.o(i.timerDelayUs)
-    i.timerDelayUsDirty                      0x08003fc0   Section        0  timerhal.o(i.timerDelayUsDirty)
-    i.timerInit                              0x08003fd0   Section        0  timerhal.o(i.timerInit)
-    i.timerInitTim21                         0x08004000   Section        0  timerhal.o(i.timerInitTim21)
-    i.timerMenu_f                            0x08004020   Section        0  menu.o(i.timerMenu_f)
-    i.uartGetMenu                            0x08004024   Section        0  uarthal.o(i.uartGetMenu)
-    i.uartPut                                0x08004040   Section        0  uarthal.o(i.uartPut)
-    i.uartPutMenu                            0x0800405c   Section        0  uarthal.o(i.uartPutMenu)
-    i.uartPutMenuAutoCount                   0x08004078   Section        0  menu.o(i.uartPutMenuAutoCount)
-    i.writeByteSpiLld                        0x08004090   Section        0  spihal.o(i.writeByteSpiLld)
-    i.writeByteSram                          0x080040cc   Section        0  mc23a1024.o(i.writeByteSram)
-    i.zigbeeMenu_f                           0x08004100   Section        0  menu.o(i.zigbeeMenu_f)
-    i.zigbeeSleep                            0x08004134   Section        0  zigbee.o(i.zigbeeSleep)
-    i.zigbeeTestSendIncrementing             0x08004158   Section        0  zigbee.o(i.zigbeeTestSendIncrementing)
-    i.zigbeeWake                             0x08004184   Section        0  zigbee.o(i.zigbeeWake)
-    i.zigbeeWrite                            0x080041bc   Section        0  zigbee.o(i.zigbeeWrite)
-    .constdata                               0x080041fc   Section       33  system_stm32l0xx.o(.constdata)
-    .constdata                               0x0800421d   Section       39  menu.o(.constdata)
-    .conststring                             0x08004244   Section      761  menu.o(.conststring)
-    .conststring                             0x08004540   Section      144  memoryselftest.o(.conststring)
+    i.initContext                            0x080031e8   Section        0  rtos.o(i.initContext)
+    i.initRcc32mhz                           0x080031fc   Section        0  cpuhal.o(i.initRcc32mhz)
+    i.initRcc4mhz                            0x08003290   Section        0  cpuhal.o(i.initRcc4mhz)
+    i.initSpiGpiosAnalog                     0x0800330c   Section        0  spihal.o(i.initSpiGpiosAnalog)
+    i.initSpiGpiosDigital                    0x080033dc   Section        0  spihal.o(i.initSpiGpiosDigital)
+    i.initSpis                               0x080034a8   Section        0  spihal.o(i.initSpis)
+    i.initUart                               0x0800356c   Section        0  uarthal.o(i.initUart)
+    i.initUartPinsMenu                       0x0800368c   Section        0  uarthal.o(i.initUartPinsMenu)
+    i.initUartPinsZigbee                     0x080036c4   Section        0  uarthal.o(i.initUartPinsZigbee)
+    i.initZigbeeGpioPins                     0x080036fc   Section        0  zigbee.o(i.initZigbeeGpioPins)
+    i.main                                   0x0800374c   Section        0  main_fw.o(i.main)
+    i.mainMenu_f                             0x080037b0   Section        0  menu.o(i.mainMenu_f)
+    i.memToBuffer                            0x080037dc   Section        0  sectorlogic.o(i.memToBuffer)
+    i.menuSelect                             0x08003824   Section        0  menu.o(i.menuSelect)
+    menuSelect                               0x08003825   Thumb Code    54  menu.o(i.menuSelect)
+    i.multiSectorSpiMemFill                  0x08003860   Section        0  sampler.o(i.multiSectorSpiMemFill)
+    i.multiSectorSpiMemFillShim              0x08003898   Section        0  sectorlogic.o(i.multiSectorSpiMemFillShim)
+    i.pgaTasks_f                             0x080038a4   Section        0  menu.o(i.pgaTasks_f)
+    i.powerTasks_f                           0x080038d8   Section        0  menu.o(i.powerTasks_f)
+    i.printMenu                              0x0800390c   Section        0  menu.o(i.printMenu)
+    i.printNewLine                           0x08003954   Section        0  menu.o(i.printNewLine)
+    i.printStars                             0x08003970   Section        0  menu.o(i.printStars)
+    i.putChar                                0x08003990   Section        0  mc23a1024.o(i.putChar)
+    i.readByteSpiLld                         0x080039a0   Section        0  spihal.o(i.readByteSpiLld)
+    i.sampleLoop_f                           0x080039ec   Section        0  menu.o(i.sampleLoop_f)
+    i.sectorBufToZigbee                      0x080039f0   Section        0  sectorlogic.o(i.sectorBufToZigbee)
+    i.sectorSetCRC                           0x08003a0c   Section        0  sectorlogic.o(i.sectorSetCRC)
+    i.sectorSetCapVoltage                    0x08003a1c   Section        0  sectorlogic.o(i.sectorSetCapVoltage)
+    i.sectorSetEnergyQaulity                 0x08003a2c   Section        0  sectorlogic.o(i.sectorSetEnergyQaulity)
+    i.sectorSetHeader                        0x08003a38   Section        0  sectorlogic.o(i.sectorSetHeader)
+    i.sectorSetSequenceId                    0x08003a70   Section        0  sectorlogic.o(i.sectorSetSequenceId)
+    i.sectorSetTerminator                    0x08003a80   Section        0  sectorlogic.o(i.sectorSetTerminator)
+    i.setGainGpa1                            0x08003abc   Section        0  pga.o(i.setGainGpa1)
+    i.setGainGpa10                           0x08003ac8   Section        0  pga.o(i.setGainGpa10)
+    i.setGainGpa16                           0x08003ad4   Section        0  pga.o(i.setGainGpa16)
+    i.setGainGpa2                            0x08003ae0   Section        0  pga.o(i.setGainGpa2)
+    i.setMode                                0x08003aec   Section        0  mc23a1024.o(i.setMode)
+    i.setPgaGain                             0x08003b06   Section        0  pga.o(i.setPgaGain)
+    i.sleepWFImultiplesOf1000ms              0x08003b38   Section        0  timerhal.o(i.sleepWFImultiplesOf1000ms)
+    i.spiMemFinalizeSequential               0x08003bb0   Section        0  mc23a1024.o(i.spiMemFinalizeSequential)
+    i.spiMemPrepSequentialRead               0x08003bb8   Section        0  mc23a1024.o(i.spiMemPrepSequentialRead)
+    i.spiMemPrepSequentialWrite              0x08003bd0   Section        0  mc23a1024.o(i.spiMemPrepSequentialWrite)
+    i.spiMem_f                               0x08003be8   Section        0  menu.o(i.spiMem_f)
+    i.spiPut                                 0x08003c18   Section        0  spihal.o(i.spiPut)
+    i.spiPutByte                             0x08003c4c   Section        0  spihal.o(i.spiPutByte)
+    i.spiPutGet                              0x08003c7c   Section        0  spihal.o(i.spiPutGet)
+    i.spiReadDMASequentialInit               0x08003cb8   Section        0  mc23a1024.o(i.spiReadDMASequentialInit)
+    i.spiWalkTest                            0x08003ce0   Section        0  memoryselftest.o(i.spiWalkTest)
+    i.spiWalkTestRegisterSequentialMode      0x08003d94   Section        0  memoryselftest.o(i.spiWalkTestRegisterSequentialMode)
+    i.spiWrite                               0x08003ebc   Section        0  spihal.o(i.spiWrite)
+    i.spiWriteDMASequentialFinalize          0x08003f08   Section        0  mc23a1024.o(i.spiWriteDMASequentialFinalize)
+    i.spiWriteDMASequentialInit              0x08003f10   Section        0  mc23a1024.o(i.spiWriteDMASequentialInit)
+    i.streamAllSPiZigbee                     0x08003f36   Section        0  sampler.o(i.streamAllSPiZigbee)
+    i.taskSample                             0x08003f3c   Section        0  sampler.o(i.taskSample)
+    i.timerDelayUs                           0x08003f50   Section        0  timerhal.o(i.timerDelayUs)
+    i.timerDelayUsDirty                      0x08003fd8   Section        0  timerhal.o(i.timerDelayUsDirty)
+    i.timerInit                              0x08003fe8   Section        0  timerhal.o(i.timerInit)
+    i.timerInitTim21                         0x08004018   Section        0  timerhal.o(i.timerInitTim21)
+    i.timerMenu_f                            0x08004038   Section        0  menu.o(i.timerMenu_f)
+    i.uartGetMenu                            0x0800403c   Section        0  uarthal.o(i.uartGetMenu)
+    i.uartPut                                0x08004058   Section        0  uarthal.o(i.uartPut)
+    i.uartPutMenu                            0x08004074   Section        0  uarthal.o(i.uartPutMenu)
+    i.uartPutMenuAutoCount                   0x08004090   Section        0  menu.o(i.uartPutMenuAutoCount)
+    i.writeByteSpiLld                        0x080040a8   Section        0  spihal.o(i.writeByteSpiLld)
+    i.writeByteSram                          0x080040e4   Section        0  mc23a1024.o(i.writeByteSram)
+    i.zigbeeMenu_f                           0x08004118   Section        0  menu.o(i.zigbeeMenu_f)
+    i.zigbeeSleep                            0x0800414c   Section        0  zigbee.o(i.zigbeeSleep)
+    i.zigbeeTestSendIncrementing             0x08004170   Section        0  zigbee.o(i.zigbeeTestSendIncrementing)
+    i.zigbeeWake                             0x0800419c   Section        0  zigbee.o(i.zigbeeWake)
+    i.zigbeeWrite                            0x080041d4   Section        0  zigbee.o(i.zigbeeWrite)
+    .constdata                               0x08004214   Section       33  system_stm32l0xx.o(.constdata)
+    .constdata                               0x08004235   Section       39  menu.o(.constdata)
+    .conststring                             0x0800425c   Section      761  menu.o(.conststring)
+    .conststring                             0x08004558   Section      144  memoryselftest.o(.conststring)
     .data                                    0x20000000   Section        4  globals.o(.data)
     .data                                    0x20000004   Section        1  timerhal.o(.data)
     generalTimerDone                         0x20000004   Data           1  timerhal.o(.data)
@@ -2940,15 +2945,16 @@ Image Symbol Table
     .bss                                     0x20000468   Section       76  cpuhal.o(.bss)
     .bss                                     0x200004b4   Section       96  adc.o(.bss)
     AdcHandle                                0x200004b4   Data          96  adc.o(.bss)
-    .bss                                     0x20000514   Section     2321  sectorlogic.o(.bss)
-    adcSamples                               0x20000514   Data         256  sectorlogic.o(.bss)
-    txUartSector                             0x20000614   Data        2065  sectorlogic.o(.bss)
-    .bss                                     0x20000e28   Section       96  libspace.o(.bss)
-    HEAP                                     0x20000e88   Section      512  startup.o(HEAP)
-    Heap_Mem                                 0x20000e88   Data         512  startup.o(HEAP)
-    STACK                                    0x20001088   Section     1024  startup.o(STACK)
-    Stack_Mem                                0x20001088   Data        1024  startup.o(STACK)
-    __initial_sp                             0x20001488   Data           0  startup.o(STACK)
+    .bss                                     0x20000514   Section       16  rtos.o(.bss)
+    .bss                                     0x20000524   Section     2321  sectorlogic.o(.bss)
+    adcSamples                               0x20000524   Data         256  sectorlogic.o(.bss)
+    txUartSector                             0x20000624   Data        2065  sectorlogic.o(.bss)
+    .bss                                     0x20000e38   Section       96  libspace.o(.bss)
+    HEAP                                     0x20000e98   Section      512  startup.o(HEAP)
+    Heap_Mem                                 0x20000e98   Data         512  startup.o(HEAP)
+    STACK                                    0x20001098   Section     1024  startup.o(STACK)
+    Stack_Mem                                0x20001098   Data        1024  startup.o(STACK)
+    __initial_sp                             0x20001498   Data           0  startup.o(STACK)
 
     Global Symbols
 
@@ -3151,89 +3157,91 @@ Image Symbol Table
     hash                                     0x08003079   Thumb Code    28  globals.o(i.hash)
     iniLdoClocksAndPins                      0x08003099   Thumb Code    76  ldo.o(i.iniLdoClocksAndPins)
     initAdc                                  0x080030e9   Thumb Code   234  adc.o(i.initAdc)
-    initRcc32mhz                             0x080031e9   Thumb Code   134  cpuhal.o(i.initRcc32mhz)
-    initRcc4mhz                              0x0800327d   Thumb Code   110  cpuhal.o(i.initRcc4mhz)
-    initSpiGpiosAnalog                       0x080032f9   Thumb Code   202  spihal.o(i.initSpiGpiosAnalog)
-    initSpiGpiosDigital                      0x080033c9   Thumb Code   194  spihal.o(i.initSpiGpiosDigital)
-    initSpis                                 0x08003495   Thumb Code   178  spihal.o(i.initSpis)
-    initUart                                 0x08003559   Thumb Code   266  uarthal.o(i.initUart)
-    initUartPinsMenu                         0x08003679   Thumb Code    56  uarthal.o(i.initUartPinsMenu)
-    initUartPinsZigbee                       0x080036b1   Thumb Code    52  uarthal.o(i.initUartPinsZigbee)
-    initZigbeeGpioPins                       0x080036e9   Thumb Code    72  zigbee.o(i.initZigbeeGpioPins)
-    main                                     0x08003739   Thumb Code    82  main_fw.o(i.main)
-    mainMenu_f                               0x08003799   Thumb Code    38  menu.o(i.mainMenu_f)
-    memToBuffer                              0x080037c5   Thumb Code    60  sectorlogic.o(i.memToBuffer)
-    multiSectorSpiMemFill                    0x08003849   Thumb Code    56  sampler.o(i.multiSectorSpiMemFill)
-    multiSectorSpiMemFillShim                0x08003881   Thumb Code    10  sectorlogic.o(i.multiSectorSpiMemFillShim)
-    pgaTasks_f                               0x0800388d   Thumb Code    46  menu.o(i.pgaTasks_f)
-    powerTasks_f                             0x080038c1   Thumb Code    46  menu.o(i.powerTasks_f)
-    printMenu                                0x080038f5   Thumb Code    72  menu.o(i.printMenu)
-    printNewLine                             0x0800393d   Thumb Code    28  menu.o(i.printNewLine)
-    printStars                               0x08003959   Thumb Code    28  menu.o(i.printStars)
-    putChar                                  0x08003979   Thumb Code    14  mc23a1024.o(i.putChar)
-    readByteSpiLld                           0x08003989   Thumb Code    68  spihal.o(i.readByteSpiLld)
-    sampleLoop_f                             0x080039d5   Thumb Code     4  menu.o(i.sampleLoop_f)
-    sectorBufToZigbee                        0x080039d9   Thumb Code    20  sectorlogic.o(i.sectorBufToZigbee)
-    sectorSetCRC                             0x080039f5   Thumb Code    12  sectorlogic.o(i.sectorSetCRC)
-    sectorSetCapVoltage                      0x08003a05   Thumb Code    12  sectorlogic.o(i.sectorSetCapVoltage)
-    sectorSetEnergyQaulity                   0x08003a15   Thumb Code     6  sectorlogic.o(i.sectorSetEnergyQaulity)
-    sectorSetHeader                          0x08003a21   Thumb Code    52  sectorlogic.o(i.sectorSetHeader)
-    sectorSetSequenceId                      0x08003a59   Thumb Code    12  sectorlogic.o(i.sectorSetSequenceId)
-    sectorSetTerminator                      0x08003a69   Thumb Code    56  sectorlogic.o(i.sectorSetTerminator)
-    setGainGpa1                              0x08003aa5   Thumb Code    12  pga.o(i.setGainGpa1)
-    setGainGpa10                             0x08003ab1   Thumb Code    12  pga.o(i.setGainGpa10)
-    setGainGpa16                             0x08003abd   Thumb Code    12  pga.o(i.setGainGpa16)
-    setGainGpa2                              0x08003ac9   Thumb Code    12  pga.o(i.setGainGpa2)
-    setMode                                  0x08003ad5   Thumb Code    26  mc23a1024.o(i.setMode)
-    setPgaGain                               0x08003aef   Thumb Code    50  pga.o(i.setPgaGain)
-    sleepWFImultiplesOf1000ms                0x08003b21   Thumb Code   112  timerhal.o(i.sleepWFImultiplesOf1000ms)
-    spiMemFinalizeSequential                 0x08003b99   Thumb Code     8  mc23a1024.o(i.spiMemFinalizeSequential)
-    spiMemPrepSequentialRead                 0x08003ba1   Thumb Code    24  mc23a1024.o(i.spiMemPrepSequentialRead)
-    spiMemPrepSequentialWrite                0x08003bb9   Thumb Code    24  mc23a1024.o(i.spiMemPrepSequentialWrite)
-    spiMem_f                                 0x08003bd1   Thumb Code    42  menu.o(i.spiMem_f)
-    spiPut                                   0x08003c01   Thumb Code    42  spihal.o(i.spiPut)
-    spiPutByte                               0x08003c35   Thumb Code    38  spihal.o(i.spiPutByte)
-    spiPutGet                                0x08003c65   Thumb Code    52  spihal.o(i.spiPutGet)
-    spiReadDMASequentialInit                 0x08003ca1   Thumb Code    38  mc23a1024.o(i.spiReadDMASequentialInit)
-    spiWalkTest                              0x08003cc9   Thumb Code   114  memoryselftest.o(i.spiWalkTest)
-    spiWalkTestRegisterSequentialMode        0x08003d7d   Thumb Code   174  memoryselftest.o(i.spiWalkTestRegisterSequentialMode)
-    spiWrite                                 0x08003ea5   Thumb Code    64  spihal.o(i.spiWrite)
-    spiWriteDMASequentialFinalize            0x08003ef1   Thumb Code     8  mc23a1024.o(i.spiWriteDMASequentialFinalize)
-    spiWriteDMASequentialInit                0x08003ef9   Thumb Code    38  mc23a1024.o(i.spiWriteDMASequentialInit)
-    streamAllSPiZigbee                       0x08003f1f   Thumb Code     6  sampler.o(i.streamAllSPiZigbee)
-    taskSample                               0x08003f25   Thumb Code    20  sampler.o(i.taskSample)
-    timerDelayUs                             0x08003f39   Thumb Code   120  timerhal.o(i.timerDelayUs)
-    timerDelayUsDirty                        0x08003fc1   Thumb Code    14  timerhal.o(i.timerDelayUsDirty)
-    timerInit                                0x08003fd1   Thumb Code    40  timerhal.o(i.timerInit)
-    timerInitTim21                           0x08004001   Thumb Code    20  timerhal.o(i.timerInitTim21)
-    timerMenu_f                              0x08004021   Thumb Code     4  menu.o(i.timerMenu_f)
-    uartGetMenu                              0x08004025   Thumb Code    22  uarthal.o(i.uartGetMenu)
-    uartPut                                  0x08004041   Thumb Code    22  uarthal.o(i.uartPut)
-    uartPutMenu                              0x0800405d   Thumb Code    22  uarthal.o(i.uartPutMenu)
-    uartPutMenuAutoCount                     0x08004079   Thumb Code    22  menu.o(i.uartPutMenuAutoCount)
-    writeByteSpiLld                          0x08004091   Thumb Code    52  spihal.o(i.writeByteSpiLld)
-    writeByteSram                            0x080040cd   Thumb Code    52  mc23a1024.o(i.writeByteSram)
-    zigbeeMenu_f                             0x08004101   Thumb Code    46  menu.o(i.zigbeeMenu_f)
-    zigbeeSleep                              0x08004135   Thumb Code    32  zigbee.o(i.zigbeeSleep)
-    zigbeeTestSendIncrementing               0x08004159   Thumb Code    40  zigbee.o(i.zigbeeTestSendIncrementing)
-    zigbeeWake                               0x08004185   Thumb Code    50  zigbee.o(i.zigbeeWake)
-    zigbeeWrite                              0x080041bd   Thumb Code    50  zigbee.o(i.zigbeeWrite)
-    AHBPrescTable                            0x080041fc   Data          16  system_stm32l0xx.o(.constdata)
-    APBPrescTable                            0x0800420c   Data           8  system_stm32l0xx.o(.constdata)
-    PLLMulTable                              0x08004214   Data           9  system_stm32l0xx.o(.constdata)
-    newLine                                  0x0800421d   Data           1  menu.o(.constdata)
-    RESQUEST_RESPONSE                        0x0800421e   Data          37  menu.o(.constdata)
-    NUMBER_OFFSET_ANSCII                     0x08004243   Data           1  menu.o(.constdata)
-    Region$$Table$$Base                      0x080045d0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x080045f0   Number         0  anon$$obj.o(Region$$Table)
+    initContext                              0x080031e9   Thumb Code    14  rtos.o(i.initContext)
+    initRcc32mhz                             0x080031fd   Thumb Code   134  cpuhal.o(i.initRcc32mhz)
+    initRcc4mhz                              0x08003291   Thumb Code   110  cpuhal.o(i.initRcc4mhz)
+    initSpiGpiosAnalog                       0x0800330d   Thumb Code   202  spihal.o(i.initSpiGpiosAnalog)
+    initSpiGpiosDigital                      0x080033dd   Thumb Code   194  spihal.o(i.initSpiGpiosDigital)
+    initSpis                                 0x080034a9   Thumb Code   178  spihal.o(i.initSpis)
+    initUart                                 0x0800356d   Thumb Code   266  uarthal.o(i.initUart)
+    initUartPinsMenu                         0x0800368d   Thumb Code    56  uarthal.o(i.initUartPinsMenu)
+    initUartPinsZigbee                       0x080036c5   Thumb Code    52  uarthal.o(i.initUartPinsZigbee)
+    initZigbeeGpioPins                       0x080036fd   Thumb Code    72  zigbee.o(i.initZigbeeGpioPins)
+    main                                     0x0800374d   Thumb Code    86  main_fw.o(i.main)
+    mainMenu_f                               0x080037b1   Thumb Code    38  menu.o(i.mainMenu_f)
+    memToBuffer                              0x080037dd   Thumb Code    60  sectorlogic.o(i.memToBuffer)
+    multiSectorSpiMemFill                    0x08003861   Thumb Code    56  sampler.o(i.multiSectorSpiMemFill)
+    multiSectorSpiMemFillShim                0x08003899   Thumb Code    10  sectorlogic.o(i.multiSectorSpiMemFillShim)
+    pgaTasks_f                               0x080038a5   Thumb Code    46  menu.o(i.pgaTasks_f)
+    powerTasks_f                             0x080038d9   Thumb Code    46  menu.o(i.powerTasks_f)
+    printMenu                                0x0800390d   Thumb Code    72  menu.o(i.printMenu)
+    printNewLine                             0x08003955   Thumb Code    28  menu.o(i.printNewLine)
+    printStars                               0x08003971   Thumb Code    28  menu.o(i.printStars)
+    putChar                                  0x08003991   Thumb Code    14  mc23a1024.o(i.putChar)
+    readByteSpiLld                           0x080039a1   Thumb Code    68  spihal.o(i.readByteSpiLld)
+    sampleLoop_f                             0x080039ed   Thumb Code     4  menu.o(i.sampleLoop_f)
+    sectorBufToZigbee                        0x080039f1   Thumb Code    20  sectorlogic.o(i.sectorBufToZigbee)
+    sectorSetCRC                             0x08003a0d   Thumb Code    12  sectorlogic.o(i.sectorSetCRC)
+    sectorSetCapVoltage                      0x08003a1d   Thumb Code    12  sectorlogic.o(i.sectorSetCapVoltage)
+    sectorSetEnergyQaulity                   0x08003a2d   Thumb Code     6  sectorlogic.o(i.sectorSetEnergyQaulity)
+    sectorSetHeader                          0x08003a39   Thumb Code    52  sectorlogic.o(i.sectorSetHeader)
+    sectorSetSequenceId                      0x08003a71   Thumb Code    12  sectorlogic.o(i.sectorSetSequenceId)
+    sectorSetTerminator                      0x08003a81   Thumb Code    56  sectorlogic.o(i.sectorSetTerminator)
+    setGainGpa1                              0x08003abd   Thumb Code    12  pga.o(i.setGainGpa1)
+    setGainGpa10                             0x08003ac9   Thumb Code    12  pga.o(i.setGainGpa10)
+    setGainGpa16                             0x08003ad5   Thumb Code    12  pga.o(i.setGainGpa16)
+    setGainGpa2                              0x08003ae1   Thumb Code    12  pga.o(i.setGainGpa2)
+    setMode                                  0x08003aed   Thumb Code    26  mc23a1024.o(i.setMode)
+    setPgaGain                               0x08003b07   Thumb Code    50  pga.o(i.setPgaGain)
+    sleepWFImultiplesOf1000ms                0x08003b39   Thumb Code   112  timerhal.o(i.sleepWFImultiplesOf1000ms)
+    spiMemFinalizeSequential                 0x08003bb1   Thumb Code     8  mc23a1024.o(i.spiMemFinalizeSequential)
+    spiMemPrepSequentialRead                 0x08003bb9   Thumb Code    24  mc23a1024.o(i.spiMemPrepSequentialRead)
+    spiMemPrepSequentialWrite                0x08003bd1   Thumb Code    24  mc23a1024.o(i.spiMemPrepSequentialWrite)
+    spiMem_f                                 0x08003be9   Thumb Code    42  menu.o(i.spiMem_f)
+    spiPut                                   0x08003c19   Thumb Code    42  spihal.o(i.spiPut)
+    spiPutByte                               0x08003c4d   Thumb Code    38  spihal.o(i.spiPutByte)
+    spiPutGet                                0x08003c7d   Thumb Code    52  spihal.o(i.spiPutGet)
+    spiReadDMASequentialInit                 0x08003cb9   Thumb Code    38  mc23a1024.o(i.spiReadDMASequentialInit)
+    spiWalkTest                              0x08003ce1   Thumb Code   114  memoryselftest.o(i.spiWalkTest)
+    spiWalkTestRegisterSequentialMode        0x08003d95   Thumb Code   174  memoryselftest.o(i.spiWalkTestRegisterSequentialMode)
+    spiWrite                                 0x08003ebd   Thumb Code    64  spihal.o(i.spiWrite)
+    spiWriteDMASequentialFinalize            0x08003f09   Thumb Code     8  mc23a1024.o(i.spiWriteDMASequentialFinalize)
+    spiWriteDMASequentialInit                0x08003f11   Thumb Code    38  mc23a1024.o(i.spiWriteDMASequentialInit)
+    streamAllSPiZigbee                       0x08003f37   Thumb Code     6  sampler.o(i.streamAllSPiZigbee)
+    taskSample                               0x08003f3d   Thumb Code    20  sampler.o(i.taskSample)
+    timerDelayUs                             0x08003f51   Thumb Code   120  timerhal.o(i.timerDelayUs)
+    timerDelayUsDirty                        0x08003fd9   Thumb Code    14  timerhal.o(i.timerDelayUsDirty)
+    timerInit                                0x08003fe9   Thumb Code    40  timerhal.o(i.timerInit)
+    timerInitTim21                           0x08004019   Thumb Code    20  timerhal.o(i.timerInitTim21)
+    timerMenu_f                              0x08004039   Thumb Code     4  menu.o(i.timerMenu_f)
+    uartGetMenu                              0x0800403d   Thumb Code    22  uarthal.o(i.uartGetMenu)
+    uartPut                                  0x08004059   Thumb Code    22  uarthal.o(i.uartPut)
+    uartPutMenu                              0x08004075   Thumb Code    22  uarthal.o(i.uartPutMenu)
+    uartPutMenuAutoCount                     0x08004091   Thumb Code    22  menu.o(i.uartPutMenuAutoCount)
+    writeByteSpiLld                          0x080040a9   Thumb Code    52  spihal.o(i.writeByteSpiLld)
+    writeByteSram                            0x080040e5   Thumb Code    52  mc23a1024.o(i.writeByteSram)
+    zigbeeMenu_f                             0x08004119   Thumb Code    46  menu.o(i.zigbeeMenu_f)
+    zigbeeSleep                              0x0800414d   Thumb Code    32  zigbee.o(i.zigbeeSleep)
+    zigbeeTestSendIncrementing               0x08004171   Thumb Code    40  zigbee.o(i.zigbeeTestSendIncrementing)
+    zigbeeWake                               0x0800419d   Thumb Code    50  zigbee.o(i.zigbeeWake)
+    zigbeeWrite                              0x080041d5   Thumb Code    50  zigbee.o(i.zigbeeWrite)
+    AHBPrescTable                            0x08004214   Data          16  system_stm32l0xx.o(.constdata)
+    APBPrescTable                            0x08004224   Data           8  system_stm32l0xx.o(.constdata)
+    PLLMulTable                              0x0800422c   Data           9  system_stm32l0xx.o(.constdata)
+    newLine                                  0x08004235   Data           1  menu.o(.constdata)
+    RESQUEST_RESPONSE                        0x08004236   Data          37  menu.o(.constdata)
+    NUMBER_OFFSET_ANSCII                     0x0800425b   Data           1  menu.o(.constdata)
+    Region$$Table$$Base                      0x080045e8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08004608   Number         0  anon$$obj.o(Region$$Table)
     simVoltage                               0x20000000   Data           4  globals.o(.data)
     uwTick                                   0x20000008   Data           4  stm32l0xx_hal.o(.data)
     SystemCoreClock                          0x2000000c   Data           4  system_stm32l0xx.o(.data)
     temp                                     0x20000264   Data           4  adc.o(.data)
     rccHandle                                0x20000468   Data          56  cpuhal.o(.bss)
     RCC_ClkInitStruct                        0x200004a0   Data          20  cpuhal.o(.bss)
-    __libspace_start                         0x20000e28   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x20000e88   Data           0  libspace.o(.bss)
+    currentContext                           0x20000514   Data          16  rtos.o(.bss)
+    __libspace_start                         0x20000e38   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20000e98   Data           0  libspace.o(.bss)
 
 
 
@@ -3243,70 +3251,70 @@ Memory Map of the image
 
   Image Entry point : 0x08000181
 
-  Load Region LR_1 (Base: 0x08000000, Size: 0x00004858, Max: 0xffffffff, ABSOLUTE, COMPRESSED[0x000046d0])
+  Load Region LR_1 (Base: 0x08000000, Size: 0x00004870, Max: 0xffffffff, ABSOLUTE, COMPRESSED[0x000046e8])
 
-    Execution Region ER_RO (Base: 0x08000000, Size: 0x000045f0, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x08000000, Size: 0x00004608, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x000000c0   Data   RO            3    RESET               startup.o
-    0x080000c0   0x00000008   Code   RO         7558  * !!!main             c_p.l(__main.o)
-    0x080000c8   0x0000003c   Code   RO         7733    !!!scatter          c_p.l(__scatter.o)
-    0x08000104   0x0000001c   Code   RO         7735    !!handler_zi        c_p.l(__scatter_zi.o)
-    0x08000120   0x00000002   Code   RO         7600    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
-    0x08000122   0x00000000   Code   RO         7614    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7616    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7619    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7621    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7623    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7626    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7628    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7630    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7632    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7634    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7636    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7638    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7640    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7642    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7644    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7646    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7650    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7652    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7654    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
-    0x08000122   0x00000000   Code   RO         7656    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
-    0x08000122   0x00000002   Code   RO         7657    .ARM.Collect$$libinit$$00000033  c_p.l(libinit2.o)
-    0x08000124   0x00000002   Code   RO         7688    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
-    0x08000126   0x00000000   Code   RO         7714    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
-    0x08000126   0x00000000   Code   RO         7716    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
-    0x08000126   0x00000000   Code   RO         7719    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
-    0x08000126   0x00000000   Code   RO         7722    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
-    0x08000126   0x00000000   Code   RO         7724    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
-    0x08000126   0x00000000   Code   RO         7727    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
-    0x08000126   0x00000002   Code   RO         7728    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
-    0x08000128   0x00000000   Code   RO         7560    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
-    0x08000128   0x00000000   Code   RO         7570    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
-    0x08000128   0x00000006   Code   RO         7582    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
-    0x0800012e   0x00000000   Code   RO         7572    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
-    0x0800012e   0x00000004   Code   RO         7573    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
-    0x08000132   0x00000000   Code   RO         7575    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
-    0x08000132   0x00000008   Code   RO         7576    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
-    0x0800013a   0x00000002   Code   RO         7605    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
-    0x0800013c   0x00000000   Code   RO         7661    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
-    0x0800013c   0x00000004   Code   RO         7662    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
-    0x08000140   0x00000006   Code   RO         7663    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
+    0x080000c0   0x00000008   Code   RO         7580  * !!!main             c_p.l(__main.o)
+    0x080000c8   0x0000003c   Code   RO         7755    !!!scatter          c_p.l(__scatter.o)
+    0x08000104   0x0000001c   Code   RO         7757    !!handler_zi        c_p.l(__scatter_zi.o)
+    0x08000120   0x00000002   Code   RO         7622    .ARM.Collect$$libinit$$00000000  c_p.l(libinit.o)
+    0x08000122   0x00000000   Code   RO         7636    .ARM.Collect$$libinit$$00000002  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7638    .ARM.Collect$$libinit$$00000004  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7641    .ARM.Collect$$libinit$$0000000A  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7643    .ARM.Collect$$libinit$$0000000C  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7645    .ARM.Collect$$libinit$$0000000E  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7648    .ARM.Collect$$libinit$$00000011  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7650    .ARM.Collect$$libinit$$00000013  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7652    .ARM.Collect$$libinit$$00000015  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7654    .ARM.Collect$$libinit$$00000017  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7656    .ARM.Collect$$libinit$$00000019  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7658    .ARM.Collect$$libinit$$0000001B  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7660    .ARM.Collect$$libinit$$0000001D  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7662    .ARM.Collect$$libinit$$0000001F  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7664    .ARM.Collect$$libinit$$00000021  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7666    .ARM.Collect$$libinit$$00000023  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7668    .ARM.Collect$$libinit$$00000025  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7672    .ARM.Collect$$libinit$$0000002C  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7674    .ARM.Collect$$libinit$$0000002E  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7676    .ARM.Collect$$libinit$$00000030  c_p.l(libinit2.o)
+    0x08000122   0x00000000   Code   RO         7678    .ARM.Collect$$libinit$$00000032  c_p.l(libinit2.o)
+    0x08000122   0x00000002   Code   RO         7679    .ARM.Collect$$libinit$$00000033  c_p.l(libinit2.o)
+    0x08000124   0x00000002   Code   RO         7710    .ARM.Collect$$libshutdown$$00000000  c_p.l(libshutdown.o)
+    0x08000126   0x00000000   Code   RO         7736    .ARM.Collect$$libshutdown$$00000002  c_p.l(libshutdown2.o)
+    0x08000126   0x00000000   Code   RO         7738    .ARM.Collect$$libshutdown$$00000004  c_p.l(libshutdown2.o)
+    0x08000126   0x00000000   Code   RO         7741    .ARM.Collect$$libshutdown$$00000007  c_p.l(libshutdown2.o)
+    0x08000126   0x00000000   Code   RO         7744    .ARM.Collect$$libshutdown$$0000000A  c_p.l(libshutdown2.o)
+    0x08000126   0x00000000   Code   RO         7746    .ARM.Collect$$libshutdown$$0000000C  c_p.l(libshutdown2.o)
+    0x08000126   0x00000000   Code   RO         7749    .ARM.Collect$$libshutdown$$0000000F  c_p.l(libshutdown2.o)
+    0x08000126   0x00000002   Code   RO         7750    .ARM.Collect$$libshutdown$$00000010  c_p.l(libshutdown2.o)
+    0x08000128   0x00000000   Code   RO         7582    .ARM.Collect$$rtentry$$00000000  c_p.l(__rtentry.o)
+    0x08000128   0x00000000   Code   RO         7592    .ARM.Collect$$rtentry$$00000002  c_p.l(__rtentry2.o)
+    0x08000128   0x00000006   Code   RO         7604    .ARM.Collect$$rtentry$$00000004  c_p.l(__rtentry4.o)
+    0x0800012e   0x00000000   Code   RO         7594    .ARM.Collect$$rtentry$$00000009  c_p.l(__rtentry2.o)
+    0x0800012e   0x00000004   Code   RO         7595    .ARM.Collect$$rtentry$$0000000A  c_p.l(__rtentry2.o)
+    0x08000132   0x00000000   Code   RO         7597    .ARM.Collect$$rtentry$$0000000C  c_p.l(__rtentry2.o)
+    0x08000132   0x00000008   Code   RO         7598    .ARM.Collect$$rtentry$$0000000D  c_p.l(__rtentry2.o)
+    0x0800013a   0x00000002   Code   RO         7627    .ARM.Collect$$rtexit$$00000000  c_p.l(rtexit.o)
+    0x0800013c   0x00000000   Code   RO         7683    .ARM.Collect$$rtexit$$00000002  c_p.l(rtexit2.o)
+    0x0800013c   0x00000004   Code   RO         7684    .ARM.Collect$$rtexit$$00000003  c_p.l(rtexit2.o)
+    0x08000140   0x00000006   Code   RO         7685    .ARM.Collect$$rtexit$$00000004  c_p.l(rtexit2.o)
     0x08000146   0x00000002   PAD
-    0x08000148   0x00000038   Code   RO         7546    .emb_text           c_p.l(rt_memcpy.o)
+    0x08000148   0x00000038   Code   RO         7568    .emb_text           c_p.l(rt_memcpy.o)
     0x08000180   0x00000030   Code   RO            4  * .text               startup.o
-    0x080001b0   0x00000102   Code   RO         7544    .text               c_p.l(lludiv.o)
-    0x080002b2   0x0000015a   Code   RO         7552    .text               c_p.l(aeabi_sdiv.o)
-    0x0800040c   0x00000006   Code   RO         7556    .text               c_p.l(heapauxi.o)
-    0x08000412   0x0000003e   Code   RO         7586    .text               c_p.l(sys_stackheap_outer.o)
-    0x08000450   0x00000010   Code   RO         7589    .text               c_p.l(exit.o)
-    0x08000460   0x00000008   Code   RO         7601    .text               c_p.l(libspace.o)
-    0x08000468   0x0000000c   Code   RO         7658    .text               c_p.l(sys_exit.o)
-    0x08000474   0x00000002   Code   RO         7677    .text               c_p.l(use_no_semi.o)
-    0x08000476   0x00000000   Code   RO         7679    .text               c_p.l(indicate_semi.o)
-    0x08000476   0x00000056   Code   RO         7731    .text               c_p.l(__dczerorl2.o)
+    0x080001b0   0x00000102   Code   RO         7566    .text               c_p.l(lludiv.o)
+    0x080002b2   0x0000015a   Code   RO         7574    .text               c_p.l(aeabi_sdiv.o)
+    0x0800040c   0x00000006   Code   RO         7578    .text               c_p.l(heapauxi.o)
+    0x08000412   0x0000003e   Code   RO         7608    .text               c_p.l(sys_stackheap_outer.o)
+    0x08000450   0x00000010   Code   RO         7611    .text               c_p.l(exit.o)
+    0x08000460   0x00000008   Code   RO         7623    .text               c_p.l(libspace.o)
+    0x08000468   0x0000000c   Code   RO         7680    .text               c_p.l(sys_exit.o)
+    0x08000474   0x00000002   Code   RO         7699    .text               c_p.l(use_no_semi.o)
+    0x08000476   0x00000000   Code   RO         7701    .text               c_p.l(indicate_semi.o)
+    0x08000476   0x00000056   Code   RO         7753    .text               c_p.l(__dczerorl2.o)
     0x080004cc   0x0000002c   Code   RO          767    i.ADC_DelayMicroSecond  stm32l0xx_hal_adc.o
     0x080004f8   0x000000a4   Code   RO          769    i.ADC_Enable        stm32l0xx_hal_adc.o
     0x0800059c   0x000000d8   Code   RO          946    i.HAL_ADCEx_Calibration_Start  stm32l0xx_hal_adc_ex.o
@@ -3361,17 +3369,17 @@ Memory Map of the image
     0x08002cec   0x00000068   Code   RO         7176    i.adcUnitTestOnDie  adc.o
     0x08002d54   0x0000000c   Code   RO         6857    i.blockForInput     menu.o
     0x08002d60   0x00000014   Code   RO         6994    i.blockToAdressTranslate  mc23a1024.o
-    0x08002d74   0x0000001c   Code   RO         7362    i.bufferToZigbee    sectorlogic.o
-    0x08002d90   0x0000000c   Code   RO         7363    i.bufferToZigbeeShim  sectorlogic.o
+    0x08002d74   0x0000001c   Code   RO         7384    i.bufferToZigbee    sectorlogic.o
+    0x08002d90   0x0000000c   Code   RO         7385    i.bufferToZigbeeShim  sectorlogic.o
     0x08002d9c   0x00000040   Code   RO         6858    i.clearScreen       menu.o
     0x08002ddc   0x00000034   Code   RO         6859    i.coreTask_f        menu.o
     0x08002e10   0x00000054   Code   RO          271    i.deinitSpiGpiosAnalog  spihal.o
     0x08002e64   0x0000002c   Code   RO          480    i.deinitUartPinsZigbee  uarthal.o
-    0x08002e90   0x0000001c   Code   RO         7465    i.disableSamplingSupply  ldo.o
-    0x08002eac   0x0000001a   Code   RO         7466    i.enableSamplingSupply  ldo.o
+    0x08002e90   0x0000001c   Code   RO         7487    i.disableSamplingSupply  ldo.o
+    0x08002eac   0x0000001a   Code   RO         7488    i.enableSamplingSupply  ldo.o
     0x08002ec6   0x00000002   PAD
-    0x08002ec8   0x00000044   Code   RO         7364    i.fillBlock         sectorlogic.o
-    0x08002f0c   0x0000000c   Code   RO         7365    i.fillBlockMenuShim  sectorlogic.o
+    0x08002ec8   0x00000044   Code   RO         7386    i.fillBlock         sectorlogic.o
+    0x08002f0c   0x0000000c   Code   RO         7387    i.fillBlockMenuShim  sectorlogic.o
     0x08002f18   0x000000a8   Code   RO         7123    i.fillSpiSawTooth   memoryselftest.o
     0x08002fc0   0x00000044   Code   RO         7177    i.getAdcSample      adc.o
     0x08003004   0x0000003c   Code   RO         6997    i.getByteSram       mc23a1024.o
@@ -3379,87 +3387,88 @@ Memory Map of the image
     0x08003054   0x00000022   Code   RO          449    i.gpioSetReset      gpiohal.o
     0x08003076   0x00000002   PAD
     0x08003078   0x00000020   Code   RO          251    i.hash              globals.o
-    0x08003098   0x00000050   Code   RO         7467    i.iniLdoClocksAndPins  ldo.o
+    0x08003098   0x00000050   Code   RO         7489    i.iniLdoClocksAndPins  ldo.o
     0x080030e8   0x00000100   Code   RO         7179    i.initAdc           adc.o
-    0x080031e8   0x00000094   Code   RO          548    i.initRcc32mhz      cpuhal.o
-    0x0800327c   0x0000007c   Code   RO          549    i.initRcc4mhz       cpuhal.o
-    0x080032f8   0x000000d0   Code   RO          272    i.initSpiGpiosAnalog  spihal.o
-    0x080033c8   0x000000cc   Code   RO          273    i.initSpiGpiosDigital  spihal.o
-    0x08003494   0x000000c4   Code   RO          274    i.initSpis          spihal.o
-    0x08003558   0x00000120   Code   RO          481    i.initUart          uarthal.o
-    0x08003678   0x00000038   Code   RO          482    i.initUartPinsMenu  uarthal.o
-    0x080036b0   0x00000038   Code   RO          483    i.initUartPinsZigbee  uarthal.o
-    0x080036e8   0x00000050   Code   RO         7223    i.initZigbeeGpioPins  zigbee.o
-    0x08003738   0x00000060   Code   RO           12    i.main              main_fw.o
-    0x08003798   0x0000002c   Code   RO         6861    i.mainMenu_f        menu.o
-    0x080037c4   0x00000048   Code   RO         7366    i.memToBuffer       sectorlogic.o
-    0x0800380c   0x0000003c   Code   RO         6862    i.menuSelect        menu.o
-    0x08003848   0x00000038   Code   RO         7283    i.multiSectorSpiMemFill  sampler.o
-    0x08003880   0x0000000a   Code   RO         7368    i.multiSectorSpiMemFillShim  sectorlogic.o
-    0x0800388a   0x00000002   PAD
-    0x0800388c   0x00000034   Code   RO         6863    i.pgaTasks_f        menu.o
-    0x080038c0   0x00000034   Code   RO         6865    i.powerTasks_f      menu.o
-    0x080038f4   0x00000048   Code   RO         6866    i.printMenu         menu.o
-    0x0800393c   0x0000001c   Code   RO         6867    i.printNewLine      menu.o
-    0x08003958   0x00000020   Code   RO         6868    i.printStars        menu.o
-    0x08003978   0x0000000e   Code   RO         7001    i.putChar           mc23a1024.o
-    0x08003986   0x00000002   PAD
-    0x08003988   0x0000004c   Code   RO          275    i.readByteSpiLld    spihal.o
-    0x080039d4   0x00000004   Code   RO         6869    i.sampleLoop_f      menu.o
-    0x080039d8   0x0000001c   Code   RO         7369    i.sectorBufToZigbee  sectorlogic.o
-    0x080039f4   0x00000010   Code   RO         7370    i.sectorSetCRC      sectorlogic.o
-    0x08003a04   0x00000010   Code   RO         7371    i.sectorSetCapVoltage  sectorlogic.o
-    0x08003a14   0x0000000c   Code   RO         7372    i.sectorSetEnergyQaulity  sectorlogic.o
-    0x08003a20   0x00000038   Code   RO         7373    i.sectorSetHeader   sectorlogic.o
-    0x08003a58   0x00000010   Code   RO         7374    i.sectorSetSequenceId  sectorlogic.o
-    0x08003a68   0x0000003c   Code   RO         7375    i.sectorSetTerminator  sectorlogic.o
-    0x08003aa4   0x0000000c   Code   RO         7500    i.setGainGpa1       pga.o
-    0x08003ab0   0x0000000c   Code   RO         7501    i.setGainGpa10      pga.o
-    0x08003abc   0x0000000c   Code   RO         7502    i.setGainGpa16      pga.o
-    0x08003ac8   0x0000000c   Code   RO         7503    i.setGainGpa2       pga.o
-    0x08003ad4   0x0000001a   Code   RO         7003    i.setMode           mc23a1024.o
-    0x08003aee   0x00000032   Code   RO         7504    i.setPgaGain        pga.o
-    0x08003b20   0x00000078   Code   RO          364    i.sleepWFImultiplesOf1000ms  timerhal.o
-    0x08003b98   0x00000008   Code   RO         7004    i.spiMemFinalizeSequential  mc23a1024.o
-    0x08003ba0   0x00000018   Code   RO         7005    i.spiMemPrepSequentialRead  mc23a1024.o
-    0x08003bb8   0x00000018   Code   RO         7006    i.spiMemPrepSequentialWrite  mc23a1024.o
-    0x08003bd0   0x00000030   Code   RO         6870    i.spiMem_f          menu.o
-    0x08003c00   0x00000034   Code   RO          277    i.spiPut            spihal.o
-    0x08003c34   0x00000030   Code   RO          278    i.spiPutByte        spihal.o
-    0x08003c64   0x0000003c   Code   RO          279    i.spiPutGet         spihal.o
-    0x08003ca0   0x00000026   Code   RO         7007    i.spiReadDMASequentialInit  mc23a1024.o
-    0x08003cc6   0x00000002   PAD
-    0x08003cc8   0x000000b4   Code   RO         7127    i.spiWalkTest       memoryselftest.o
-    0x08003d7c   0x00000128   Code   RO         7128    i.spiWalkTestRegisterSequentialMode  memoryselftest.o
-    0x08003ea4   0x0000004c   Code   RO          280    i.spiWrite          spihal.o
-    0x08003ef0   0x00000008   Code   RO         7008    i.spiWriteDMASequentialFinalize  mc23a1024.o
-    0x08003ef8   0x00000026   Code   RO         7009    i.spiWriteDMASequentialInit  mc23a1024.o
-    0x08003f1e   0x00000006   Code   RO         7284    i.streamAllSPiZigbee  sampler.o
-    0x08003f24   0x00000014   Code   RO         7285    i.taskSample        sampler.o
-    0x08003f38   0x00000088   Code   RO          368    i.timerDelayUs      timerhal.o
-    0x08003fc0   0x0000000e   Code   RO          369    i.timerDelayUsDirty  timerhal.o
-    0x08003fce   0x00000002   PAD
-    0x08003fd0   0x00000030   Code   RO          370    i.timerInit         timerhal.o
-    0x08004000   0x00000020   Code   RO          371    i.timerInitTim21    timerhal.o
-    0x08004020   0x00000004   Code   RO         6871    i.timerMenu_f       menu.o
-    0x08004024   0x0000001c   Code   RO          485    i.uartGetMenu       uarthal.o
-    0x08004040   0x0000001c   Code   RO          486    i.uartPut           uarthal.o
-    0x0800405c   0x0000001c   Code   RO          487    i.uartPutMenu       uarthal.o
-    0x08004078   0x00000016   Code   RO         6872    i.uartPutMenuAutoCount  menu.o
-    0x0800408e   0x00000002   PAD
-    0x08004090   0x0000003c   Code   RO          281    i.writeByteSpiLld   spihal.o
-    0x080040cc   0x00000034   Code   RO         7010    i.writeByteSram     mc23a1024.o
-    0x08004100   0x00000034   Code   RO         6873    i.zigbeeMenu_f      menu.o
-    0x08004134   0x00000024   Code   RO         7224    i.zigbeeSleep       zigbee.o
-    0x08004158   0x0000002c   Code   RO         7225    i.zigbeeTestSendIncrementing  zigbee.o
-    0x08004184   0x00000038   Code   RO         7226    i.zigbeeWake        zigbee.o
-    0x080041bc   0x00000040   Code   RO         7227    i.zigbeeWrite       zigbee.o
-    0x080041fc   0x00000021   Data   RO         6824    .constdata          system_stm32l0xx.o
-    0x0800421d   0x00000027   Data   RO         6874    .constdata          menu.o
-    0x08004244   0x000002f9   Data   RO         6875    .conststring        menu.o
-    0x0800453d   0x00000003   PAD
-    0x08004540   0x00000090   Data   RO         7129    .conststring        memoryselftest.o
-    0x080045d0   0x00000020   Data   RO         7729    Region$$Table       anon$$obj.o
+    0x080031e8   0x00000014   Code   RO         7339    i.initContext       rtos.o
+    0x080031fc   0x00000094   Code   RO          548    i.initRcc32mhz      cpuhal.o
+    0x08003290   0x0000007c   Code   RO          549    i.initRcc4mhz       cpuhal.o
+    0x0800330c   0x000000d0   Code   RO          272    i.initSpiGpiosAnalog  spihal.o
+    0x080033dc   0x000000cc   Code   RO          273    i.initSpiGpiosDigital  spihal.o
+    0x080034a8   0x000000c4   Code   RO          274    i.initSpis          spihal.o
+    0x0800356c   0x00000120   Code   RO          481    i.initUart          uarthal.o
+    0x0800368c   0x00000038   Code   RO          482    i.initUartPinsMenu  uarthal.o
+    0x080036c4   0x00000038   Code   RO          483    i.initUartPinsZigbee  uarthal.o
+    0x080036fc   0x00000050   Code   RO         7223    i.initZigbeeGpioPins  zigbee.o
+    0x0800374c   0x00000064   Code   RO           12    i.main              main_fw.o
+    0x080037b0   0x0000002c   Code   RO         6861    i.mainMenu_f        menu.o
+    0x080037dc   0x00000048   Code   RO         7388    i.memToBuffer       sectorlogic.o
+    0x08003824   0x0000003c   Code   RO         6862    i.menuSelect        menu.o
+    0x08003860   0x00000038   Code   RO         7283    i.multiSectorSpiMemFill  sampler.o
+    0x08003898   0x0000000a   Code   RO         7390    i.multiSectorSpiMemFillShim  sectorlogic.o
+    0x080038a2   0x00000002   PAD
+    0x080038a4   0x00000034   Code   RO         6863    i.pgaTasks_f        menu.o
+    0x080038d8   0x00000034   Code   RO         6865    i.powerTasks_f      menu.o
+    0x0800390c   0x00000048   Code   RO         6866    i.printMenu         menu.o
+    0x08003954   0x0000001c   Code   RO         6867    i.printNewLine      menu.o
+    0x08003970   0x00000020   Code   RO         6868    i.printStars        menu.o
+    0x08003990   0x0000000e   Code   RO         7001    i.putChar           mc23a1024.o
+    0x0800399e   0x00000002   PAD
+    0x080039a0   0x0000004c   Code   RO          275    i.readByteSpiLld    spihal.o
+    0x080039ec   0x00000004   Code   RO         6869    i.sampleLoop_f      menu.o
+    0x080039f0   0x0000001c   Code   RO         7391    i.sectorBufToZigbee  sectorlogic.o
+    0x08003a0c   0x00000010   Code   RO         7392    i.sectorSetCRC      sectorlogic.o
+    0x08003a1c   0x00000010   Code   RO         7393    i.sectorSetCapVoltage  sectorlogic.o
+    0x08003a2c   0x0000000c   Code   RO         7394    i.sectorSetEnergyQaulity  sectorlogic.o
+    0x08003a38   0x00000038   Code   RO         7395    i.sectorSetHeader   sectorlogic.o
+    0x08003a70   0x00000010   Code   RO         7396    i.sectorSetSequenceId  sectorlogic.o
+    0x08003a80   0x0000003c   Code   RO         7397    i.sectorSetTerminator  sectorlogic.o
+    0x08003abc   0x0000000c   Code   RO         7522    i.setGainGpa1       pga.o
+    0x08003ac8   0x0000000c   Code   RO         7523    i.setGainGpa10      pga.o
+    0x08003ad4   0x0000000c   Code   RO         7524    i.setGainGpa16      pga.o
+    0x08003ae0   0x0000000c   Code   RO         7525    i.setGainGpa2       pga.o
+    0x08003aec   0x0000001a   Code   RO         7003    i.setMode           mc23a1024.o
+    0x08003b06   0x00000032   Code   RO         7526    i.setPgaGain        pga.o
+    0x08003b38   0x00000078   Code   RO          364    i.sleepWFImultiplesOf1000ms  timerhal.o
+    0x08003bb0   0x00000008   Code   RO         7004    i.spiMemFinalizeSequential  mc23a1024.o
+    0x08003bb8   0x00000018   Code   RO         7005    i.spiMemPrepSequentialRead  mc23a1024.o
+    0x08003bd0   0x00000018   Code   RO         7006    i.spiMemPrepSequentialWrite  mc23a1024.o
+    0x08003be8   0x00000030   Code   RO         6870    i.spiMem_f          menu.o
+    0x08003c18   0x00000034   Code   RO          277    i.spiPut            spihal.o
+    0x08003c4c   0x00000030   Code   RO          278    i.spiPutByte        spihal.o
+    0x08003c7c   0x0000003c   Code   RO          279    i.spiPutGet         spihal.o
+    0x08003cb8   0x00000026   Code   RO         7007    i.spiReadDMASequentialInit  mc23a1024.o
+    0x08003cde   0x00000002   PAD
+    0x08003ce0   0x000000b4   Code   RO         7127    i.spiWalkTest       memoryselftest.o
+    0x08003d94   0x00000128   Code   RO         7128    i.spiWalkTestRegisterSequentialMode  memoryselftest.o
+    0x08003ebc   0x0000004c   Code   RO          280    i.spiWrite          spihal.o
+    0x08003f08   0x00000008   Code   RO         7008    i.spiWriteDMASequentialFinalize  mc23a1024.o
+    0x08003f10   0x00000026   Code   RO         7009    i.spiWriteDMASequentialInit  mc23a1024.o
+    0x08003f36   0x00000006   Code   RO         7284    i.streamAllSPiZigbee  sampler.o
+    0x08003f3c   0x00000014   Code   RO         7285    i.taskSample        sampler.o
+    0x08003f50   0x00000088   Code   RO          368    i.timerDelayUs      timerhal.o
+    0x08003fd8   0x0000000e   Code   RO          369    i.timerDelayUsDirty  timerhal.o
+    0x08003fe6   0x00000002   PAD
+    0x08003fe8   0x00000030   Code   RO          370    i.timerInit         timerhal.o
+    0x08004018   0x00000020   Code   RO          371    i.timerInitTim21    timerhal.o
+    0x08004038   0x00000004   Code   RO         6871    i.timerMenu_f       menu.o
+    0x0800403c   0x0000001c   Code   RO          485    i.uartGetMenu       uarthal.o
+    0x08004058   0x0000001c   Code   RO          486    i.uartPut           uarthal.o
+    0x08004074   0x0000001c   Code   RO          487    i.uartPutMenu       uarthal.o
+    0x08004090   0x00000016   Code   RO         6872    i.uartPutMenuAutoCount  menu.o
+    0x080040a6   0x00000002   PAD
+    0x080040a8   0x0000003c   Code   RO          281    i.writeByteSpiLld   spihal.o
+    0x080040e4   0x00000034   Code   RO         7010    i.writeByteSram     mc23a1024.o
+    0x08004118   0x00000034   Code   RO         6873    i.zigbeeMenu_f      menu.o
+    0x0800414c   0x00000024   Code   RO         7224    i.zigbeeSleep       zigbee.o
+    0x08004170   0x0000002c   Code   RO         7225    i.zigbeeTestSendIncrementing  zigbee.o
+    0x0800419c   0x00000038   Code   RO         7226    i.zigbeeWake        zigbee.o
+    0x080041d4   0x00000040   Code   RO         7227    i.zigbeeWrite       zigbee.o
+    0x08004214   0x00000021   Data   RO         6824    .constdata          system_stm32l0xx.o
+    0x08004235   0x00000027   Data   RO         6874    .constdata          menu.o
+    0x0800425c   0x000002f9   Data   RO         6875    .conststring        menu.o
+    0x08004555   0x00000003   PAD
+    0x08004558   0x00000090   Data   RO         7129    .conststring        memoryselftest.o
+    0x080045e8   0x00000020   Data   RO         7751    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000268, Max: 0xffffffff, ABSOLUTE, COMPRESSED[0x000000e0])
@@ -3475,7 +3484,7 @@ Memory Map of the image
     0x2000025c   0x0000000c   Data   RW         7181    .data               adc.o
 
 
-    Execution Region ER_ZI (Base: 0x20000268, Size: 0x00001220, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Base: 0x20000268, Size: 0x00001230, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3484,11 +3493,12 @@ Memory Map of the image
     0x20000388   0x000000e0   Zero   RW          488    .bss                uarthal.o
     0x20000468   0x0000004c   Zero   RW          552    .bss                cpuhal.o
     0x200004b4   0x00000060   Zero   RW         7180    .bss                adc.o
-    0x20000514   0x00000911   Zero   RW         7376    .bss                sectorlogic.o
-    0x20000e25   0x00000003   PAD
-    0x20000e28   0x00000060   Zero   RW         7602    .bss                c_p.l(libspace.o)
-    0x20000e88   0x00000200   Zero   RW            2    HEAP                startup.o
-    0x20001088   0x00000400   Zero   RW            1    STACK               startup.o
+    0x20000514   0x00000010   Zero   RW         7342    .bss                rtos.o
+    0x20000524   0x00000911   Zero   RW         7398    .bss                sectorlogic.o
+    0x20000e35   0x00000003   PAD
+    0x20000e38   0x00000060   Zero   RW         7624    .bss                c_p.l(libspace.o)
+    0x20000e98   0x00000200   Zero   RW            2    HEAP                startup.o
+    0x20001098   0x00000400   Zero   RW            1    STACK               startup.o
 
 
 ==============================================================================
@@ -3498,16 +3508,17 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       428         64          0         12         96       2579   adc.o
+       428         64          0         12         96       2575   adc.o
        272         28          0          0         76       1171   cpuhal.o
         32          4          0          4          0        896   globals.o
         34          0          0          0          0       1011   gpiohal.o
        134          4          0          0          0       1917   ldo.o
-        96         14          0          0          0     350887   main_fw.o
+       100         14          0          0          0     350895   main_fw.o
        352         14          0          0          0       7093   mc23a1024.o
        644        288        144          0          0       2220   memoryselftest.o
        724         68        800        588          0      10113   menu.o
         98          0          0          0          0       2091   pga.o
+        20          6          0          0         16       1095   rtos.o
         82          0          0          0          0       1426   sampler.o
        406         54          0          0       2321       6888   sectorlogic.o
       1064         90          0          0        176       7797   spihal.o
@@ -3527,7 +3538,7 @@ Image component sizes
        324         46          0          0          0       4055   zigbee.o
 
     ----------------------------------------------------------------------
-     15712       1138       1204        616       4544     450244   Object Totals
+     15736       1144       1204        616       4560     451343   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         20          0          3          3          3          0   (incl. Padding)
 
@@ -3579,15 +3590,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     16700       1154       1204        616       4640     444952   Grand Totals
-     16700       1154       1204        224       4640     444952   ELF Image Totals (compressed)
-     16700       1154       1204        224          0          0   ROM Totals
+     16724       1160       1204        616       4656     446007   Grand Totals
+     16724       1160       1204        224       4656     446007   ELF Image Totals (compressed)
+     16724       1160       1204        224          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                17904 (  17.48kB)
-    Total RW  Size (RW Data + ZI Data)              5256 (   5.13kB)
-    Total ROM Size (Code + RO Data + RW Data)      18128 (  17.70kB)
+    Total RO  Size (Code + RO Data)                17928 (  17.51kB)
+    Total RW  Size (RW Data + ZI Data)              5272 (   5.15kB)
+    Total ROM Size (Code + RO Data + RW Data)      18152 (  17.73kB)
 
 ==============================================================================
 
