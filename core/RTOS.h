@@ -34,7 +34,7 @@ typedef struct
 }currentContext_s;
 	
 	
-states_t nextState(void);
+void nextState(void);
 void stateChargeCap(void);
 void initContext(void);
 void kernal(void);

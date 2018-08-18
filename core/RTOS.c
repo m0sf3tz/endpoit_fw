@@ -11,8 +11,8 @@
 #include "adc.h"
 
 currentContext_s currentContext;
-
 void (*stateFnPtr[TOTAL_AMOUNT_OF_STATES])();	//function pointer that we will use to switch functions
+
 
 static void initContext()
 {
@@ -25,8 +25,7 @@ static void initFncPtrs()
 }
 
 
-
-states_t nextState(void)
+void nextState(void)
 {
 	
 }	
@@ -42,7 +41,14 @@ void stateChargeCap()
 //this is the brain of the design - once this is called it will never finish.
 void kernal()
 {
-		initContext(); //zero-out structure used to keep track of state
-		initFncPtrs();
-	  (*stateFnPtr[0])();
+	initContext(); //zero-out structure used to keep track of state
+	initFncPtrs();
+	while(true)
+	{
+		(*stateFnPtr[currentContext.currentState])();	//calls worker "thread"
+		nextState();
+	}
+		
+		
+		
 }

@@ -57,6 +57,8 @@ int main()
 	disableSamplingSupply();
 	initAdc();
 	//mainMenu_f();
+	clearScreen();
+	printState(0,0xFFFF);
 	kernal();
 }
 
