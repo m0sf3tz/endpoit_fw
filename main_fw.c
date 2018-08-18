@@ -15,6 +15,7 @@
 #include "cpuhal.h"
 #include "pga.h"
 #include "sectorLogic.h"
+#include "rtos.h"
 
 //@major TODOS that will BREAK YOUR BOARD - DE-INIT ADC SPI to be comleted
 
@@ -47,7 +48,6 @@ int main()
 	sectorSetEnergyQaulity(0x55);
 	sectorSetCRC(0xBABE);
 	sectorSetTerminator(NOT_FINAL_SECTOR);
-initContext();
 
 	initUart();
   timerInitTim21();
@@ -56,7 +56,7 @@ initContext();
 	iniLdoClocksAndPins();
 	disableSamplingSupply();
 	initAdc();
-	mainMenu_f();
-	
+	//mainMenu_f();
+	kernal();
 }
 

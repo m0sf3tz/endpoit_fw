@@ -1,13 +1,23 @@
 #include <stdint.h>
 #pragma once
 
+
+//********************************************************************************//
+//								UPDATE US TOGETHER UNLESS YOU LIKE PAIN
+//********************************************************************************//
+
 typedef enum 
-{
+{			//DON'T FORGET TO UPDATE TOTAL_AMOUNT_OF_STATES!!!!
 	STATE_CHARGE_CAP,
 	STATE_TRANSMIT,
 	STATE_CALC_CRC,
 	STATE_SAMPLE
 }states_t;
+//DID YOU UPDATE ME?!
+#define TOTAL_AMOUNT_OF_STATES 4
+//********************************************************************************//
+//								UPDATE US TOGETHER UNLESS YOU LIKE PAIN
+//********************************************************************************//
 
 typedef struct
 {
@@ -25,5 +35,6 @@ typedef struct
 	
 	
 states_t nextState(void);
-void initContext();
-void kernal();
+void stateChargeCap(void);
+void initContext(void);
+void kernal(void);

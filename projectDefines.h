@@ -146,8 +146,18 @@
 #define FINAL_STOP_SEQUENCE_SIZE	      5
 
 //********************************************************************************//
+//								VCAP targets before we kick off tasks(see notes.h)							  
+//********************************************************************************//
+
+#define VCAP_TARGET_SAMPLE   (0x164F)
+#define VCAP_TARGET_TRANSMIT (0x1EAD)
+
+//********************************************************************************//
 //								build swithces									  
 //********************************************************************************//
+
+
+
 
 #define DEBUG_MODE					(1) 		//includes the halUnit test, creates buffer mmoery of them etc
 

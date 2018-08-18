@@ -13,6 +13,8 @@ void ADC_CS_HIGH(void);
 void ADC_CS_LOW(void);
 
 uint16_t getAdcSample(void);
+uint16_t getCapVoltage(void);
+
 void initAdc(void);
 
 bool adcUnitTestOnDie(void);
