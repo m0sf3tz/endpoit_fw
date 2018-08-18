@@ -9,6 +9,7 @@
 #include "cpuHal.h"
 #include "gpioHal.h"
 #include "sectorLogic.h"
+#include "crc.h"
 
 static uint16_t 			    adcSamples   [ADC_SAMPLES_PER_BLOCK];
 volatile static char      txUartSector [TRASMIT_BLOCK_SIZE   ];
@@ -81,7 +82,7 @@ void sectorSetTerminator(bool final)
 }
 
 
-bool memToBuffer(uint16_t block )
+bool memToBuffer(uint16_t block)
 {
 	initRcc32mhz();
 	
@@ -162,7 +163,7 @@ bool bufferToZigbee(uint16_t block )
 }	
 
 //reads block 0-8 into the data region of a tx-buffer and zigbees it up **
-bool sectorBufToZigbee()
+bool zigbeeTransmitTask()
 {
   	memToBuffer(0);
 	  zigbeeWrite( (const char*)txUartSector, TRASMIT_BLOCK_SIZE);		
@@ -174,4 +175,18 @@ bool multiSectorSpiMemFillShim()
 {
 	 taskSample();
    return 0;
+}
+
+//reads the SPI starting from the correct block offset and puts things into a TX buffer
+//creats CRC as well.
+void createTxSectorTask(uint16_t sector, uint16_t sequenceId, uint8_t powerQuality)
+{
+	memToBuffer(sector*BLOCKS_PER_SECTOR);
+	
+	uint16_t crc = crc16((uint8_t*)&txUartSector[SEQUENCE_ID_B0_INDEX], CRC_PROTECED_SIZE);
+	
+	sectorSetCRC(crc);
+	sectorSetEnergyQaulity(powerQuality);
+	
+	txUartSector[ESTIMATED_ENERGY_QUALITY_INDEX] = powerQuality;
 }

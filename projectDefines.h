@@ -38,7 +38,7 @@
 
 #define MAXIMUM_MEMORY_ADRESS 								0x1FFFF //max range for 
 
-#define MOTOR_EYE_SAMPLE_BLOCKS							  20
+#define MOTOR_EYE_SAMPLE_BLOCKS							  32
 #define FIRST_BLOCK_SPI           		  	    0
 
 
@@ -145,12 +145,25 @@
 
 #define FINAL_STOP_SEQUENCE_SIZE	      5
 
+#define CRC_PROTECED_SIZE								(SEQUENCE_ID_SIZE + CAP_VOLTAGE_SIZE + ESTIMATED_ENERGY_QUALITY_SIZE + DATA_SIZE) // size of data protected by CRC, starting at SEQUENCE_ID_B0_INDEX
+
+//********************************************************************************//
+//								blocks <---> sector logic							  
+//********************************************************************************//
+//currently there are 8 blocks per sector (2048/256)
+
+#define SECTORS_PER_SAMPLE			3
+#define BLOCKS_PER_SECTOR				(DATA_SIZE/BLOCK_SPI_MEM_BYTE) //8
+#define TOTAL_BLOCKS_IN_SAMPLE  (SECTORS_PER_SAMPLE*BLOCKS_PER_SECTOR)
+
 //********************************************************************************//
 //								VCAP targets before we kick off tasks(see notes.h)							  
 //********************************************************************************//
 
-#define VCAP_TARGET_SAMPLE   (0x164F)
-#define VCAP_TARGET_TRANSMIT (0x1EAD)
+#define VCAP_TARGET_SAMPLE   		   (0x164F)
+#define VCAP_TARGET_CREATE_TX_BUFF (0x164F)
+#define VCAP_TARGET_TRANSMIT 		   (0x1EAD)
+
 
 //********************************************************************************//
 //								build swithces									  

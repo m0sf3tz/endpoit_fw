@@ -138,7 +138,7 @@ bool coreTask_f()
 				bufferToZigbeeShim,
 				multiSectorSpiMemFillShim,
 				streamAllSPiZigbee,
-				sectorBufToZigbee
+				zigbeeTransmitTask
 			}
 		};
 
@@ -457,15 +457,15 @@ void blockForInput()
 }
 
 
-static char *statStrArr[5] = {"STATE_CHARGE_CAP", "STATE_TRANSMIT", "STATE_CALC_CRC", "STATE_SAMPLE", "loo"};
+static char *statStrArr[] = {"STATE_SAMPLE", "STATE_CREATE_TX_BUFFER", "STATE_TRANSMIT"};
 //used inside the RTOS to print what the current state is and some debug information about that state.
 //@needs that statStrArr is synced to the current state value used inside the RTOS.
 void printState(int index, uint16_t voltage)
 {
-	char w1[] = "The current State is ";
+	char w1[] = "Current State = ";
 	uartPutMenuAutoCount(w1);
 	uartPutMenuAutoCount(statStrArr[index]);
-	char w2[] = " and the voltage is at: ";
+	char w2[] = " ,CAP ADC (decimal) reading = : ";
 	uartPutMenuAutoCount(w2);
 	char valString [5];
 	UlToStr(valString, voltage, 5);

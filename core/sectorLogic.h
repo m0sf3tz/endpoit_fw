@@ -25,10 +25,11 @@ bool memToBuffer(uint16_t);
 bool bufferToZigbeeShim(void);
 bool bufferToZigbee(uint16_t block );
 
-//sector stuff (the real deal)
-bool sectorBufToZigbee(void);
-
-
 bool streamAllSPiZigbee(void);
+
+//sector stuff (the real deal)
+bool zigbeeTransmitTask(void);
+void createTxSectorTask(uint16_t sector, uint16_t sequenceId, uint8_t powerQuality);
+	
 
 

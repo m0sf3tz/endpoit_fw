@@ -15,13 +15,16 @@
 void taskSample(void)
 {
 	initRcc32mhz();
-	multiSectorSpiMemFill(MOTOR_EYE_SAMPLE_BLOCKS,FIRST_BLOCK_SPI);
+	multiSectorSpiMemFill(TOTAL_BLOCKS_IN_SAMPLE ,FIRST_BLOCK_SPI);
 	initRcc4mhz(); 
 }
 
 
 //multi block
 //at 32Mhz this samples at 2.1Khz
+//@param numOfBlocks  total number of sectors to sample for
+//@param block				the first block to write to, will auto increment
+
 bool multiSectorSpiMemFill(uint16_t numOfBlocks, uint16_t block)
 {
 
