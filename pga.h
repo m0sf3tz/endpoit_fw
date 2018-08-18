@@ -20,4 +20,4 @@ bool setGainGpa1(void);
 bool setGainGpa2(void);
 bool setGainGpa10(void);
 bool setGainGpa16(void);
-
+bool setGainGpa32(void);

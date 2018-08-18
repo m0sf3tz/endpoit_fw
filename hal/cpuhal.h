@@ -1,3 +1,4 @@
+#pragma once
 
 extern RCC_OscInitTypeDef rccHandle;
 

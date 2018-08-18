@@ -1,6 +1,7 @@
 #include "crc.h"
 #include <stdint.h>
-
+#include "timerHal.h"
+#include "cpuHal.h"
 static unsigned char crc8_table[] = {
     0x00, 0x3e, 0x7c, 0x42, 0xf8, 0xc6, 0x84, 0xba, 0x95, 0xab, 0xe9, 0xd7,
     0x6d, 0x53, 0x11, 0x2f, 0x4f, 0x71, 0x33, 0x0d, 0xb7, 0x89, 0xcb, 0xf5,
@@ -77,9 +78,14 @@ static const uint16_t crc16tab[256]= {
 
 uint16_t crc16(uint8_t *buf, int len)
 {
+	initRcc32mhz();
+
 	int counter;
 	uint16_t crc = 0;
 	for( counter = 0; counter < len; counter++)
 		crc = (crc<<8) ^ crc16tab[((crc>>8) ^ buf[counter])&0x00FF];
+	
+	initRcc4mhz();
+
 	return crc;
 }

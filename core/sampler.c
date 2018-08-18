@@ -9,6 +9,8 @@
 #include "cpuHal.h"
 #include "gpioHal.h"
 
+ 
+extern volatile  char      txUartSector [TRASMIT_BLOCK_SIZE];
 
 
 
@@ -48,19 +50,18 @@ bool multiSectorSpiMemFill(uint16_t numOfBlocks, uint16_t block)
 }
 
 
-
+//only for debug
 bool streamAllSPiZigbee()
 {
-	ASSERT(0); //don't call me....
-/*
+
 	int i = 0;
-	while(i!=MOTOR_EYE_SAMPLE_BLOCKS)
+	while(i!=20)
 	{
 		memToBuffer(i);
-		zigbeeWrite( (const char*)txUartSector, SECTOR_DATA_SIZE);	
+		zigbeeWrite( (const char*)&txUartSector[DATA_0_INDEX], BLOCK_SPI_MEM_BYTE);	
 		
 		i++;
 	}
 	return true;
-*/
+
 }	

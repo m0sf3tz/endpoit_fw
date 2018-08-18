@@ -40,3 +40,10 @@ bool setGainGpa16(void)
 	setPgaGain(GAIN_PGA_16);
 	return 1;
 }
+
+bool setGainGpa32(void)
+{
+	setPgaGain(GAIN_PGA_32);
+	return 1;
+}
+

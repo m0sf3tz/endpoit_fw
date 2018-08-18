@@ -56,8 +56,8 @@ int main()
 	iniLdoClocksAndPins();
 	disableSamplingSupply();
 	initAdc();
-	//mainMenu_f();
+	mainMenu_f();
 	
-	kernal();
+	//kernal();
 }
 

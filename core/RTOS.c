@@ -108,7 +108,7 @@ void stateCreateTxBuffer()
 			sleepWFImultiplesOf10ms(5);
 	}	
 	//create a TX buffer
-  createTxSectorTask(currentContext.currentSector, currentContext.sequenceId, NULL);
+  createTxSectorTask(currentContext.currentSector, currentContext.sequenceId, NULL, getCapVoltage());
 	
 
 	currentContext.currentState = STATE_TRANSMIT;  				//next state

@@ -12,7 +12,7 @@
 #include "crc.h"
 
 static uint16_t 			    adcSamples   [ADC_SAMPLES_PER_BLOCK];
-volatile static char      txUartSector [TRASMIT_BLOCK_SIZE   ];
+volatile  char      txUartSector [TRASMIT_BLOCK_SIZE   ];
 
 static const int spiBlock = 50;	//random value - whatever - as long as it's not zero...
 
@@ -24,7 +24,6 @@ void sectorSetHeader(bool initial)
 			txUartSector[NEW_TRASMITION_HEADER_B1_INDEX] = NEW_TRASMITION_HEADER_B1;
 			txUartSector[NEW_TRASMITION_HEADER_B2_INDEX] = NEW_TRASMITION_HEADER_B2;
 			txUartSector[NEW_TRASMITION_HEADER_B3_INDEX] = NEW_TRASMITION_HEADER_B3;
-			txUartSector[NEW_TRASMITION_HEADER_B4_INDEX] = NEW_TRASMITION_HEADER_B4;
 		}
 		else
 		{
@@ -32,7 +31,6 @@ void sectorSetHeader(bool initial)
 			txUartSector[TRASMITION_HEADER_B1_INDEX]  = TRASMITION_HEADER_B1;
 			txUartSector[TRASMITION_HEADER_B2_INDEX]  = TRASMITION_HEADER_B2;
 			txUartSector[TRASMITION_HEADER_B3_INDEX]  = TRASMITION_HEADER_B3;
-			txUartSector[TRASMITION_HEADER_B4_INDEX]  = TRASMITION_HEADER_B4;
 		}
 }
 
@@ -81,6 +79,11 @@ void sectorSetTerminator(bool final)
 		}
 }
 
+void sectorTransmitSector(uint8_t sector)
+{
+		txUartSector[TRASMIT_SECTOR_B0] = sector;
+}
+	
 
 bool memToBuffer(uint16_t block)
 {
@@ -158,7 +161,7 @@ bool bufferToZigbee(uint16_t block )
 {
 	//deprecated
 	memToBuffer(block);
-	zigbeeWrite( (const char*)adcSamples, SECTOR_DATA_SIZE);	
+	zigbeeWrite( (const char*)adcSamples, BLOCK_SPI_MEM_BYTE);	
 	return true;
 }	
 
@@ -179,14 +182,37 @@ bool multiSectorSpiMemFillShim()
 
 //reads the SPI starting from the correct block offset and puts things into a TX buffer
 //creats CRC as well.
-void createTxSectorTask(uint16_t sector, uint16_t sequenceId, uint8_t powerQuality)
+void createTxSectorTask(uint8_t sector, uint16_t sequenceId, uint8_t powerQuality, uint16_t capVoltage)
 {
+
 	memToBuffer(sector*BLOCKS_PER_SECTOR);
 	
-	uint16_t crc = crc16((uint8_t*)&txUartSector[SEQUENCE_ID_B0_INDEX], CRC_PROTECED_SIZE);
-	
-	sectorSetCRC(crc);
+	if(sector == FIRST_TRASMIT_SECTOR)
+	{
+		sectorSetHeader(INITIAL_SECTOR);
+	}
+	else
+	{
+		sectorSetHeader(NOT_INITIAL_SECTOR);
+	}
+
+	sectorTransmitSector(sector);
+	sectorSetSequenceId(sequenceId);
 	sectorSetEnergyQaulity(powerQuality);
 	
+		
+	if(sector == LAST_TRANSMIT_SECTOR)
+	{
+		sectorSetTerminator(FINAL_SECTOR);
+	}
+	else
+	{
+		sectorSetTerminator(NOT_FINAL_SECTOR);
+	}
+	
+	uint16_t crc = crc16((uint8_t*)&txUartSector[TRASMIT_SECTOR_B0], CRC_PROTECED_SIZE);
+	sectorSetCRC(crc);
+
+		
 	txUartSector[ESTIMATED_ENERGY_QUALITY_INDEX] = powerQuality;
 }

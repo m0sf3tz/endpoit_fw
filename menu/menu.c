@@ -268,17 +268,18 @@ bool pgaTasks_f()
 				" Set Gain 1",			//1
 				" Set Gain 2",			//2
 				" Set Gain 10",			//3
-				" Set Gain 16" 			//4
-
+				" Set Gain 16", 		//4
+				" Set Gain 32" 			//5
 			},
 			
-			4,
+			5,
 				
 			{	
 				setGainGpa1,
 				setGainGpa2,
 				setGainGpa10,
-				setGainGpa16
+				setGainGpa16,
+				setGainGpa32
 			}
 		};
 
