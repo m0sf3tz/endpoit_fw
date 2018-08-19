@@ -473,3 +473,23 @@ void printState(int index, uint16_t voltage)
 	uartPutMenu(valString, 5);
 	printNewLine();
 }
+
+static char *gainStrArr[] = 
+{
+	"GAIN_PGA_1",
+	"GAIN_PGA_2",
+	"GAIN_PGA_4",
+	"GAIN_PGA_5",
+	"GAIN_PGA_8",
+	"GAIN_PGA_10",
+	"GAIN_PGA_16",
+	"GAIN_PGA_32"
+};
+
+void printGain(int gain)
+{
+	char w1[] = "AUTO-PGA chose gain of = ";
+	uartPutMenuAutoCount(w1);
+	uartPutMenuAutoCount(gainStrArr[gain]);
+	printNewLine();
+}

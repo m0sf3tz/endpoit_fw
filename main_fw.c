@@ -18,7 +18,7 @@
 #include "rtos.h"
 
 //@major TODOS that will BREAK YOUR BOARD - DE-INIT ADC SPI to be comleted
-
+//PGA gain selector needs to be revamped once we start using a real ADC
 
 int main()
 {
@@ -41,14 +41,6 @@ int main()
 	//		WILL BREAK UUART 									
   //****************************************/
 
-
-	sectorSetHeader(INITIAL_SECTOR);
-	sectorSetSequenceId(0x1234);
-	sectorSetCapVoltage(0x789A);
-	sectorSetEnergyQaulity(0x55);
-	sectorSetCRC(0xBABE);
-	sectorSetTerminator(NOT_FINAL_SECTOR);
-
 	initUart();
   timerInitTim21();
 	initSpis();
@@ -56,6 +48,7 @@ int main()
 	iniLdoClocksAndPins();
 	disableSamplingSupply();
 	initAdc();
+	
 	mainMenu_f();
 	
 	//kernal();

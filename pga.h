@@ -1,5 +1,6 @@
 #pragma once
 #include <stdbool.h>
+#include <stdint.h>
 typedef enum
 {
 	GAIN_PGA_1,
@@ -12,6 +13,7 @@ typedef enum
 	GAIN_PGA_32
 }pgaGainSwitch_e;
 
+extern uint8_t gainTranslateMatrix[8];
 
 void setPgaGain(pgaGainSwitch_e gain);
 
@@ -21,3 +23,6 @@ bool setGainGpa2(void);
 bool setGainGpa10(void);
 bool setGainGpa16(void);
 bool setGainGpa32(void);
+
+pgaGainSwitch_e autoGainSelect(void);
+

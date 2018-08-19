@@ -29,6 +29,7 @@ typedef struct
 	bool 	   txBufferDrained;
 	uint32_t currentBlock;	
 	uint32_t currentSector;	
+	uint8_t  pgaGain;	
 }currentContext_s;
 	
 

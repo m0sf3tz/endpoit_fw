@@ -67,7 +67,7 @@
 #define FINAL_STOP_SEQUENCE_B4    0xDE
 
 
-#define TRASMIT_BLOCK_SIZE        (TRASMITION_HEADER_SIZE + TRASMIT_SECTOR_SIZE + SEQUENCE_ID_SIZE + CAP_VOLTAGE_SIZE + ESTIMATED_ENERGY_QUALITY_SIZE + DATA_SIZE + CRC_SIZE + STOP_SEQUENCE_SIZE)
+#define TRASMIT_BLOCK_SIZE        (TRASMITION_HEADER_SIZE + TRASMIT_SECTOR_SIZE + SEQUENCE_ID_SIZE + CAP_VOLTAGE_SIZE + ESTIMATED_ENERGY_QUALITY_SIZE + DATA_SIZE + PGA_GAIN_SIZE + FREE_SIZE + CRC_SIZE + STOP_SEQUENCE_SIZE)
 
 //********************************************************************************//
 //								SECTOR TRANSMIT INDEX									  
@@ -98,7 +98,14 @@
 
 #define DATA_0_INDEX											 (ESTIMATED_ENERGY_QUALITY_INDEX + ESTIMATED_ENERGY_QUALITY_SIZE)
 
-#define CRC_B0_INDEX										   (DATA_0_INDEX + DATA_SIZE)
+#define PGA_GAIN_INDEX										 (DATA_0_INDEX + DATA_SIZE)
+
+#define FREE_B0_INDEX	  									 (PGA_GAIN_INDEX + PGA_GAIN_SIZE)
+#define FREE_B1_INDEX	  									 (FREE_B0_INDEX + 1)
+#define FREE_B2_INDEX	  									 (FREE_B1_INDEX + 1)
+#define FREE_B3_INDEX	  									 (FREE_B2_INDEX + 1)
+
+#define CRC_B0_INDEX										   (FREE_B0_INDEX + FREE_SIZE)
 #define CRC_B1_INDEX										   (CRC_B0_INDEX + 1)
 
 #define STOP_SEQUENCE_B0_INDEX			 		   (CRC_B0_INDEX + CRC_SIZE)
@@ -134,13 +141,17 @@
 
 #define DATA_SIZE												2048
 
+#define PGA_GAIN_SIZE										1
+
+#define FREE_SIZE												4
+
 #define CRC_SIZE											  2
 
 #define STOP_SEQUENCE_SIZE	   			 		5
 
 #define FINAL_STOP_SEQUENCE_SIZE	      5
 
-#define CRC_PROTECED_SIZE								(TRASMIT_SECTOR_SIZE + SEQUENCE_ID_SIZE + CAP_VOLTAGE_SIZE + ESTIMATED_ENERGY_QUALITY_SIZE + DATA_SIZE) // size of data protected by CRC, starting at SEQUENCE_ID_B0_INDEX
+#define CRC_PROTECED_SIZE								(TRASMIT_SECTOR_SIZE + SEQUENCE_ID_SIZE + CAP_VOLTAGE_SIZE + ESTIMATED_ENERGY_QUALITY_SIZE + DATA_SIZE + PGA_GAIN_SIZE + FREE_SIZE) // size of data protected by CRC, starting at SEQUENCE_ID_B0_INDEX
 
 //********************************************************************************//
 //								blocks <---> sector logic							  

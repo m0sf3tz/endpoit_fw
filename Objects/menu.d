@@ -18,6 +18,7 @@
 .\objects\menu.o: .\hal\uartHal.h
 .\objects\menu.o: .\selfTest\memorySelfTest.h
 .\objects\menu.o: .\core\sampler.h
+.\objects\menu.o: .\pga.h
 .\objects\menu.o: .\zigbee\zigbee.h
 .\objects\menu.o: .\powerHal\ldo.h
 .\objects\menu.o: .\inc\stm32l0xx_hal.h
@@ -66,6 +67,5 @@
 .\objects\menu.o: .\inc\stm32l0xx_hal_wwdg.h
 .\objects\menu.o: .\inc\stm32l0xx_hal_pcd.h
 .\objects\menu.o: .\inc\stm32l0xx_hal_pcd_ex.h
-.\objects\menu.o: .\pga.h
 .\objects\menu.o: .\adc\adc.h
 .\objects\menu.o: .\core\sectorLogic.h

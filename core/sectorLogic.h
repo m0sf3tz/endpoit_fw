@@ -12,6 +12,8 @@ void sectorTransmitSector(uint8_t sector);
 void sectorSetSequenceId(uint16_t sequence);
 void sectorSetCapVoltage(uint16_t voltage);
 void sectorSetEnergyQaulity(uint8_t energyQuality);
+void sectorSetPgaGain(uint8_t pgaGain);
+void sectorSetFree(void);
 void sectorSetCRC(uint16_t crc);
 void sectorSetTerminator(bool final);
 
@@ -27,7 +29,7 @@ bool streamAllSPiZigbee(void);
 
 //sector stuff (the real deal)
 bool zigbeeTransmitTask(void);
-void createTxSectorTask(uint8_t sector, uint16_t sequenceId, uint8_t powerQuality, uint16_t capVoltage);
+void createTxSectorTask(uint8_t sector, uint16_t sequenceId, uint8_t powerQuality, uint16_t capVoltage,uint8_t gain);
 	 
 
 

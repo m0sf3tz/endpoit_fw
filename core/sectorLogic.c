@@ -51,6 +51,19 @@ void sectorSetEnergyQaulity(uint8_t energyQuality)
 		txUartSector[ESTIMATED_ENERGY_QUALITY_INDEX] = energyQuality;
 }
 
+void sectorSetPgaGain(uint8_t pgaGain)
+{
+		txUartSector[PGA_GAIN_INDEX] = pgaGain;	
+}
+
+void sectorSetFree(void)
+{
+		txUartSector[FREE_B0_INDEX] = 0;	
+		txUartSector[FREE_B1_INDEX] = 0;
+		txUartSector[FREE_B2_INDEX] = 0;
+		txUartSector[FREE_B3_INDEX] = 0;
+}
+
 void sectorSetCRC(uint16_t crc)
 {
 		txUartSector[CRC_B0_INDEX] = (crc & 0xFF);
@@ -182,7 +195,7 @@ bool multiSectorSpiMemFillShim()
 
 //reads the SPI starting from the correct block offset and puts things into a TX buffer
 //creats CRC as well.
-void createTxSectorTask(uint8_t sector, uint16_t sequenceId, uint8_t powerQuality, uint16_t capVoltage)
+void createTxSectorTask(uint8_t sector, uint16_t sequenceId, uint8_t powerQuality, uint16_t capVoltage, uint8_t gain)
 {
 
 	memToBuffer(sector*BLOCKS_PER_SECTOR);
@@ -209,6 +222,9 @@ void createTxSectorTask(uint8_t sector, uint16_t sequenceId, uint8_t powerQualit
 	{
 		sectorSetTerminator(NOT_FINAL_SECTOR);
 	}
+	
+	sectorSetPgaGain(gain);
+	sectorSetFree();
 	
 	uint16_t crc = crc16((uint8_t*)&txUartSector[TRASMIT_SECTOR_B0], CRC_PROTECED_SIZE);
 	sectorSetCRC(crc);

@@ -12,6 +12,7 @@
 #include "menu.h" //used for debug-print functions
 #include "globals.h"
 #include "sectorLogic.h"
+#include "pga.h"
 
 currentContext_s currentContext;
 void (*stateFnPtr[TOTAL_AMOUNT_OF_STATES])();	//function pointer that we will use to switch functions
@@ -83,15 +84,18 @@ void nextState(void)
 
 void stateSample()
 {
+	pgaGainSwitch_e gainEncoded; //this is the encoded value, not the actual gain (ie, encoded gain of 3 == gain of 5)
 	
 	while(getCapVoltage() < VCAP_TARGET_SAMPLE)
 	{
 			sleepWFImultiplesOf10ms(5);
 	}	
-	//@todo: create functiont to chose PGA gain
 	
 	//turn on pertinent rails, sample ADC, copy into SPI memory.
-	taskSample();
+	//we also quart what gain the gain-select FW chose
+	gainEncoded = taskSample();
+	printGain(gainEncoded);
+	currentContext.pgaGain = gainTranslateMatrix[gainEncoded];
 	
 	//come up with a random sequence ID using the ADC and a hash functin
 	currentContext.sequenceId = hash16(getCapVoltage());
@@ -108,7 +112,7 @@ void stateCreateTxBuffer()
 			sleepWFImultiplesOf10ms(5);
 	}	
 	//create a TX buffer
-  createTxSectorTask(currentContext.currentSector, currentContext.sequenceId, NULL, getCapVoltage());
+  createTxSectorTask(currentContext.currentSector, currentContext.sequenceId, NULL, getCapVoltage(), currentContext.pgaGain);
 	
 
 	currentContext.currentState = STATE_TRANSMIT;  				//next state

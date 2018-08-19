@@ -38,5 +38,6 @@ void clearScreen(void);
 
 //print options for RTOS debug - should not really be in here but whatever..
 void printState(int index, uint16_t voltage);
+void printGain(int gain);
 
 

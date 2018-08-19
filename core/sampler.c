@@ -8,17 +8,25 @@
 #include "zigbee.h"
 #include "cpuHal.h"
 #include "gpioHal.h"
-
+#include "ldo.h"
+#include "pga.h"
  
 extern volatile  char      txUartSector [TRASMIT_BLOCK_SIZE];
 
 
-
-void taskSample(void)
+//@returns - the gain the auto-gain FW selected
+pgaGainSwitch_e taskSample(void)
 {
+	pgaGainSwitch_e gainEncoded;
+	enableSamplingSupply();
+	sleepWFImultiplesOf100ms(1);	//wait for supply to stabilize
 	initRcc32mhz();
+	gainEncoded = autoGainSelect();	//this function selected the correct gain to sample at 
+	
 	multiSectorSpiMemFill(TOTAL_BLOCKS_IN_SAMPLE ,FIRST_BLOCK_SPI);
 	initRcc4mhz(); 
+	disableSamplingSupply();
+	return gainEncoded;
 }
 
 
