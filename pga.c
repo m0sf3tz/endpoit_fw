@@ -90,21 +90,26 @@ bool setGainGpa32(void)
 pgaGainSwitch_e autoGainSelect()
 {
 
-	pgaGainSwitch_e gain = 	GAIN_PGA_1;
+	//retGain = last known non-saturating gain (if we are saturating at x1 gain then we have other problems - we can see this in software someplace upstream
+	//reqrues hardware fix and nothing FW can do about it..
+	//testGain is the gain which we will test to see if we have a saturation event. if we saturate at some gain, we will roll back to the last known
+	//working gain, otherwise, we will increment retGain
+	 
+	pgaGainSwitch_e retGain = GAIN_PGA_1;
 	uint16_t min, max, tmp;
 	bool exceeded = false;
 	
 	while(!exceeded)
 	{
-		int totalSamples = 50;
-		setPgaGain(helperGetNextGain(gain));
-		
+		int totalSamples = 100; //current sampling rate
+		pgaGainSwitch_e testGain = helperGetNextGain(retGain);
+		setPgaGain(testGain);
+	
 		max = 0;
-		min = 0xFFF0;
+		min = 0x7FFE;
 		
 		while(totalSamples--)
 		{
-			timerDelayUsDirty(97); //chose a prime number so we don't always sample at the same place
 			tmp = getAdcSample();
 			if(tmp > max)
 		  {
@@ -115,24 +120,24 @@ pgaGainSwitch_e autoGainSelect()
 				min = tmp;
 			}
 		}
-		if ( (max >= 0xF800) | (min == 0) )
+		if ( (max >= 0x7F00) | (min == 0) )
 		{
 			exceeded = true;
-			setPgaGain(gain); //wind gain down a notch to what it used to be. ( we incremented it before)
+			setPgaGain(retGain); //roll back to last known-good configuration
 		}
 		else
 		{
-			if(gain == GAIN_PGA_16)
+			if(retGain == GAIN_PGA_16)
 			{
 				return GAIN_PGA_32; //can't go any higher thant this (above test is done with gain++, can't go higher than x32)
 			}
 			else
 			{
-				gain = helperGetNextGain(gain);
+				retGain = testGain; //make retGain = the gain we tested at, since it did not saturate.
 			}
 		}
 	}
-	return gain; 
+	return retGain; 
 }
 
 

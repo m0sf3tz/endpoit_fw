@@ -38,7 +38,7 @@ pgaGainSwitch_e taskSample(void)
 bool multiSectorSpiMemFill(uint16_t numOfBlocks, uint16_t block)
 {
 
-	uint16_t tmpVal, i;
+	uint32_t tmpVal, i;
 	spiMemPrepSequentialWrite(block);
 	
 	i =0;
@@ -52,6 +52,8 @@ bool multiSectorSpiMemFill(uint16_t numOfBlocks, uint16_t block)
 		i++;
 	}
 	
+	timerDelayUsDirty(100); //let the buffer drain
+	
 	spiMemFinalizeSequential();
 
 	return 0;
@@ -59,17 +61,8 @@ bool multiSectorSpiMemFill(uint16_t numOfBlocks, uint16_t block)
 
 
 //only for debug
+//@deprecated - delete
 bool streamAllSPiZigbee()
 {
-
-	int i = 0;
-	while(i!=20)
-	{
-		memToBuffer(i);
-		zigbeeWrite( (const char*)&txUartSector[DATA_0_INDEX], BLOCK_SPI_MEM_BYTE);	
-		
-		i++;
-	}
 	return true;
-
 }	

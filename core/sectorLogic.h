@@ -17,7 +17,6 @@ void sectorSetFree(void);
 void sectorSetCRC(uint16_t crc);
 void sectorSetTerminator(bool final);
 
-bool fillBlockMenuShim(void);
 bool fillBlock(uint16_t block);
 bool memToBufferShim(void);
 bool memToBuffer(uint16_t);
@@ -31,5 +30,7 @@ bool streamAllSPiZigbee(void);
 bool zigbeeTransmitTask(void);
 void createTxSectorTask(uint8_t sector, uint16_t sequenceId, uint8_t powerQuality, uint16_t capVoltage,uint8_t gain);
 	 
-
+//this ONLY sends the data as one contigous block, no CRC etc, uses debug API which
+//assume limitless power
+bool zigbeeTransmitTaskDebug(void);
 

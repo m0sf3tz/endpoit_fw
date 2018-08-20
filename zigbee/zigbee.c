@@ -60,6 +60,32 @@ void zigbeeWrite(const char * dat, int len)
 	disableSamplingSupply();
 }
 
+//wake zigbee up, wait for things to settle (voltages, etc), send stuff up, go back to sleep
+//same as above, but we wait forever basically so we are guranteed to send everything
+//only meant to be used when running off debug bench supply.
+void zigbeeWriteDebug(const char * dat, int len) 
+{
+	enableSamplingSupply();
+	timerDelayUs(10000); //wait for the supple to stabalize, give time for the module to boot
+	timerDelayUs(10000); //wait for the supple to stabalize, give time for the module to boot
+	timerDelayUs(10000); //wait for the supple to stabalize, give time for the module to boot
+
+	ZIGBEE_WAKE();
+
+	timerDelayUs(14000);
+	timerDelayUs(14000);
+	timerDelayUs(14000);
+
+	uartPut(dat,len);
+	
+	timerDelayUs(7500); //wait for drain of FIFO inside module
+	timerDelayUs(7500); //wait for drain of FIFO inside module
+	timerDelayUs(7500); //wait for drain of FIFO inside module
+
+	ZIGBEE_DOZE();
+	disableSamplingSupply();
+}
+
 
 bool zigbeeSleep()
 {

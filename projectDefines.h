@@ -35,7 +35,6 @@
 
 #define MAXIMUM_MEMORY_ADRESS 								0x1FFFF //max range for 
 
-#define MOTOR_EYE_SAMPLE_BLOCKS							  32
 #define FIRST_BLOCK_SPI           		  	    0
 
 

@@ -181,12 +181,22 @@ bool bufferToZigbee(uint16_t block )
 //reads block 0-8 into the data region of a tx-buffer and zigbees it up **
 bool zigbeeTransmitTask()
 {
-  	memToBuffer(0);
-	  zigbeeWrite( (const char*)txUartSector, TRASMIT_BLOCK_SIZE);		
-	  return true;
+  memToBuffer(0);
+	zigbeeWrite( (const char*)txUartSector, TRASMIT_BLOCK_SIZE);		
+	return true;
 }
 
 
+bool zigbeeTransmitTaskDebug()
+{
+	int sector = 0;
+	for(sector = 0; sector < SECTORS_PER_SAMPLE; sector++)
+	{
+		 memToBuffer(BLOCKS_PER_SECTOR*sector);
+	   zigbeeWrite( (const char*)(const char*)&txUartSector[DATA_0_INDEX], DATA_SIZE);		
+	}
+	return true;
+}
 bool multiSectorSpiMemFillShim()
 {
 	 taskSample();
