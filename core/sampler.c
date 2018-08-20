@@ -19,7 +19,7 @@ pgaGainSwitch_e taskSample(void)
 {
 	pgaGainSwitch_e gainEncoded;
 	enableSamplingSupply();
-	sleepWFImultiplesOf100ms(1);	//wait for supply to stabilize
+	sleepWFImultiplesOf100ms(2);	//wait for supply to stabilize
 	initRcc32mhz();
 	gainEncoded = autoGainSelect();	//this function selected the correct gain to sample at 
 	

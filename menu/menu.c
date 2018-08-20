@@ -126,7 +126,7 @@ bool coreTask_f()
 			{
 				" zigbee up TOTAL_BLOCKS_IN_SAMPLE blocks, only send DATA, no CRC etc",				//1
 				" Fill a buffer, fill it with MEM, and Zigbee it up (not maintined)", 
-				" Fill   up 24 blocks of memory from the on-die ADC",
+				" Sample and store TOTAL_BLOCKS_IN_SAMPLE blocksinto memory from the on-die ADC",
 				" Zigbee up 20 sectors up (not maintained)",
 				" Zigbee up one sector (multiple blocks) + CRC + other stuff"
 			},

@@ -19,7 +19,7 @@
 
 //@major TODOS that will BREAK YOUR BOARD - DE-INIT ADC SPI to be comleted
 //PGA gain selector needs to be revamped once we start using a real ADC
-
+//seens like the sample rail is taking a bit too long to stabilize (?)
 int main()
 {
 	initRcc4mhz();
@@ -49,8 +49,8 @@ int main()
 	disableSamplingSupply();
 	initAdc();
 	
-	mainMenu_f();
+	//mainMenu_f();
 	
-	//kernal();
+	kernal();
 }
 
