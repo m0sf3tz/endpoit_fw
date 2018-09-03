@@ -36,9 +36,8 @@ bool sendAllSectors()
 
 	
 	int sector = 0;
-	for(sector = 0;sector < SECTORS_PER_SAMPLE; sector++)
+ 	for(sector = 0;sector < SECTORS_PER_SAMPLE; sector++)
 	{
-			stateCreateTxBuffer();
    		stateCreateTxBuffer();
 	  	stateTrasmit();
 	}
