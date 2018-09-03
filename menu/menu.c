@@ -8,6 +8,7 @@
 #include "pga.h"
 #include "adc.h"
 #include "sectorLogic.h"
+#include "sectorTest.h"
 
 const char newLine						  	= 12;	//line feed in assci
 const char RESQUEST_RESPONSE[]    = "please select an option from above: ";
@@ -127,8 +128,8 @@ bool coreTask_f()
 				" zigbee up TOTAL_BLOCKS_IN_SAMPLE blocks, only send DATA, no CRC etc",				//1
 				" Fill a buffer, fill it with MEM, and Zigbee it up (not maintined)", 
 				" Sample and store TOTAL_BLOCKS_IN_SAMPLE blocksinto memory from the on-die ADC",
-				" Zigbee up 20 sectors up (not maintained)",
-				" Zigbee up one sector (multiple blocks) + CRC + other stuff"
+				" Sample TOTAL_BLOCKS_IN_SAMPLE and then CRC up SECTORS_PER_SAMPLE - needs ~6V",
+				" Zigbee up one sector (multiple blocks) + CRC + other stuff - single sector"
 			},
 			
 			5,
@@ -137,7 +138,7 @@ bool coreTask_f()
 				zigbeeTransmitTaskDebug,
 				bufferToZigbeeShim,
 				multiSectorSpiMemFillShim,
-				streamAllSPiZigbee,
+				sendAllSectors,
 				zigbeeTransmitTask
 			}
 		};

@@ -32,56 +32,6 @@ static void initFncPtrs()
 
 }
 
-/*
-void nextState(void)
-{
-	if(currentContext.currentState == STATE_CHARGE_CAP)
-	{
-		if(currentContext.validSampleStored)
-		{
-			if(currentContext.txBufferCreated)
-			{				
-				if(currentContext.txBufferDrained)
-				{
-					currentContext.currentState 		 = VCAP_TARGET_SAMPLE;					//next state
-				  currentContext.validSampleStored = false;
-					currentContext.txBufferCreated 	 = false;
-			  	currentContext.targetCapVoltage = VCAP_TARGET_SAMPLE; //next state target voltage
-				}
-				else
-				{
-					currentContext.currentState = STATE_TRANSMIT;					//next state
-					currentContext.targetCapVoltage = VCAP_TARGET_TRANSMIT; //next state target voltage
-				} //!currentContext.txBufferDrained
-			} //currentContext.txBufferCreated
-			else 
-			{
-				currentContext.currentState = STATE_CREATE_TX_BUFFER;  				//next state
-				currentContext.targetCapVoltage = VCAP_TARGET_CREATE_TX_BUFF; //next state target voltage
-				currentContext.txBufferCreated = true;
-			} //!currentContext.txBufferCreated
-		} //currentContext.validSampleStored
-		else 
-		{
-				currentContext.currentState = STATE_SAMPLE;
-   			currentContext.targetCapVoltage = VCAP_TARGET_SAMPLE; //next state target voltage
-				currentContext.validSampleStored = true;
-		}  //!currentContext.validSampleStored
-	} //currentContext.currentState == STATE_CHARGE_CAP
-	
-	if(currentContext.currentState == STATE_SAMPLE)
-	{
-		currentContext.currentState = STATE_CREATE_TX_BUFFER;
-	}
-		
-	if(currentContext.currentState == STATE_TRANSMIT)
-	{
-		currentContext.currentState = STATE_CHARGE_CAP;
-		currentContext.validSampleStored = false;
-	}	
-}	
-*/
-
 void stateSample()
 {
 	pgaGainSwitch_e gainEncoded; //this is the encoded value, not the actual gain (ie, encoded gain of 3 == gain of 5)

@@ -94,6 +94,6 @@ void initRcc65khz()
 void initSysTick(void)
 {
 	#if DEBUG_MODE
-	  SysTick_Config(4300000/100);      /* Generate interrupt each 1 ms  */
+	  //SysTick_Config(4300000/100);      /* Generate interrupt each 1 ms  */
 	#endif
 }
