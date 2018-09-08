@@ -69,10 +69,8 @@
 
 //these guys are used in C programs upstreams - not used in endpoint FW
 #define NEW_TRANSMIT_HEADER_32_BITS  (0xA00BC01D)
-
-#define TRANSMIT_HEADER_32_BITS      (0x1BB11BB1)
-#define STOP_SEQUENCE_64_BITS        (0xC22CC22CC2ull)
-
+#define TRANSMIT_HEADER_32_BITS      (0x0BB11BB2)
+#define STOP_SEQUENCE_64_BITS        (0xC12CC22CC3ull)
 #define FINAL_STOP_SEQUENCE_64_BITS  (0xD23DD33DD4ull)
 
 
