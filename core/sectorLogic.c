@@ -94,7 +94,7 @@ void sectorSetTerminator(bool final)
 
 void sectorTransmitSector(uint8_t sector)
 {
-		txUartSector[TRASMIT_SECTOR_B0] = sector;
+		txUartSector[TRASMIT_SECTOR_B0_INDEX] = sector;
 }
 	
 
@@ -236,7 +236,7 @@ void createTxSectorTask(uint8_t sector, uint16_t sequenceId, uint8_t powerQualit
 	sectorSetPgaGain(gain);
 	sectorSetFree();
 	
-	uint16_t crc = crc16((uint8_t*)&txUartSector[TRASMIT_SECTOR_B0], CRC_PROTECED_SIZE);
+	uint16_t crc = crc16((uint8_t*)&txUartSector[TRASMIT_SECTOR_B0_INDEX], CRC_PROTECED_SIZE);
 	sectorSetCRC(crc);
 
 		
