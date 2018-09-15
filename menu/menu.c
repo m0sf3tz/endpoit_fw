@@ -92,7 +92,7 @@ bool spiMem_f()
 			{
 				" Full test -  ST drivers",				//1
 				" Full test -  LLD drivers",			  //2
-				" N/A",									//3
+				" Fill entire array with 0x55",		//3
 				" Fill entire array with sawTooth pattern (0-255)"													//4
 			},
 			
@@ -101,7 +101,7 @@ bool spiMem_f()
 			{	
 				spiWalkTest,
 				spiWalkTestRegisterSequentialMode,
-				spiWalkTest, //ignore
+				spiFillPattern, //ignore
 				fillSpiSawTooth
 			}
 		};
@@ -129,16 +129,18 @@ bool coreTask_f()
 				" Fill a buffer, fill it with MEM, and Zigbee it up (not maintined)", 
 				" Sample and store TOTAL_BLOCKS_IN_SAMPLE blocksinto memory from the on-die ADC",
 				" Sample TOTAL_BLOCKS_IN_SAMPLE and then CRC up SECTORS_PER_SAMPLE - needs ~6V",
+			  " Don't sample (get whatever is in the SPIMEM), create buffer and zigbee up, needs ~6V",
 				" Zigbee up one sector (multiple blocks) + CRC + other stuff - single sector"
 			},
 			
-			5,
+			6,
 				
 			{	
 				zigbeeTransmitTaskDebug,
 				bufferToZigbeeShim,
 				multiSectorSpiMemFillShim,
 				sendAllSectors,
+				sendAllSectorsDontSample,
 				zigbeeTransmitTask
 			}
 		};

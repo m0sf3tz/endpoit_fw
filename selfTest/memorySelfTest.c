@@ -112,6 +112,8 @@ bool spiWalkTestRegisterSequentialMode()
 		locationPointer++;
 		
 	}
+	timerDelayUsDirty(200); //lets make sure the buffer is empty before we 
+													//pull the CS up high
 	
 	spiMemFinalizeSequential();
 
@@ -151,6 +153,33 @@ bool spiWalkTestRegisterSequentialMode()
 	return 1;
 }
 
+
+bool spiFillPattern()
+{
+
+	printNewLine();
+  uartPutMenuAutoCount("filling entire SPI memory array with 0x55");
+	printNewLine();
+  
+	
+	uint32_t locationPointer;
+	
+	spiMemPrepSequentialWrite( 0 );	//prepare for writting to first bytes
+
+	
+	while(locationPointer!=SPI_MEMORY_SRAM_SIZE_BYTES)
+	{
+		writeByteSpiLld(SPI_MEM,0x55);
+		locationPointer++;
+	}
+	
+	spiMemFinalizeSequential();
+	
+	printNewLine();
+	uartPutMenuAutoCount("done filling array with 0x55!");
+	blockForInput();
+	return 1;
+}
 
 bool fillSpiSawTooth()
 {

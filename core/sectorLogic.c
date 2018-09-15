@@ -66,6 +66,9 @@ void sectorSetFree(void)
 
 void sectorSetCRC(uint16_t crc)
 {
+		volatile int y = CRC_B0_INDEX;
+		volatile int z = CRC_B1_INDEX;
+		
 		txUartSector[CRC_B0_INDEX] = (crc & 0xFF);
 		txUartSector[CRC_B1_INDEX] = ((crc >> 8) & 0xFF);
 }

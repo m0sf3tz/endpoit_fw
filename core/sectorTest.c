@@ -56,5 +56,40 @@ bool sendAllSectors()
 	return true;
 }
 
+//this guy is inteded to be used with the menu, it will send all the samples up at once
+//the difference between this and sendAllSectors is that we will not actaully sample,
+//so whatever is in the SPI will be sent up , it's good for debuggablity
+//you can use spi menu to init the SPI as you wish
+bool sendAllSectorsDontSample()
+{
+	printNewLine();
+	uartPutMenuAutoCount(strCreatingAndSendingSector);
+	printNewLine();
+
+	
+	int sector = 0;
+ 	for(sector = 0;sector < SECTORS_PER_SAMPLE; sector++)
+	{
+   		stateCreateTxBuffer();
+	  	stateTrasmit();
+	}
+	
+	printNewLine();
+	uartPutMenuAutoCount(strDoneAndSendingSector);
+	printNewLine();
+	
+	printNewLine();
+	uartPutMenuAutoCount(strPressAnyKeyToContinue);
+	printNewLine();
+
+	//give a chance to the user too see above output...
+	blockForInput();
+
+	return true;
+}
+
+
+
+
 
 

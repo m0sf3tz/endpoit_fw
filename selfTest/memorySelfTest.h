@@ -13,3 +13,4 @@ bool spiWalkTestRegisterSequentialMode(void);
 bool spiMemoryVerifyDestSrc(void);
 bool randomSectorFillTest(void);
 bool fillSpiSawTooth(void);
+bool spiFillPattern(void);
