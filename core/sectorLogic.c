@@ -1,4 +1,6 @@
 #include <stdint.h>
+#include <string.h>
+
 #include "projectDefines.h"
 #include "MC23A1024.h"
 #include "adc.h"
@@ -184,7 +186,7 @@ bool bufferToZigbee(uint16_t block )
 //reads block 0-8 into the data region of a tx-buffer and zigbees it up **
 bool zigbeeTransmitTask()
 {
-  memToBuffer(0);
+  //memToBuffer(0);
 	zigbeeWrite( (const char*)txUartSector, TRASMIT_BLOCK_SIZE);		
 	return true;
 }
@@ -211,6 +213,9 @@ bool multiSectorSpiMemFillShim()
 void createTxSectorTask(uint8_t sector, uint16_t sequenceId, uint8_t powerQuality, uint16_t capVoltage, uint8_t gain)
 {
 
+	//clear txBuffer
+	memset((void*)txUartSector, 0x0, TRASMIT_BLOCK_SIZE) ;
+	
 	memToBuffer(sector*BLOCKS_PER_SECTOR);
 	
 	if(sector == FIRST_TRASMIT_SECTOR)
@@ -223,7 +228,7 @@ void createTxSectorTask(uint8_t sector, uint16_t sequenceId, uint8_t powerQualit
 	}
 
 	sectorTransmitSector(sector);
-	sectorSetSequenceId(sequenceId);
+	sectorSetSequenceId(0);
 	sectorSetEnergyQaulity(powerQuality);
 	
 		
@@ -238,10 +243,13 @@ void createTxSectorTask(uint8_t sector, uint16_t sequenceId, uint8_t powerQualit
 	
 	sectorSetPgaGain(gain);
 	sectorSetFree();
+
+	txUartSector[ESTIMATED_ENERGY_QUALITY_INDEX] = powerQuality;
+
 	
 	uint16_t crc = crc16((uint8_t*)&txUartSector[TRASMIT_SECTOR_B0_INDEX], CRC_PROTECED_SIZE);
 	sectorSetCRC(crc);
 
-		
-	txUartSector[ESTIMATED_ENERGY_QUALITY_INDEX] = powerQuality;
+	//for the love of god if you add anything after this point it wont be counted in the CRC and you
+	//will waste an entire day (am I speaking from experience... maybe...... :'[ )
 }

@@ -29,7 +29,6 @@ static void initFncPtrs()
 	stateFnPtr[STATE_SAMPLE] = stateSample;
 	stateFnPtr[STATE_CREATE_TX_BUFFER] = stateCreateTxBuffer;
 	stateFnPtr[STATE_TRANSMIT] = stateTrasmit;
-
 }
 
 void stateSample()
@@ -54,7 +53,6 @@ void stateSample()
 	currentContext.currentState = STATE_CREATE_TX_BUFFER;  				//next state
 }
 
-
 void stateCreateTxBuffer()
 {
 	while(getCapVoltage() < VCAP_TARGET_CREATE_TX_BUFF)
@@ -64,10 +62,8 @@ void stateCreateTxBuffer()
 	//create a TX buffer
   createTxSectorTask(currentContext.currentSector, currentContext.sequenceId, NULL, getCapVoltage(), currentContext.pgaGain);
 	
-
 	currentContext.currentState = STATE_TRANSMIT;  				//next state
 }
-
 
 void stateTrasmit()
 {
@@ -93,8 +89,6 @@ void stateTrasmit()
 	}
 }
 
-
-
 //this is the brain of the design - once this is called it will never finish.
 void kernal()
 {
@@ -108,7 +102,4 @@ void kernal()
 		//updates the next thread to be called
 		(*stateFnPtr[currentContext.currentState])();	
 	}
-		
-		
-		
 }

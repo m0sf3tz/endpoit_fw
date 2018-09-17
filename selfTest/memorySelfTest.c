@@ -158,21 +158,23 @@ bool spiFillPattern()
 {
 
 	printNewLine();
-  uartPutMenuAutoCount("filling entire SPI memory array with 0x55");
+  uartPutMenuAutoCount("filling entire SPI memory array with incrementing values, per sector");
 	printNewLine();
   
-	
-	uint32_t locationPointer;
-	
+	uint32_t locationPointer =0 ;
+	uint32_t sector =1 ;
+
 	spiMemPrepSequentialWrite( 0 );	//prepare for writting to first bytes
 
-	
-	while(locationPointer!=SPI_MEMORY_SRAM_SIZE_BYTES)
+	while(sector!=5)
 	{
-		writeByteSpiLld(SPI_MEM,0x55);
-		locationPointer++;
+		while(locationPointer!=SPI_MEMORY_SRAM_SIZE_BYTES)
+		{
+			writeByteSpiLld(SPI_MEM,sector);
+			locationPointer++;
+		}
+	  sector++;
 	}
-	
 	spiMemFinalizeSequential();
 	
 	printNewLine();
