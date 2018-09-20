@@ -17,6 +17,8 @@
 #include "sectorLogic.h"
 #include "rtos.h"
 
+#define MENU_ENABLE 1
+
 //@major TODOS that will BREAK YOUR BOARD - DE-INIT ADC SPI to be comleted
 //PGA gain selector needs to be revamped once we start using a real ADC
 //seens like the sample rail is taking a bit too long to stabilize (?)
@@ -25,22 +27,6 @@ int main()
 	initRcc4mhz();
 	
 	timerInit();
-	//initSysTick();
-	
-	/****************************************/
-	//		WILL BREAK UUART 									
-  //****************************************/
-	/****************************************/
-	//		WILL BREAK UUART 									
-  //****************************************/
-  //initDebugGpio();
-	/****************************************/
-	//		WILL BREAK UUART 									
-  //****************************************/
-	/****************************************/
-	//		WILL BREAK UUART 									
-  //****************************************/
-
 	initUart();
   timerInitTim21();
 	initSpis();
@@ -49,8 +35,10 @@ int main()
 	disableSamplingSupply();
 	initAdc();
 	
-	//mainMenu_f();
-	
+#if MENU_ENABLE
+	mainMenu_f();
+#else
 	kernal();
+#endif
 }
 
